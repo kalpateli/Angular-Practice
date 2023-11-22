@@ -1,0 +1,11 @@
+<p>homepage works!</p>
+
+<span> {{message}} </span>
+<span>{{userId}},</span>
+
+<input type="text" #num />
+<button (click)="addNumber2(num.value)">Add Number</button>
+
+<ul>
+    <li *ngFor="let item of list2">{{item}}</li>
+</ul>

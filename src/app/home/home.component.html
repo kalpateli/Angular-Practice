@@ -1,0 +1,22 @@
+<p>home works!</p>
+
+
+
+      
+<div class="card col-md-2"  *ngFor="let user of users">
+  <div class="card-body">
+    <span class="card-title">{{user.name}}</span>
+    <button class="btn btn-primary col-md-6 center" (click)="onSelect(user)">View</button>
+  </div>
+
+</div>
+
+
+<div>
+    <a [routerLink]="['/home/users',1,'Mita']" 
+    [queryParams]="{page:1,search:'Mita'}"
+    >
+    Get more details</a>
+</div>
+
+

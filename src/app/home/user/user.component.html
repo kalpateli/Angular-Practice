@@ -1,0 +1,18 @@
+<p>user works!</p>
+<!-- <form #listForm="ngForm" (ngSubmit)="onAddClick(listForm.value)"> -->
+
+    <input type="text" name='num' #num [(ngModel)]="num.value">
+    <button (click)="addNumber(num.value)">Add the Number</button>
+    <!-- <button type="submit">Add the Number</button> -->
+    
+<!-- </form> -->
+
+
+<ul>
+    <li *ngFor="let i of list">{{i}}</li>
+</ul>
+
+
+<ul>
+    <li *ngFor="let i of items">{{i}}</li>
+</ul>
