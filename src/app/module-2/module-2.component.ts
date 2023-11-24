@@ -9,7 +9,7 @@ import { Countries } from './Countries';
 })
 export class Module2Component implements OnInit{
 
-  countries : Countries[] =[];
+  countries : any[] =[];
 
   constructor(private _countries : CountriesService){
   }
@@ -22,9 +22,12 @@ export class Module2Component implements OnInit{
     this._countries.getAllCountryNames()
     .subscribe((data:any)=>{
 
-      console.log(data);
+      // console.log(data);
       this.countries = data;
+      console.log(this.countries);
     })
   }
+
+  
 
 }

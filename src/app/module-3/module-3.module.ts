@@ -6,6 +6,8 @@ import { SignupPageComponent } from './signup-page/signup-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { Module3Component } from './module-3.component';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     Module3RoutingModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule,
+    FormsModule
   ]
 })
 export class Module3Module { 

@@ -14,9 +14,11 @@ interface Data{
 })
 export class HomeComponent implements OnInit{
   users : Data[]=[];
-  constructor(private router : Router,private _users:UsersService){
-
-  }
+  constructor(
+    private router : Router,
+    private _users:UsersService
+    ){}
+    
   ngOnInit(): void {
     this.getUsersApi();
   }
@@ -32,7 +34,8 @@ export class HomeComponent implements OnInit{
 
 
   onSelect(user : Data){
-    this.router.navigate(['/home',user.id,user.name],{queryParams:{page: user.id ,search: user.name}})
+    this.router.navigate(['/home',user.id,user.name],
+    {queryParams:{page: user.id ,search: user.name}})
   }
 
  

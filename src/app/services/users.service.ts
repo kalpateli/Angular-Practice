@@ -13,7 +13,7 @@ export class UsersService {
   }
 
   get():Observable<Users[]>{
-    return this.http.get<Users[]>("http://localhost:4000/users")
+    return this.http.get<Users[]>("http://localhost:3000/users")
   }
 
 }

@@ -15,9 +15,11 @@ export class HomepageComponent  implements OnInit{
   message : any;
   list2 : number[];
 
-  constructor(private route:ActivatedRoute, private service1: Service1Service, private service2:Service2Service){
-    
-  }
+  constructor(
+    private route:ActivatedRoute, 
+    private service1: Service1Service, 
+    private service2:Service2Service
+    ){}
 
   ngOnInit(){
     //this. route gives a snapshot of the current route therefor snapshot method is used

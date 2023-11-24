@@ -7,6 +7,7 @@ import { Module2Component } from './module-2/module-2.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { module2GuardGuard } from './guards/module2-guard.guard';
 import { PreloadAllModules } from '@angular/router';
+import { EmployeesComponent } from './employees/employees.component';
 
 const routes: Routes = [
   {path:'',
@@ -19,6 +20,7 @@ const routes: Routes = [
   },
   {path : 'about-us', component: AboutUsComponent},
   {path : 'module-2', component: Module2Component, canActivate:[module2GuardGuard]},
+  {path : 'employees', component: EmployeesComponent},
   
   {
     path : 'auth' , 
