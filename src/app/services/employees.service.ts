@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient ,HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Employee } from '../Employee';
 import { apiUrls } from '../apiUrls';
 
@@ -16,31 +16,32 @@ export class EmployeesService {
     return this.http.get<Employee[]>(this.baseurl + apiUrls.Employee.employee_details);
   }
 
-  postEmployeeDetails(data:any){
-    console.log("data received"+data);
-
+  postEmployeeDetails(data : Employee){
+    console.log("data received"+data.firstName);
     this.http.post(this.baseurl+ apiUrls.Employee.employee_details,data)
     .subscribe((res:any)=>{
-      console.log(res);
+      console.log(JSON.stringify(res));
       alert("successfully created");
     })
   }
 
-  updateEmployeeDetails(data : any){
+  updateEmployeeDetails(data : Employee){
     console.log("data received"+data.firstName);
-    this.http.put(this.baseurl+ apiUrls.Employee.employee_details,data)
+    console.log("data:"+JSON.stringify(data));
+    // console.log(this.baseurl+ apiUrls.Employee.employee_details+"/"+data.id);
+    this.http.put(this.baseurl+ apiUrls.Employee.employee_details+"/"+data.id,data) 
     .subscribe((res:any)=>{
-      console.log(res);
+      console.log(JSON.stringify(res));
       alert("successfully created");
     }
     );
 
   }
 
-  deleteEmployeeDetails( data : any){
+  deleteEmployeeDetails( data : Employee){
     console.log("data:"+data.firstName);
 
-    this.http.delete(this.baseurl+ apiUrls.Employee.employee_details,data)
+    this.http.delete(this.baseurl+ apiUrls.Employee.employee_details+"/"+data.id)
     .subscribe((res:any)=>{
       console.log(res);
       alert("successfully deleted");

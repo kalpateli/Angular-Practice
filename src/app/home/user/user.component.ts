@@ -1,4 +1,4 @@
-import { Component ,OnInit } from '@angular/core';
+import { Component ,Input,OnInit } from '@angular/core';
 import { Service2Service } from 'src/app/services/service2.service';
 import { List } from '../List';
 import { HttpClient } from '@angular/common/http';
@@ -9,6 +9,9 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit{
+
+  @Input() message:string;
+
 
   list : number[] ;
   listItems : List[]=[] ;

@@ -1,6 +1,7 @@
 import { Component ,OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { EmployeesService } from 'src/app/services/employees.service';
+import { Employee } from 'src/app/Employee';
 
 @Component({
   selector: 'app-signup-page',
@@ -9,13 +10,13 @@ import { EmployeesService } from 'src/app/services/employees.service';
 })
 export class SignupPageComponent implements OnInit {
 
-  employeeObject :any = {
-        "id":"",
+  employeeObject : Employee = {
+        "id":0,
         "firstName":"",
         "lastName":"",
         "email":"",
         "mobile":"",
-        "employee_no":"",
+        "employee_no":0,
         "dob":"",
         "address":
         {

@@ -62,7 +62,7 @@
     },
     {
       "id": 3,
-      "firstName": "Mohit",
+      "firstName": "Rohit",
       "lastName": "Khanna",
       "email": "abc@gmail.com",
       "mobile": "8299493792",
@@ -91,21 +91,6 @@
       "password": "1234abcd"
     },
     {
-      "id": 5,
-      "firstName": "Sonia",
-      "lastName": "Naik",
-      "email": "abc@gmail.com",
-      "mobile": "8299493792",
-      "employee_no": 928343,
-      "dob": "1988-11-02",
-      "address": {
-        "city": "Panaji",
-        "state": "Goa",
-        "country": "India"
-      },
-      "password": "1234abcd"
-    },
-    {
       "id": 6,
       "firstName": "Kalpa",
       "lastName": "Teli",
@@ -122,12 +107,12 @@
     },
     {
       "id": 7,
-      "firstName": "Ankita",
+      "firstName": "Shyam",
       "lastName": "Mehta",
       "email": "abc@gmail.com",
-      "mobile": "9273842837",
-      "employee_no": 8293,
-      "dob": "1989-12-01",
+      "mobile": "8293721839",
+      "employee_no": 82938,
+      "dob": "0977-11-08",
       "address": {
         "city": "Panaji",
         "state": "Goa",

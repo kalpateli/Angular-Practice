@@ -1,4 +1,4 @@
-import { Component, Input, OnInit , Output , EventEmitter} from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Employee } from '../Employee';
 import { EmployeesService } from '../services/employees.service';
 import { Router } from '@angular/router';
@@ -10,57 +10,58 @@ import { Router } from '@angular/router';
 
 export class EmployeesComponent implements OnInit{
 
-  
+
   employees : Employee[]=[];
-  employee :any = {
-    "id":"",
+  employee :Employee = {
+    "id":0,
     "firstName":"",
     "lastName":"",
     "email":"",
     "mobile":"",
-    "employee_no":"",
+    "employee_no":0,
     "dob":"",
     "address":
     {
-        "city":"",
-        "state":"",
-        "country":""
+      "city":"",
+      "state":"",
+      "country":""
     },
     "password":""
 
-}
-
-  constructor(
-    private _employee : EmployeesService,
-    private router : Router
-    )
-    {}
-
-  ngOnInit(){
-    this.getEmployeesDetails()
   }
 
-  getEmployeesDetails(){
-    this._employee.getEmployeeDetails()
+
+constructor(
+  private _employee : EmployeesService,
+    private router : Router
+)
+{}
+
+ngOnInit(){
+  this.getEmployeesDetails()
+}
+
+getEmployeesDetails(){
+  this._employee.getEmployeeDetails()
     .subscribe((res)=>{
       console.log(res);
       this.employees=res;
     })
-  }
+}
 
-  onEdit(emp:Employee[]){
-    this.employee=emp;
-  }
+onEdit(emp:Employee){
+  this.employee=emp;
+ }
 
-  onUpdateEmp()
-  {
-    
-    console.log(this.employee);
-    this._employee.updateEmployeeDetails(this.employee);
-  }
+onUpdateEmp()
+{
 
-  onDelete(emp : Employee[]){
-    this._employee.deleteEmployeeDetails(emp);
-  }
+console.log(this.employee);
+  this._employee.updateEmployeeDetails(this.employee);
+}
+
+onDelete(emp : Employee){
+  this._employee.deleteEmployeeDetails(emp);
+}
 
 }

@@ -10,7 +10,7 @@ import { Service2Service } from 'src/app/services/service2.service';
 })
 export class HomepageComponent  implements OnInit{
 
-
+  msg : string = "Hello";
   userId : string;
   message : any;
   list2 : number[];
