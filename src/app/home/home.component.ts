@@ -13,6 +13,9 @@ interface Data{
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit{
+  
+  msg : string = "Hello";
+  
   users : Data[]=[];
   constructor(
     private router : Router,

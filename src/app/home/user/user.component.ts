@@ -2,6 +2,7 @@ import { Component ,Input,OnInit } from '@angular/core';
 import { Service2Service } from 'src/app/services/service2.service';
 import { List } from '../List';
 import { HttpClient } from '@angular/common/http';
+import { HomeComponent } from '../home.component';
 
 @Component({
   selector: 'app-user',
@@ -10,7 +11,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserComponent implements OnInit{
 
-  @Input() message:string;
 
 
   list : number[] ;

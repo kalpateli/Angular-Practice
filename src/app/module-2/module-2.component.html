@@ -1,9 +1,14 @@
 <p>module-2 works!</p>
 
+
+
 <div class="container">
     <div class="row">
+        <div class="col-md-3">
+            <input type="text">
+        </div>
         <div class="col-md-6">
-            <div class="card text-bg-dark text-sm"  *ngFor="let country of countries">
+            <div class="card text-bg-dark text-sm"  *ngFor="let country of countries | paginate : {itemsPerPage: pageSize , currentPage : currentPage}">
                 <div class="card-body">
 
                     <img [src]="country.flags.png" class="card-img" alt="...">
@@ -15,5 +20,9 @@
                 <br>
             </div>
         </div>
+
+
+        <pagination-controls (pageChange)="currentPage = $event"   ></pagination-controls>
+       
     </div>
 </div>

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Module2RoutingModule } from './module-2-routing.module';
 import { Module2Component } from './module-2.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -14,6 +15,8 @@ import { BrowserModule } from '@angular/platform-browser';
     CommonModule,
     Module2RoutingModule,
     BrowserModule,
+    NgxPaginationModule
+
   ],
   providers:[
   ]

@@ -11,6 +11,9 @@ export class Module2Component implements OnInit{
 
   countries : any[] =[];
 
+  pageSize : number = 10;
+  currentPage : number = 1;
+
   constructor(private _countries : CountriesService){
   }
 

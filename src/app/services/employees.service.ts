@@ -11,7 +11,8 @@ export class EmployeesService {
 
   constructor(private http:HttpClient) { }
 
-  baseurl="http://localhost:3000"
+  baseurl="http://localhost:3000";
+
   getEmployeeDetails():Observable<Employee[]>{
     return this.http.get<Employee[]>(this.baseurl + apiUrls.Employee.employee_details);
   }

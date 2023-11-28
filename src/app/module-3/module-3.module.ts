@@ -7,7 +7,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { Module3Component } from './module-3.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     Module3RoutingModule,
     RouterModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class Module3Module { 

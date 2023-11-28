@@ -16,7 +16,6 @@ import { FormsModule } from '@angular/forms';
 import { CountriesService } from './services/countries.service';
 import { CommonModule } from '@angular/common';
 import { EmployeesComponent } from './employees/employees.component';
-import { EditEmployeeComponent } from './employees/edit-employee/edit-employee.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +24,6 @@ import { EditEmployeeComponent } from './employees/edit-employee/edit-employee.c
     AboutUsComponent,
     PageNotFoundComponent,
     EmployeesComponent,
-    EditEmployeeComponent,
     
   ],
 
