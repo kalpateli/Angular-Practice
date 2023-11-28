@@ -5,9 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class RxjsPracService {
 
-
+  
   constructor() { }
-
+ 
   // print(val,containerId){
   //   // let el = createElement('li');
   //   // el.innerText =val;
