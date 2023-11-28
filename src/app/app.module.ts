@@ -6,14 +6,14 @@ import { HeaderComponent } from './header/header.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { Module2Module } from './module-2/module-2.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { Service1Service } from './services/service1.service';
-import { Service2Service } from './services/service2.service';
+import { Service1Service } from './home/services/service1.service';
+import { Service2Service } from './home/services/service2.service';
 import { HttpClientModule } from '@angular/common/http';
 import { UsersService } from './services/users.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-import { CountriesService } from './services/countries.service';
+import { CountriesService } from './module-2/services/countries.service';
 import { CommonModule } from '@angular/common';
 import { EmployeesComponent } from './employees/employees.component';
 

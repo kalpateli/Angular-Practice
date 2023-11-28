@@ -34,7 +34,7 @@ const routes: Routes = [
     .then(mod=>mod.Module3Module)
 
   },
-  //wildCart Route
+  //wildCard Route
   { path:'**' , component : PageNotFoundComponent}
 ];
 

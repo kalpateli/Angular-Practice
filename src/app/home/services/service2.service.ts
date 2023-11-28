@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { List } from '../home/List';
+import { List } from '../List';
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +17,6 @@ export class Service2Service {
     getListItems() : Observable<List[]>{
       return this.http.get<List[]>("http://localhost:3000/List");
     }
-
-
-    
 
 
     getAnotherMessage(): string {

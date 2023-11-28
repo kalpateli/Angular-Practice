@@ -8,12 +8,12 @@ export class RxjsPracService {
   
   constructor() { }
  
-  // print(val,containerId){
-  //   // let el = createElement('li');
-  //   // el.innerText =val;
+  printEl(val,containerId){
+    let el = document.createElement('li');
+    el.innerText =val;
 
-  //   document.getElementById(containerId).appendChild(el)
-  // }
+    document.getElementById(containerId).appendChild(el);
+  }
 }
 
 

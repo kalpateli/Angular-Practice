@@ -89,36 +89,6 @@
         "country": "India"
       },
       "password": "1234abcd"
-    },
-    {
-      "id": 6,
-      "firstName": "Kalpa",
-      "lastName": "Teli",
-      "email": "abc@gmail.com",
-      "mobile": "9823782938",
-      "employee_no": 8374,
-      "dob": "1988-11-02",
-      "address": {
-        "city": "Panaji",
-        "state": "Goa",
-        "country": "India"
-      },
-      "password": "1234abcd"
-    },
-    {
-      "id": 7,
-      "firstName": "Shyam",
-      "lastName": "Mehta",
-      "email": "abc@gmail.com",
-      "mobile": "8293721839",
-      "employee_no": 82938,
-      "dob": "0977-11-08",
-      "address": {
-        "city": "Panaji",
-        "state": "Goa",
-        "country": "India"
-      },
-      "password": "1234abcd"
     }
   ]
 }

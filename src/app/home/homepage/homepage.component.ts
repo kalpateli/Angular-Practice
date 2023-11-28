@@ -1,7 +1,7 @@
 import { Component ,OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Service1Service } from 'src/app/services/service1.service';
-import { Service2Service } from 'src/app/services/service2.service';
+import { Service1Service } from 'src/app/home/services/service1.service';
+import { Service2Service } from 'src/app/home/services/service2.service';
 
 @Component({
   selector: 'app-homepage',
