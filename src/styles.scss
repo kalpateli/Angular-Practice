@@ -1,3 +1,33 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+ul.techList li{
+    
+    color: white;
+    border: 1px solid #d1d1d1;
+    border-radius: 5px;
+    padding : 7px 13px;
+    margin-bottom : 10px; 
+}
+
+ul.techList.error li{
+    
+    color: red;
+    border: 1px solid red;
+    border-radius: 5px;
+    padding : 7px 13px;
+    margin-bottom : 10px; 
+}
+
+ul.techList.complete li{
+        
+    color: #3dd843;
+    border: 1px solid #3dd843;
+    border-radius: 5px;
+    padding : 7px 13px;
+    margin-bottom : 10px; 
+   
+}
+

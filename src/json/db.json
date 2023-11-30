@@ -89,6 +89,21 @@
         "country": "India"
       },
       "password": "1234abcd"
+    },
+    {
+      "id": 5,
+      "firstName": "Kalpa",
+      "lastName": "Teli",
+      "email": "abc@gmail.com",
+      "mobile": "8942859482",
+      "employee_no": 8394,
+      "dob": "1975-11-28",
+      "address": {
+        "city": "Valpoi",
+        "state": "Goa",
+        "country": "India"
+      },
+      "password": "abcd1234"
     }
   ]
 }

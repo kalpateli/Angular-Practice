@@ -1,32 +1,91 @@
-<p>section1 works!</p>
+<hr>
+<h1>RXJS</h1>
 <h2>{{message}}</h2>
 
 <div class="container text-center">
-    <div class="row">
-      <div class="col-md-1 bg-secondary">
-           <!-- form Event -->
-          <button class="btn btn-outline-warning" #addBtn>Add</button>
-          <ul id="elContainer1"></ul>   
-          <ul id="elContainer2"></ul>    
-        
+  <div class="row">
+    <div class="col-md-2 bg-secondary">
+      <!-- form Event -->
+
+      <h5>form Event</h5>
+
+      <button class="btn btn-outline-warning" #addBtn>Add</button>
+      <ul id="elContainer1"></ul>
+      <ul id="elContainer2"></ul>
+
+    </div>
+    <div class="col-md-2 bg-primary">
+      <!-- of() -->
+
+      <h5>of()</h5>
+
+      <h5>OF operator of rxjs</h5>
+      <p>ex: of ("Apple","banana","kiwi")</p>
+      <p>After Converting </p>
+      <ul id="fruitsContainer">
+      </ul>
+
+    </div>
+    <div class="col-md-2 bg-secondary">
+      <!-- Interval and timer -->
+      <h5>Interval and timer</h5>
+      <strong>Video : {{obsMsg}}</strong>
+    </div>
+    <div class="col-md-3 bg-primary">
+      <!-- custom Observable -->
+      <h5>Custom Observable</h5>
+
+      <div class="col-md-6 inline">
+        Ex 01: (Manual)
+        <ul class="techList" id="elContainer"
+          [ngClass]="techStatus == 'error'? 'error' : techStatus == 'completed'? 'complete' : ''">
+
+        </ul>
       </div>
-      <div class="col-md-2 bg-primary" >
-          <!-- of() -->
-          <h5>OF operator of rxjs</h5>
-          <p>ex:  of ("Apple","banana","kiwi")</p>
-          <p>After Converting </p>
-          <ul id="fruitsContainer">
-          </ul>
-        
+      <div class="col-md-6 inline">
+        Ex 02: (Custom Interval)
+        <ul class="techList" id="intCustom"
+          [ngClass]="techStatus == 'error'? 'error' : techStatus == 'completed'? 'complete' : ''">
+
+        </ul>
       </div>
-      <div class="col-md-3 bg-secondary">
-        <!-- toArray -->
-        
+      <div class="col-md-4">
+        Ex 03: (Random Names)
+        <!-- <ul class="techList"  id="ranNames"
+          [ngClass]="techStatus == 'error'? 'error' : techStatus == 'completed'? 'complete' : ''">
+            
+          </ul> -->
+        <p><strong>{{names}}</strong></p>
       </div>
     </div>
+    <div class="col-md-2 bg-secondary">
+      <!-- MAP operator -->
+      <h5>MAP operator</h5>
+      <div>
+
+        Example 1
+        <table class="table">
+          <tr>
+            <th>Job Title</th>
+          </tr>
+          <tr *ngFor="let item of userData">
+            <td>{{item}}</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        example 2
+        <p>[1,2,3,4,5]</p>
+        <!-- <p><strong>{{members}}</strong></p> -->
+        <ul id="mapContainer">
+        </ul>
+      </div>
+        <!-- PLuck operator is deprecated -->
+
+    </div>
+    <div class="col-md-2 bg-primary">
+      <!-- PLuck operator -->
+    </div>
+
   </div>
-
-
-
-
-  
+</div>
