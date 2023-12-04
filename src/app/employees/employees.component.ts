@@ -52,7 +52,7 @@ export class EmployeesComponent implements OnInit , OnChanges {
       email: new FormControl('',
         [Validators.required, Validators.pattern(/^([\w+-.%]+@[\w-]+\.[A-Za-z]{2,})+$/)]),
       mobile: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(errorMessages.pattern.mobile)]),
-      employee_no: new FormControl('', [Validators.required, Validators.maxLength(6), Validators.minLength(4), Validators.pattern(errorMessages.pattern.emp_no)]),
+      employee_no: new FormControl('', [Validators.required, Validators.min(1000), Validators.max(999999), Validators.pattern(errorMessages.pattern.emp_no)]),
       dob: new FormControl('', [Validators.required]),
       city: new FormControl('', [Validators.required]),
       state: new FormControl('', [Validators.required]),

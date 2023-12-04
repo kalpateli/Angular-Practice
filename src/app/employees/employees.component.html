@@ -160,7 +160,7 @@
                                         [ngClass]="{ 'error': f('employee_no')?.touched && f('employee_no')?.errors }">
                                         {{errorMessages.errors.required}}
                                     </div>
-                                    <div *ngIf=" f('employee_no')?.errors?.pattern"
+                                    <div *ngIf=" f('employee_no')?.errors?.pattern  || f('employee_no')?.errors?.min || f('employee_no')?.errors?.max"
                                         [ngClass]="{ 'error': f('employee_no')?.touched && f('employee_no')?.errors }">
                                         {{errorMessages.errors.valid_empNo}}
                                     </div>
@@ -308,7 +308,7 @@
                                         [ngClass]="{ 'error': f('employee_no')?.touched && f('employee_no')?.errors }">
                                         {{errorMessages.errors.required}}
                                     </div>
-                                    <div *ngIf=" f('employee_no')?.errors?.pattern "
+                                    <div *ngIf=" f('employee_no')?.errors?.pattern  || f('employee_no')?.errors?.min || f('employee_no')?.errors?.max"
                                         [ngClass]="{ 'error': f('employee_no')?.touched && f('employee_no')?.errors }">
                                         {{errorMessages.errors.valid_empNo}}
                                     </div>
