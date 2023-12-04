@@ -43,7 +43,7 @@
         "state": "Goa",
         "country": "India"
       },
-      "password": "1234abcd"
+      "password": "NMita02!"
     },
     {
       "id": 2,
@@ -58,7 +58,7 @@
         "state": "Goa",
         "country": "India"
       },
-      "password": "1234abcd"
+      "password": "Passw0rd!"
     },
     {
       "id": 3,
@@ -104,6 +104,36 @@
         "country": "India"
       },
       "password": "abcd1234"
+    },
+    {
+      "id": 6,
+      "firstName": "Shyam",
+      "lastName": "Sharma",
+      "email": "abc@gmail.com",
+      "mobile": "9473823911",
+      "employee_no": 9263,
+      "dob": "1979-07-11",
+      "address": {
+        "city": "Mapusa",
+        "state": "Goa",
+        "country": "India"
+      },
+      "password": "1234abcd"
+    },
+    {
+      "id": 7,
+      "firstName": "Richa",
+      "lastName": "Naik",
+      "email": "abc@gmail.com",
+      "mobile": "8332232831",
+      "employee_no": 92824,
+      "dob": "1987-03-07",
+      "address": {
+        "city": "Mapusa",
+        "state": "Goa",
+        "country": "India"
+      },
+      "password": "JDyw728*"
     }
   ]
 }

@@ -18,3 +18,11 @@ table {
     width: 200px;
     padding:5px;
   }
+
+  .error {
+    color : red;  /* Change this to apply the desired error style */
+  }
+
+  .errorInp {
+    border :1px solid red;  /* Change this to apply the desired error style */
+  }
