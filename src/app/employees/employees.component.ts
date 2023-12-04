@@ -13,6 +13,7 @@ import { errorMessages } from '../errrorMessages';
 export class EmployeesComponent implements OnInit , OnChanges {
 
   errorMessages = errorMessages;
+  empTitle : string = "EMPLOYEE DETAILS";
   submitted = false;
   originalId: number;
   employeeDetails: FormGroup;
