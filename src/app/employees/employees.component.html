@@ -8,7 +8,7 @@
 
         <div class="container-fluid col-md-11 text-align-center">
             <div class="row d-flex justify-content-between align-items-center">
-                <div class="col-md-2  ">
+                <div class="col-md-2">
                     <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createModal">Add
                         New</button>
                 </div>
@@ -16,8 +16,7 @@
 
                     <div class="col-md-6">
                         <input type="text" [(ngModel)]="findData" placeholder="search" style="margin-right: 5px;">
-                        <button class="btn btn-outline-success" data-bs-toggle="modal" (click)="searchData()">
-                            Search</button>
+                        <!-- <button class="btn btn-outline-success" data-bs-toggle="modal" (click)="searchData()"> Search</button> -->
                     </div>
                     <div class="col-md-2 dropdown ">
                         <button class="btn btn-secondary dropdown-toggle end-0" type="button" data-bs-toggle="dropdown"
@@ -44,7 +43,7 @@
                             <li class="dropdown-item">
                                 <input type="number" class="col-md-4" [(ngModel)]="limit"
                                     style="margin-left: 10px; border: 1px solid ">
-                                <button (click)="filterByLimit()" class="btn" style="border: none;">Limit</button>
+                                <!-- <button (click)="filterByLimit()" class="btn" style="border: none;">Limit</button> -->
                             </li>
 
                         </ul>
@@ -71,7 +70,7 @@
 
 
                         </tr>
-                        <tr *ngFor="let employee of employees">
+                        <tr *ngFor="let employee of employees | searchFilterPipe : findData">
                             <td>{{employee.id}}</td>
                             <td>{{employee.firstName}}</td>
                             <td>{{employee.lastName}}</td>

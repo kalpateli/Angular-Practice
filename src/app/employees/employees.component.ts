@@ -19,7 +19,7 @@ export class EmployeesComponent implements OnInit , OnChanges {
   employeeDetails: FormGroup;
   nameLength: number;
   limit: number;
-  findData: string;
+  findData: string = '';
   employees: Employee[] = [];
   employee: Employee = {
     "id": 0,
@@ -190,24 +190,24 @@ export class EmployeesComponent implements OnInit , OnChanges {
       })
   }
 
-  searchData() {
-    if (this.findData === "") {
-      this.getEmployeesDetails();
+  // searchData() {
+  //   if (this.findData === "") {
+  //     this.getEmployeesDetails();
 
-    }
-    else {
-      this._employee.getEmployeeDetails()
-        .pipe(
-          map(employees => employees
-            .filter(emp =>
-              emp.firstName == this.findData || emp.lastName == this.findData)),
-        )
-        .subscribe((res) => {
-          console.log(res);
-          this.employees = res;
-        })
-    }
-  }
+  //   }
+  //   else {
+  //     this._employee.getEmployeeDetails()
+  //       .pipe(
+  //         map(employees => employees
+  //           .filter(emp =>
+  //             emp.firstName == this.findData || emp.lastName == this.findData)),
+  //       )
+  //       .subscribe((res) => {
+  //         console.log(res);
+  //         this.employees = res;
+  //       })
+  //   }
+  // }
 
 
   f(controlName: any) {

@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { CountriesService } from './module-2/services/countries.service';
 import { CommonModule } from '@angular/common';
 import { EmployeesComponent } from './employees/employees.component';
+import { SearchFilterPipePipe } from './pipes/search-filter-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { EmployeesComponent } from './employees/employees.component';
     AboutUsComponent,
     PageNotFoundComponent,
     EmployeesComponent,
+    SearchFilterPipePipe,
     
   ],
 
