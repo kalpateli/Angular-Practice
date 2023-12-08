@@ -16,11 +16,16 @@
                     </a>
 
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" routerLink="/auth/sign-up">SignUp</a></li>
-                        <li><a class="dropdown-item" routerLink="/auth/log-in">SignIn</a></li>
+                        <li *ngIf="loggedIn()"><a class="dropdown-item" (click)="onProfile()">Profile</a></li>
+
+                        <li *ngIf="!loggedIn()"><a class="dropdown-item" routerLink="/auth/sign-up">SignUp</a></li>
+                        <li *ngIf="!loggedIn()"><a class="dropdown-item" routerLink="/auth/log-in">SignIn</a></li>
                     </ul>
                 </li>
 
+                <button class="nav-item btn btn-danger d-flex justify-content-end" 
+                (click)="onLogOut()"
+                *ngIf="loggedIn()" style="display: block;">  LogOut</button>
             </ul>
         </div>
     </div>

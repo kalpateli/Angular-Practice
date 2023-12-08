@@ -2,23 +2,99 @@
   "users": [
     {
       "id": 1,
-      "name": "Mita"
+      "firstName": "Mita",
+      "lastName": "Naik",
+      "phone": "9375831829",
+      "gender": "female",
+      "state": "Goa",
+      "userName": "Mita11",
+      "email": "abc@gmail.com",
+      "password": "Passw0rd!",
+      "userType": "admin"
     },
     {
       "id": 2,
-      "name": "Rahul"
+      "firstName": "Rahul",
+      "lastName": "Sharma",
+      "phone": "9375831829",
+      "gender": "male",
+      "state": "Goa",
+      "userName": "Rahul",
+      "email": "abcd@gmail.com",
+      "password": "Passw0rd!",
+      "userType": "employee"
     },
     {
       "id": 3,
-      "name": "Mohit"
+      "firstName": "Rohit",
+      "lastName": "Khanna",
+      "phone": "9375831829",
+      "gender": "male",
+      "state": "Gujrat",
+      "userName": "Mohit",
+      "email": "abcde@gmail.com",
+      "password": "Passw0rd!",
+      "userType": "employee"
     },
     {
       "id": 4,
-      "name": "Sonia"
+      "firstName": "Sonia",
+      "lastName": "Naik",
+      "phone": "9375831829",
+      "gender": "female",
+      "state": "Banglore",
+      "userName": "Sonia",
+      "email": "abcdef@gmail.com",
+      "password": "Passw0rd!",
+      "userType": "admin"
     },
     {
       "id": 5,
-      "name": "Sonia"
+      "firstName": "Sonia",
+      "lastName": "Karra",
+      "phone": "9375831829",
+      "gender": "female",
+      "state": "Goa",
+      "userName": "Sonia",
+      "email": "abc12@gmail.com",
+      "password": "Passw0rd!",
+      "userType": "admin"
+    },
+    {
+      "id": 6,
+      "firstName": "Sam",
+      "lastName": "Jose",
+      "phone": "9375831829",
+      "gender": "male",
+      "state": "Banglore",
+      "userName": "Sam001",
+      "email": "sam001@gmail.com",
+      "password": "We1come@",
+      "userType": "employee"
+    },
+    {
+      "id": 7,
+      "firstName": "fsfs",
+      "lastName": "faf",
+      "phone": "87855544455",
+      "gender": "female",
+      "state": "Goa",
+      "userName": "asdsafa",
+      "email": "sfsdfs@gmail.com",
+      "password": "sff!2sdasfsD",
+      "userType": "employee"
+    },
+    {
+      "id": 8,
+      "firstName": "ascasfa",
+      "lastName": "afa",
+      "phone": "asfsaf",
+      "gender": "female",
+      "state": "Goa",
+      "userName": "afa",
+      "email": "adad@gmail.com",
+      "password": "AS@3esggsg",
+      "userType": "admin"
     }
   ],
   "List": [

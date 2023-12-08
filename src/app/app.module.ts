@@ -40,6 +40,7 @@ import { SearchFilterPipePipe } from './pipes/search-filter-pipe.pipe';
     FormsModule,
     CommonModule
   ],
+  
   providers: [Service1Service,
               Service2Service,
               HttpClientModule,

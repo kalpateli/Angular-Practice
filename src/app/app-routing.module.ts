@@ -19,8 +19,8 @@ const routes: Routes = [
     .then(mod=>mod.HomeModule),
   },
   {path : 'about-us', component: AboutUsComponent},
-  {path : 'module-2', component: Module2Component, canActivate:[module2GuardGuard]},
-  {path : 'employees', component: EmployeesComponent},
+  {path : 'module-2', component: Module2Component},
+  {path : 'employees', component: EmployeesComponent , canActivate:[module2GuardGuard]},
   
   {
     path : 'auth' , 

@@ -1,6 +1,8 @@
-import { Component ,OnInit} from '@angular/core';
-import { FormGroup , FormControl , FormBuilder , NgForm } from '@angular/forms';
-
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, FormBuilder, NgForm, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Users } from 'src/app/home/Users';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-login-page',
@@ -9,38 +11,82 @@ import { FormGroup , FormControl , FormBuilder , NgForm } from '@angular/forms';
 })
 
 
-export class LoginPageComponent implements OnInit{
+export class LoginPageComponent implements OnInit {
 
-  signinForm: FormGroup;
-  firstName : string = "";
-  lastName : string = "";
-  email : string = "";
-  password : string = "";
+  isLoading: boolean = false;
+  isNotvalid: boolean = true;
+  logInForm: FormGroup;
+  users: any = {};
+  user: Users = {
+    "id": 0,
+    "firstName": "",
+    "lastName": "",
+    "phone": "",
+    "gender": "",
+    "state": "",
+    "userName": "",
+    "email": "",
+    "password": "",
+    "userType": "",
 
-  constructor( private formBuilder : FormBuilder){
-    this.signinForm = this.formBuilder.group({
-      fname:new FormControl(),
-      lname:new FormControl(),
-      emailid:new FormControl(),
-      userpassword:new FormControl(),
+  }
 
-
+  constructor(private fb: FormBuilder,
+    private route: Router,
+    private _users: UsersService) {
+    this.logInForm = this.fb.group({
+      id: new FormControl(),
+      nameEmail: new FormControl('', [Validators.required]),
+      // emailid: new FormControl(),
+      userpassword: new FormControl('', [Validators.required])
+      // userType: new FormControl()
     });
-  }  
+  }
 
-  ngOnInit(){
+  ngOnInit() {
 
   }
 
-  PostData(signinForm : FormGroup){
-    console.log(signinForm.controls);
-    this.firstName = signinForm.get('fname').value;
-    this.lastName = signinForm.get('lname').value;
-    this.email = signinForm.get('emailid').value;
-    this.password = signinForm.get('userpassword').value;
-    console.log(this.firstName + " " + this.lastName + " " + this.email + " " + this.password);
+  loggedInUser(logInForm: FormGroup) {
+    this.isLoading = true;
+
+    console.log(logInForm.controls);
+    // this.user.userName = logInForm.get('username').value;
+    this.user.userName = logInForm.get('nameEmail').value;
+    this.user.password = logInForm.get('userpassword').value;
+    console.log(this.user.userName + " " + this.user.email + " " + this.user.password);
+
+
+    this._users.get()
+      .subscribe((res) => {
+        this.users = (res.find((a: any) => {
+          let i: boolean = (a.userName === this.user.userName) && a.password === this.user.password;
+          console.log(i);
+
+          console.log("a:" + a.email + (a.userName) + (this.user.userName))
+          return (a.email === this.user.userName || a.userName === this.user.userName) && a.password === this.user.password;
+        }));
+        if (this.users) {
+          this.isLoading = false;
+
+          this.users.userType === "admin" ? localStorage.setItem('userType', 'admin') : localStorage.setItem('userType', 'employee')
+
+          localStorage.setItem('isLoggedIn', 'true');
+          localStorage.setItem('userData', JSON.stringify(this.users));
+          this.logInForm.reset();
+          this.route.navigate(['/home']);
+        }
+        else {
+          localStorage.setItem('isLoggedIn', "false");
+          this.isNotvalid = false;
+
+        }
+
+      },
+        (err) => console.log(err)
+      )
+
 
 
   }
-
 }

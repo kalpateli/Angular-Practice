@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angularPractise';
+
+
+  constructor(
+  ){
+   
+    // localStorage.setItem("isLoggedIn","false");
+    // localStorage.setItem("userType","admin");
+    // localStorage.removeItem("userData");
+
+
+  }
 }

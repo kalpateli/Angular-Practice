@@ -1,24 +1,31 @@
-<p>home works!</p>
 
 
+<ng-container *ngIf="userLoggedIn;else elseBlock">
+  <h1>Hello {{userLoggedIn.userName}},</h1>
 
-      <div class="row">
+  
+  <div class="row">
 
-        <div class="card col-md-2"  *ngFor="let user of users">
-          <div class="card-body">
-            <span class="card-title">{{user.name}}</span>
-            <button class="btn btn-primary col-md-6 center" (click)="onSelect(user)">View</button>
-          </div>
-          
-        </div>
+    <div class="card col-md-2"  *ngFor="let user of users">
+      <div class="card-body">
+        <span class="card-title">{{user.name}}</span>
+        <button class="btn btn-primary col-md-6 center" (click)="onSelect(user)">View</button>
       </div>
+      
+    </div>
+  </div>
 
 
 <div>
-    <a [routerLink]="['/home/users',1,'Mita']" 
-    [queryParams]="{page:1,search:'Mita'}"
-    >
-    Get more details</a>
+<a [routerLink]="['/home/users',1,'Mita']" 
+[queryParams]="{page:1,search:'Mita'}"
+>
+Get more details</a>
 </div>
 
 <app-section1 [message]="msg"></app-section1>
+
+</ng-container>
+<ng-template #elseBlock>
+  <h1>Please Log In If You Have Already Registered Or Register Yourself</h1>
+</ng-template>

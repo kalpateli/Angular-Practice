@@ -1,44 +1,89 @@
-import { Component ,OnInit} from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { EmployeesService } from 'src/app/services/employees.service';
-import { Employee } from 'src/app/Employee';
+import { Component, OnInit } from '@angular/core';
+import { UsersService } from 'src/app/services/users.service';
+import { Users } from 'src/app/home/Users';
+import { Router } from '@angular/router';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { errorMessages } from '../../errrorMessages';
 
 @Component({
   selector: 'app-signup-page',
   templateUrl: './signup-page.component.html',
   styleUrls: ['./signup-page.component.scss']
 })
-export class SignupPageComponent implements OnInit {
+export class SignupPageComponent {
 
-  employeeObject : Employee = {
-        "id":0,
-        "firstName":"",
-        "lastName":"",
-        "email":"",
-        "mobile":"",
-        "employee_no":0,
-        "dob":"",
-        "address":
-        {
-            "city":"",
-            "state":"",
-            "country":""
-        },
-        "password":""
+  isLoading : boolean = false; 
+  hide:boolean = true;
+  successSignup : boolean = false;
+  signupForm: FormGroup;
+  users: any = {};
+  user: Users = {
+    "id": 0,
+    "firstName": "",
+    "lastName": "",
+    "phone" : "",
+    "gender": "",
+    "state": "",
+    "userName": "",
+    "email": "",
+    "password": "",
+    "userType": ""
+  }
+  states : string[] =['Goa','Gujarat','Banglore'];
+  roles : string[] =['admin','employee'];
 
-    }
 
-    constructor(private _employees:EmployeesService){
+  constructor(private fb: FormBuilder,
+    private route: Router,
+    private _users: UsersService) {
+    this.signupForm = this.fb.group({
+      id: new FormControl(),
+      firstName: new FormControl('',[Validators.required]),
+      lastName: new FormControl('',[Validators.required]),
+      phone: new FormControl('',[Validators.required]),
+      gender: new FormControl('',[Validators.required]),
+      state: new FormControl('',[Validators.required]),
+      email: new FormControl('',[Validators.required , Validators.pattern(/^([\w+-.%]+@[\w-]+\.[A-Za-z]{2,})+$/)]),
+      userName: new FormControl('',[Validators.required]),
+      password: new FormControl('',[Validators.required,Validators.minLength(8), Validators.maxLength(18), Validators.pattern(errorMessages.pattern.password)]),
+      userType: new FormControl('',[Validators.required])
+    });
+  }
 
-    }
 
-    ngOnInit() : void{
+  signedupUser(signupForm: FormGroup) {
+    this.isLoading = true;
+    console.log("signupForm.controls");
+    // this.user.id = signupForm.get('id').value;
+    this.user.firstName = signupForm.get('firstName').value;
+    this.user.lastName = signupForm.get('lastName').value;
+    this.user.phone = signupForm.get('phone').value;
+    this.user.gender = signupForm.get('gender').value;
+    this.user.state = signupForm.get('state').value;
+    this.user.userName = signupForm.get('userName').value;
+    this.user.email = signupForm.get('email').value;
+    this.user.password = signupForm.get('password').value;
+    this.user.userType = signupForm.get('userType').value;
+    console.log(this.successSignup);
 
-    }
+    this._users.postUsers(this.user)
+    .subscribe((res)=>{
+      if(res)
+      this.successSignup = res;
+      console.log(this.successSignup);
+      this.isLoading = false;
+    
+    },
+    (err)=>{
+      this.isLoading = false;
+      console.log(err)
+    })
 
-    onCreateEmp(){
-      this._employees.postEmployeeDetails(this.employeeObject);
-    }
-  
 
+  }
+
+  onReset()
+  {
+    this.signupForm.reset();
+  }
 }

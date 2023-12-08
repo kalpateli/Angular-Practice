@@ -1,0 +1,19 @@
+.example-card {
+    max-width: 500px;
+    width: 100%;
+    border: 2px solid;
+    border-radius: 10px;
+    // background-color: beige;
+  }
+
+  .centered-container {
+    // margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+.inpSignupfield{
+  margin:5px;
+}
