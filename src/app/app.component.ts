@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Users } from './home/Users';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angularPractise';
+  userLoggedIn = JSON.parse(localStorage.getItem('userData'));
 
 
   constructor(
@@ -14,7 +15,7 @@ export class AppComponent {
    
     // localStorage.setItem("isLoggedIn","false");
     // localStorage.setItem("userType","admin");
-    // localStorage.removeItem("userData");
+
 
 
   }

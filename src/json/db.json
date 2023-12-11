@@ -16,10 +16,10 @@
       "id": 2,
       "firstName": "Rahul",
       "lastName": "Sharma",
-      "phone": "9375831829",
+      "phone": "9375831831",
       "gender": "male",
       "state": "Goa",
-      "userName": "Rahul",
+      "userName": "Rahul123",
       "email": "abcd@gmail.com",
       "password": "Passw0rd!",
       "userType": "employee"

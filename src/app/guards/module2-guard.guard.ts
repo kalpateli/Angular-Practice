@@ -1,10 +1,11 @@
-import { ActivatedRoute, ActivatedRouteSnapshot, CanActivateFn, RouterStateSnapshot } from '@angular/router';
-import { Observable } from 'rxjs';
+import { CanActivateFn} from '@angular/router';
 
 export const module2GuardGuard: CanActivateFn = (route, state) => {
   
-  let isLoggedIn = localStorage.getItem('isLoggedIn');
-  if(isLoggedIn == "false")
+  let userType =(localStorage.getItem('userType'));
+  let isLoggedIn =(localStorage.getItem('isLoggedIn'));
+
+  if(userType == "employee" || isLoggedIn=="false")
   {
     alert("not authenticated user")
     return false;

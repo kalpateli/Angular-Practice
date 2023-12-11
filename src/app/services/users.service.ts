@@ -36,6 +36,12 @@ export class UsersService {
   }
   
 
+  updateUser(data : Users) : Observable<Users[]>{
+    return this.http.put<Users[]>(this.baseurl + apiUrls.Users.user_details + "/" + data.id, data);
+    
+  }
+
+
   // postUsers(data : Users) : Observable<boolean>{
   //   return this.http.post<Users[]>(this.baseurl + apiUrls.Users.user_details ,data)
   //   .subscribe((res)=>{

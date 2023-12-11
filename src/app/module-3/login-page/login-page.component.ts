@@ -74,7 +74,8 @@ export class LoginPageComponent implements OnInit {
           localStorage.setItem('isLoggedIn', 'true');
           localStorage.setItem('userData', JSON.stringify(this.users));
           this.logInForm.reset();
-          this.route.navigate(['/home']);
+          this.route.navigate(['/home', this.users.id,this.users.firstName],
+            { queryParams: {userId: this.users.id, userName: this.users.firstName } })
         }
         else {
           localStorage.setItem('isLoggedIn', "false");

@@ -11,7 +11,7 @@ import { EmployeesComponent } from './employees/employees.component';
 
 const routes: Routes = [
   {path:'',
-   redirectTo:'/home',
+   redirectTo:'home',
    pathMatch:'full'
   },
   {path : 'home',

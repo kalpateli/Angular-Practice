@@ -17,6 +17,17 @@ import { CountriesService } from './module-2/services/countries.service';
 import { CommonModule } from '@angular/common';
 import { EmployeesComponent } from './employees/employees.component';
 import { SearchFilterPipePipe } from './pipes/search-filter-pipe.pipe';
+// import {
+//   MatDialog,
+//   MatDialogRef,
+//   MatDialogActions,
+//   MatDialogClose,
+//   MatDialogTitle,
+//   MatDialogContent,
+// } from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
+import { EditUserDialogue } from './DialogueBox/edit-user-dialogue';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -26,7 +37,7 @@ import { SearchFilterPipePipe } from './pipes/search-filter-pipe.pipe';
     PageNotFoundComponent,
     EmployeesComponent,
     SearchFilterPipePipe,
-    
+    EditUserDialogue
   ],
 
   
@@ -38,7 +49,14 @@ import { SearchFilterPipePipe } from './pipes/search-filter-pipe.pipe';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    MatDialogModule,
+    // MatDialogRef,
+    // MatDialogActions,
+    // MatDialogClose,
+    // MatDialogTitle,
+    // MatDialogContent,
+    MatButtonModule
   ],
   
   providers: [Service1Service,

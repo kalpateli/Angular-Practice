@@ -13,10 +13,11 @@ export class HeaderComponent implements OnInit{
   ngOnInit() {
   }
   
-  constructor(private route : Router){}
+  constructor(private route : Router ){
+  }
   
   
-
+  
   loggedIn()
   {
     return localStorage.getItem('isLoggedIn') === 'true';
@@ -24,6 +25,7 @@ export class HeaderComponent implements OnInit{
 
   onProfile()
   {
+    this.currUser = JSON.parse(localStorage.getItem('userData'));
     this.route.navigate(['/auth/profile',this.currUser.id,this.currUser.userName])
   }
 
@@ -31,6 +33,11 @@ export class HeaderComponent implements OnInit{
     localStorage.setItem('isLoggedIn','false');
     localStorage.removeItem('userData',)
     this.route.navigate(['/auth/log-in']);
+  }
+
+  clickHome(){
+  this.currUser = JSON.parse(localStorage.getItem('userData'));
+
   }
 
 }

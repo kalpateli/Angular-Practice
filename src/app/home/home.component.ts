@@ -1,12 +1,12 @@
 import { Component ,OnInit} from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UsersService } from '../services/users.service';
 import { Users } from './Users';
 
 
 interface Data{
   id:number;
-  name:string;
+  firstName:string;
 }
 @Component({
   selector: 'app-home',
@@ -15,18 +15,26 @@ interface Data{
 })
 export class HomeComponent implements OnInit{
   
-  
+  userName : string
   userLoggedIn = JSON.parse(localStorage.getItem('userData'));
   msg : string = "Hello";
   
   users : Users[]=[];
   constructor(
     private router : Router,
+    private route:ActivatedRoute, 
     private _users:UsersService
     ){}
     
     ngOnInit(): void {
     this.getUsersApi();
+    this.route.paramMap.subscribe(
+      params => {
+        // this.userId= parseInt(params.get('id'));
+        this.userName= params.get('name');
+        console.log("userName"+this.userName)
+      }
+    );
   }
 
   getUsersApi(){
@@ -40,8 +48,8 @@ export class HomeComponent implements OnInit{
 
 
   onSelect(user : Data){
-    this.router.navigate(['/home',user.id,user.name],
-    {queryParams:{page: user.id ,search: user.name}})
+    this.router.navigate(['/home/homepage',user.id,user.firstName],
+    {queryParams:{page: user.id ,search: user.firstName}})
   }
 
  

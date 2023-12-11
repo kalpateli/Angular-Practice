@@ -3,7 +3,7 @@ export const apiUrls=
     Employee:{
         employee_details:"/employees"
     },
-    Users :{
+    Users:{
         user_details : "/users"
     },
 
