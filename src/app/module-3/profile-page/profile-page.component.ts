@@ -59,6 +59,14 @@ export class ProfilePageComponent {
 
 
     })
+
+    if ('indexedDB' in window) {
+    
+      console.log('IndexedDB is  supported in this browser.');
+
+    } else {
+      console.log('IndexedDB is not supported in this browser.');
+    }
   }
 
 

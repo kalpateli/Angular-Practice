@@ -25,12 +25,11 @@ export class UsersService {
       .pipe(
         map((res) => {
           console.log(res);
-          // Assuming that your server response contains a success flag
-          return true; // Adjust this based on your server response
+          return true;
         }),
         catchError((error) => {
           console.error(error);
-          return of(false); // Return false in case of an error
+          return of(false); 
         })
       );
   }
