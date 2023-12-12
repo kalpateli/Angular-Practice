@@ -14,7 +14,10 @@ import { UsersService } from 'src/app/services/users.service';
 
 
 export class ProfilePageComponent {
+
+
   isReadOnly = true;
+  profilechanged = false;
   edited: boolean = false;
   isLoading: boolean = false;
   loggedUser: FormGroup;
@@ -33,8 +36,10 @@ export class ProfilePageComponent {
     "userName": this.currUser.userName,
     "email": this.currUser.email,
     "password": this.currUser.password,
-    "userType": this.currUser.userType
+    "userType": this.currUser.userType,
+    "profilePic" : this.currUser.profilePic
   }
+  profileImage : string = this.user.profilePic;
 
 
   constructor(private fb: FormBuilder, private _usersService: UsersService, public dialog: MatDialog) {
@@ -49,7 +54,9 @@ export class ProfilePageComponent {
       email: new FormControl(this.user.email, [Validators.required, Validators.pattern(/^([\w+-.%]+@[\w-]+\.[A-Za-z]{2,})+$/)]),
       userName: new FormControl(this.user.userName, [Validators.required]),
       password: new FormControl(this.user.password, [Validators.required, Validators.minLength(8), Validators.maxLength(18), Validators.pattern(errorMessages.pattern.password)]),
-      userType: new FormControl(this.user.userType, [Validators.required])
+      userType: new FormControl(this.user.userType, [Validators.required]),
+      profilePic: new FormControl(this.user.profilePic)
+
 
     })
   }
@@ -58,8 +65,6 @@ export class ProfilePageComponent {
 
 
   updateUser(loggedUser: FormGroup) {
-
-    
     this.user.firstName = loggedUser.get('firstName').value;
     this.user.lastName = loggedUser.get('lastName').value;
     this.user.phone = loggedUser.get('phone').value;
@@ -69,6 +74,7 @@ export class ProfilePageComponent {
     this.user.email = loggedUser.get('email').value;
     this.user.password = loggedUser.get('password').value;
     this.user.userType = loggedUser.get('userType').value;
+
     console.log('');
     this.dialog.open(EditUserDialogue, {
       width: '250px',
@@ -79,7 +85,6 @@ export class ProfilePageComponent {
       } else {
         console.log('User clicked "No" or closed the dialog without taking any action');
         this.saveEdit = false;
-
       }
     });
 
@@ -97,6 +102,64 @@ export class ProfilePageComponent {
   }
 
   onReset() {
+    this.isLoading=true;
     this.loggedUser.reset();
+    this.profileImage = this.user.profilePic;
+    this.profilechanged = false;
+    this.isLoading=false;
+
+
+
+  }
+
+  basePath : string = "../../../assets/Profile_pics/"
+  onUploadProfile(e){
+    this.isLoading=true;
+    
+    if(e.target.files){
+      var reader = new FileReader();
+      const file =e.target.files[0];
+
+      const fileName = file.name;
+      reader.readAsDataURL(file);
+      const imagePath = this.basePath + fileName
+      
+      reader.onload = (event : any) => {
+        // this.profileImage = event.target.result;
+        this.profileImage = imagePath;
+
+        localStorage.setItem('profilePic', imagePath);
+        this.profilechanged = true;
+        this.isLoading=false;
+
+      }
+    }
+  }
+
+
+  saveProfile(){
+    this.isLoading=true;
+
+    this.user.profilePic = this.profileImage;
+    this._usersService.updateUser(this.user)
+        .subscribe((res) => {
+          if (res) {
+            localStorage.setItem('userData', JSON.stringify(res));
+            this.profilechanged = false;
+            this.isLoading=false;
+
+          }
+        });
   }
 }
+
+
+//Use Smaller Images:
+
+// If possible, resize or compress the images before storing them. You can use client-side libraries or tools to achieve this.
+// Store References, Not Images:
+
+// Instead of storing the image data directly, store a reference or path to the image. The actual image file can be stored on the server or locally on the client's device.
+// Client-Side File Storage:
+
+// Consider using the client-side File System API or IndexedDB for more efficient and larger-scale storage.

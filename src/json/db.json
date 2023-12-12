@@ -10,7 +10,8 @@
       "userName": "Mita11",
       "email": "abc@gmail.com",
       "password": "Passw0rd!",
-      "userType": "admin"
+      "userType": "admin",
+      "profilePic": "../../../assets/Profile_pics/profile1.jpg"
     },
     {
       "id": 2,
@@ -22,7 +23,8 @@
       "userName": "Rahul123",
       "email": "abcd@gmail.com",
       "password": "Passw0rd!",
-      "userType": "employee"
+      "userType": "employee",
+      "profilePic": "../../../assets/Profile_pics/default.jpg"
     },
     {
       "id": 3,
@@ -34,7 +36,8 @@
       "userName": "Mohit",
       "email": "abcde@gmail.com",
       "password": "Passw0rd!",
-      "userType": "employee"
+      "userType": "employee",
+      "profilePic": "../../../assets/Profile_pics/default.jpg"
     },
     {
       "id": 4,
@@ -46,7 +49,8 @@
       "userName": "Sonia",
       "email": "abcdef@gmail.com",
       "password": "Passw0rd!",
-      "userType": "admin"
+      "userType": "admin",
+      "profilePic": "../../../assets/Profile_pics/default.jpg"
     },
     {
       "id": 5,
@@ -58,43 +62,21 @@
       "userName": "Sonia",
       "email": "abc12@gmail.com",
       "password": "Passw0rd!",
-      "userType": "admin"
+      "userType": "admin",
+      "profilePic": "../../../assets/Profile_pics/default.jpg"
     },
     {
       "id": 6,
       "firstName": "Sam",
       "lastName": "Jose",
-      "phone": "9375831829",
+      "phone": "93748173829",
       "gender": "male",
-      "state": "Banglore",
+      "state": "Gujarat",
       "userName": "Sam001",
       "email": "sam001@gmail.com",
-      "password": "We1come@",
-      "userType": "employee"
-    },
-    {
-      "id": 7,
-      "firstName": "fsfs",
-      "lastName": "faf",
-      "phone": "87855544455",
-      "gender": "female",
-      "state": "Goa",
-      "userName": "asdsafa",
-      "email": "sfsdfs@gmail.com",
-      "password": "sff!2sdasfsD",
-      "userType": "employee"
-    },
-    {
-      "id": 8,
-      "firstName": "ascasfa",
-      "lastName": "afa",
-      "phone": "asfsaf",
-      "gender": "female",
-      "state": "Goa",
-      "userName": "afa",
-      "email": "adad@gmail.com",
-      "password": "AS@3esggsg",
-      "userType": "admin"
+      "password": "We1come!",
+      "userType": "employee",
+      "profilePic": "../../../assets/Profile_pics/default.jpg"
     }
   ],
   "List": [

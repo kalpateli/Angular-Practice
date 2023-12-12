@@ -28,12 +28,15 @@ export class LoginPageComponent implements OnInit {
     "email": "",
     "password": "",
     "userType": "",
+    "profilePic" : ""
+
 
   }
 
   constructor(private fb: FormBuilder,
     private route: Router,
-    private _users: UsersService) {
+    private _users: UsersService) 
+  {
     this.logInForm = this.fb.group({
       id: new FormControl(),
       nameEmail: new FormControl('', [Validators.required]),

@@ -27,7 +27,9 @@ export class SignupPageComponent {
     "userName": "",
     "email": "",
     "password": "",
-    "userType": ""
+    "userType": "",
+    "profilePic" : ""
+
   }
   states : string[] =['Goa','Gujarat','Banglore'];
   roles : string[] =['admin','employee'];
@@ -46,7 +48,9 @@ export class SignupPageComponent {
       email: new FormControl('',[Validators.required , Validators.pattern(/^([\w+-.%]+@[\w-]+\.[A-Za-z]{2,})+$/)]),
       userName: new FormControl('',[Validators.required]),
       password: new FormControl('',[Validators.required,Validators.minLength(8), Validators.maxLength(18), Validators.pattern(errorMessages.pattern.password)]),
-      userType: new FormControl('',[Validators.required])
+      userType: new FormControl('',[Validators.required]),
+      profilePic: new FormControl('../../../assets/Profile_pics/default.jpg')
+
     });
   }
 
@@ -64,15 +68,21 @@ export class SignupPageComponent {
     this.user.email = signupForm.get('email').value;
     this.user.password = signupForm.get('password').value;
     this.user.userType = signupForm.get('userType').value;
+    this.user.profilePic = signupForm.get('profilePic').value;
+
+    
     console.log(this.successSignup);
 
     this._users.postUsers(this.user)
     .subscribe((res)=>{
       if(res)
-      this.successSignup = res;
-      console.log(this.successSignup);
-      this.isLoading = false;
-    
+      {
+        this.successSignup = res;
+        console.log("successSignup "+this.successSignup);
+        this.isLoading = false;
+        this.signupForm.reset();
+        this.route.navigate(['/auth/log-in']);
+      }
     },
     (err)=>{
       this.isLoading = false;

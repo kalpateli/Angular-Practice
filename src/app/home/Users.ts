@@ -8,5 +8,6 @@ export interface Users {
     userName: string,
     email : string,
     password : string,
-    userType : string
+    userType : string,
+    profilePic : string
 }
