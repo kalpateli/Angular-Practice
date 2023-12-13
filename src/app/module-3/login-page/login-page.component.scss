@@ -1,0 +1,28 @@
+.centered-container {
+    margin-top: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+.inpSignupfield{
+  margin:5px;
+}
+
+mat-card-content{
+    padding-left: 120px;
+}
+
+mat-card-header, mat-card-actions{
+    // margin-left: 20px;
+    display: flex;
+    justify-content :center;
+    text-align: center
+}
+.example-card {
+    max-width: 500px;
+    width: 100%;
+    border: 2px solid;
+    border-radius: 10px;
+    // background-color: beige;
+  }

@@ -14,6 +14,8 @@ import { UsersService } from 'src/app/services/users.service';
 export class LoginPageComponent implements OnInit {
 
   isLoading: boolean = false;
+  hide:boolean = true;
+
   isNotvalid: boolean = true;
   logInForm: FormGroup;
   users: any = {};
@@ -29,8 +31,6 @@ export class LoginPageComponent implements OnInit {
     "password": "",
     "userType": "",
     "profilePic" : ""
-
-
   }
 
   constructor(private fb: FormBuilder,
@@ -64,9 +64,9 @@ export class LoginPageComponent implements OnInit {
       .subscribe((res) => {
         this.users = (res.find((a: any) => {
           let i: boolean = (a.userName === this.user.userName) && a.password === this.user.password;
-          console.log(i);
+          // console.log(i);
 
-          console.log("a:" + a.email + (a.userName) + (this.user.userName))
+          // console.log("a:" + a.email + (a.userName) + (this.user.userName))
           return (a.email === this.user.userName || a.userName === this.user.userName) && a.password === this.user.password;
         }));
         if (this.users) {
@@ -83,7 +83,7 @@ export class LoginPageComponent implements OnInit {
         else {
           localStorage.setItem('isLoggedIn', "false");
           this.isNotvalid = false;
-
+          this.isLoading = false;
         }
 
       },

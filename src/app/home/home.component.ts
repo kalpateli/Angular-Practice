@@ -18,7 +18,8 @@ export class HomeComponent implements OnInit{
   userName : string
   userLoggedIn = JSON.parse(localStorage.getItem('userData'));
   msg : string = "Hello";
-  
+  userType : string = localStorage.getItem('userType');
+
   users : Users[]=[];
   constructor(
     private router : Router,
@@ -27,12 +28,13 @@ export class HomeComponent implements OnInit{
     ){}
     
     ngOnInit(): void {
+     console.log(this.userType)
     this.getUsersApi();
     this.route.paramMap.subscribe(
       params => {
         // this.userId= parseInt(params.get('id'));
         this.userName= params.get('name');
-        console.log("userName"+this.userName)
+        console.log("userName"+this.userName);
       }
     );
   }

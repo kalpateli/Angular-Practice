@@ -169,7 +169,6 @@
         <div class="inpSignupfield">
           <mat-form-field class="inlineField">
             <mat-label>Password</mat-label>
-            <!-- <input type="password" matInput formControlName="password"> -->
             <input matInput [type]="hide ? 'password' : 'text'" value="{{user.password}}" readonly>
 
           </mat-form-field>
@@ -179,10 +178,8 @@
 
 
       </div>
-      <!-- <button mat-button type="reset" color="primary" (click)="onReset()" >Reset</button> -->
-      <div *ngIf="!isLoading; else loadingContent">
+      <div>
         <button mat-button type="button" color="primary" (click)="edited = !edited">Edit</button>
-
       </div>
 
 

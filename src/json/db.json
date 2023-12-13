@@ -24,7 +24,7 @@
       "email": "abcd@gmail.com",
       "password": "Passw0rd!",
       "userType": "employee",
-      "profilePic": "../../../assets/Profile_pics/default.jpg"
+      "profilePic": "../../../assets/Profile_pics/profile2.jpg"
     },
     {
       "id": 3,
@@ -50,7 +50,7 @@
       "email": "abcdef@gmail.com",
       "password": "Passw0rd!",
       "userType": "admin",
-      "profilePic": "../../../assets/Profile_pics/default.jpg"
+      "profilePic": "../../../assets/Profile_pics/profile4.jpg"
     },
     {
       "id": 5,

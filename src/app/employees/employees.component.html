@@ -83,7 +83,7 @@
                             <td>{{employee.address.country}}</td>
                             <td>
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#editModel" (click)="onEdit(employee)">
+                                    data-bs-target="#editempModel" (click)="onEdit(employee)">
                                     Edit
                                 </button>
                             </td>
@@ -96,11 +96,11 @@
                 </div>
             </div>
 
-            <div class="modal" id="editModel">
+            <div class="modal" id="editempModel">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">Edit the details </h5>
+                            <h2 class="modal-title">Edit the details </h2>
 
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
@@ -249,7 +249,7 @@
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">Enter the details of the new Employee </h5>
+                            <h2 class="modal-title">Enter the details of the new Employee </h2>
 
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>

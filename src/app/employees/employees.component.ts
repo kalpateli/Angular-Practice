@@ -67,14 +67,14 @@ export class EmployeesComponent implements OnInit , OnChanges {
   }
 
   ngOnChanges(){
-    console.log('Pattern Test Result:', errorMessages.pattern.password.test(this.employee.password));
+    // console.log('Pattern Test Result:', errorMessages.pattern.password.test(this.employee.password));
 
   }
 
   getEmployeesDetails() {
     this._employee.getEmployeeDetails()
       .subscribe((res) => {
-        console.log(res);
+        // console.log(res);
         this.employees = res;
 
       })
@@ -84,7 +84,7 @@ export class EmployeesComponent implements OnInit , OnChanges {
   //   this._employee.postEmployeeDetails(this.employee);
   // }
   onCreateEmp(employeeDetails: FormGroup) {
-    console.log(employeeDetails.controls);
+    // console.log(employeeDetails.controls);
 
     this.employee.firstName = employeeDetails.get('firstName').value;
     this.employee.lastName = employeeDetails.get('lastName').value;
@@ -118,7 +118,7 @@ export class EmployeesComponent implements OnInit , OnChanges {
       password: emp.password,
     });
     // this.employee = emp;
-    console.log(this.employeeDetails);
+    // console.log(this.employeeDetails);
 
 
   }
@@ -136,7 +136,7 @@ export class EmployeesComponent implements OnInit , OnChanges {
     this.employee.address.country = emp.get('country').value;
     this.employee.password = emp.get('password').value;
 
-    console.log(this.employee.id);
+    // console.log(this.employee.id);
     this._employee.updateEmployeeDetails(this.employee);
   }
 
@@ -185,7 +185,7 @@ export class EmployeesComponent implements OnInit , OnChanges {
           .filter(emp => emp.id <= this.limit)),
       )
       .subscribe((res) => {
-        console.log(res);
+        // console.log(res);
         this.employees = res;
       })
   }

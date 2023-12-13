@@ -1,4 +1,4 @@
-<div class="container" style="margin:50px;">
+<!-- <div class="container" style="margin:50px;">
     <div class="row">
 
 
@@ -18,14 +18,32 @@
                 </div>
             </div>
 
-            <div *ngIf="!isLoading; else loadingContent">
-                <button class="btn btn-primary" type="submit">Sign In</button>
+            
+            
+            <mat-form-field class="inpSignupfield">
+                <mat-label>UserName / Email</mat-label>
+                <input type="email" matInput formControlName="nameEmail" >
+            </mat-form-field>
+            
+            
+            <mat-form-field class="inpSignupfield">
+                <mat-label>Password</mat-label>
+                <input type="password" matInput formControlName="password">
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="userpassword">
+                <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            
+        </mat-form-field>
+        <div *ngIf="!isLoading; else loadingContent">
+            <button class="btn btn-primary" type="submit">Sign In</button>
 
-            </div>
-            <ng-template #loadingContent>
+        </div>
+        <ng-template #loadingContent>
 
-                <button class="btn btn-primary">Loading...</button>
-            </ng-template>
+            <button class="btn btn-primary">Loading...</button>
+        </ng-template>
         </form>
 
 
@@ -33,4 +51,61 @@
             The Credentials are Invalid !!
         </div>
     </div>
+</div> -->
+
+
+<div class="centered-container">
+
+    
+    <mat-card class="example-card" style="width: 500px;">
+        <mat-card-header>
+            <mat-card-title>Sign In PAGE</mat-card-title>
+            <mat-card-subtitle>Welcome Back !!</mat-card-subtitle>
+        </mat-card-header>
+        <form [formGroup]="logInForm" (ngSubmit)="loggedInUser(logInForm)">
+            <div *ngIf="!isNotvalid" class="alert alert-danger" role="alert" style="text-align: center;">
+                The Credentials are Invalid !!
+            </div>
+            <mat-card-content>
+                <div>
+                    <label for="inputPassword" class="col-sm-5 col-form-label">UserName / Email</label>
+                </div>
+
+                <mat-form-field class="inpSignupfield">
+                    <mat-label>UserName / Email</mat-label>
+                    <input type="email" matInput formControlName="nameEmail">
+                </mat-form-field>
+
+                <br>
+                <div>
+
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                </div>
+
+                <mat-form-field class="inpSignupfield">
+                    <mat-label>Password</mat-label>
+                    <!-- <input type="password" matInput formControlName="password"> -->
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="userpassword">
+                    <button type="button" mat-icon-button matSuffix (click)="hide = !hide"
+                        [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+
+                </mat-form-field>
+            </mat-card-content>
+            <br>
+            <mat-card-actions>
+
+                <div *ngIf="!isLoading; else loadingContent">
+                    <button mat-raised-button type="submit" color="primary" >Log In</button>
+
+                </div>
+                <ng-template #loadingContent>
+
+                    <button mat-raised-button color="primary">Loading...</button>
+                </ng-template>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+
 </div>

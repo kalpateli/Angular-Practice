@@ -42,7 +42,7 @@ export class SignupPageComponent {
       id: new FormControl(),
       firstName: new FormControl('',[Validators.required]),
       lastName: new FormControl('',[Validators.required]),
-      phone: new FormControl('',[Validators.required]),
+      phone: new FormControl('',[Validators.required,Validators.minLength(10),Validators.maxLength(18), Validators.pattern(errorMessages.pattern.mobile)]),
       gender: new FormControl('',[Validators.required]),
       state: new FormControl('',[Validators.required]),
       email: new FormControl('',[Validators.required , Validators.pattern(/^([\w+-.%]+@[\w-]+\.[A-Za-z]{2,})+$/)]),
@@ -57,7 +57,7 @@ export class SignupPageComponent {
 
   signedupUser(signupForm: FormGroup) {
     this.isLoading = true;
-    console.log("signupForm.controls");
+    // console.log("signupForm.controls");
     // this.user.id = signupForm.get('id').value;
     this.user.firstName = signupForm.get('firstName').value;
     this.user.lastName = signupForm.get('lastName').value;
@@ -71,14 +71,14 @@ export class SignupPageComponent {
     this.user.profilePic = signupForm.get('profilePic').value;
 
     
-    console.log(this.successSignup);
+    // console.log(this.successSignup);
 
     this._users.postUsers(this.user)
     .subscribe((res)=>{
       if(res)
       {
         this.successSignup = res;
-        console.log("successSignup "+this.successSignup);
+        // console.log("successSignup "+this.successSignup);
         this.isLoading = false;
         this.signupForm.reset();
         this.route.navigate(['/auth/log-in']);
@@ -95,5 +95,12 @@ export class SignupPageComponent {
   onReset()
   {
     this.signupForm.reset();
+  }
+
+  f(controlName: any) {
+    if (controlName) {
+      return this.signupForm.controls[controlName];
+    }
+    return null;
   }
 }
