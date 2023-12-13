@@ -1,4 +1,11 @@
-button
-{
+button {
     margin: 5px;
 }
+
+
+.container {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }

@@ -11,7 +11,7 @@ import { EmployeesComponent } from './employees/employees.component';
 
 const routes: Routes = [
   {path:'',
-   redirectTo:'auth/log-in',
+   redirectTo:'home',
    pathMatch:'full'
   },
   {path : 'home',
