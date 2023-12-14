@@ -27,6 +27,7 @@ export class AuthService {
   {
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('userData');
+    localStorage.removeItem('userType');
     this.router.navigate(['/auth/log-in']);
     
   }
@@ -48,14 +49,12 @@ export class AuthService {
   removeUser()
   {
     localStorage.removeItem('userData');
-
   }
 
   setUserType(userType : string)
   {
     localStorage.setItem('userType', userType);
   }
-
 
   getUserType()
   {

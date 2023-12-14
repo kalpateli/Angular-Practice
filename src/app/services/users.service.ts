@@ -11,8 +11,6 @@ export class UsersService {
   baseurl="http://localhost:3000";
 
   constructor(private http:HttpClient) { 
-
-    // this.isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
   }
 
   get():Observable<Users[]>{

@@ -14,7 +14,7 @@ export class AppComponent {
   ){
    
     // localStorage.setItem("isLoggedIn","false");
-    localStorage.setItem("userType","employee");
+    // localStorage.setItem("userType","employee");
 
 
 

@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component , inject , OnInit } from '@angular/core';
 import { UsersService } from 'src/app/services/users.service';
 import { Users } from 'src/app/home/Users';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { errorMessages } from '../../errrorMessages';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-signup-page',
   templateUrl: './signup-page.component.html',
@@ -12,51 +12,60 @@ import { errorMessages } from '../../errrorMessages';
 })
 export class SignupPageComponent {
 
-  isLoading : boolean = false; 
-  hide:boolean = true;
-  successSignup : boolean = false;
+  // snackBarRef = inject(MatSnackBarRef);
+  isLoading: boolean = false;
+  hide: boolean = true;
+  successSignup: boolean = false;
   signupForm: FormGroup;
   users: any = {};
   user: Users = {
     "id": 0,
     "firstName": "",
     "lastName": "",
-    "phone" : "",
+    "phone": "",
     "gender": "",
     "state": "",
     "userName": "",
     "email": "",
     "password": "",
     "userType": "",
-    "profilePic" : ""
+    "profilePic": ""
 
   }
-  male : string = "../../../assets/Profile_pics/default_man.jpg";
-  female : string = "../../../assets/Profile_pics/default_woman.jpg"
-  states : string[] =['Goa','Gujarat','Banglore'];
-  roles : string[] =['admin','employee'];
+  male: string = "../../../assets/Profile_pics/default_man.jpg";
+  female: string = "../../../assets/Profile_pics/default_woman.jpg"
+  states: string[] = ['Goa', 'Gujarat', 'Banglore'];
+  roles: string[] = ['admin', 'employee'];
 
 
   constructor(private fb: FormBuilder,
     private route: Router,
-    private _users: UsersService) {
+    private _users: UsersService,
+    private _snackBar: MatSnackBar
+    ) {
     this.signupForm = this.fb.group({
       id: new FormControl(),
-      firstName: new FormControl('',[Validators.required]),
-      lastName: new FormControl('',[Validators.required]),
-      phone: new FormControl('',[Validators.required,Validators.minLength(10),Validators.maxLength(10), Validators.pattern(errorMessages.pattern.mobile)]),
-      gender: new FormControl('',[Validators.required]),
-      state: new FormControl('',[Validators.required]),
-      email: new FormControl('',[Validators.required , Validators.pattern(/^([\w+-.%]+@[\w-]+\.[A-Za-z]{2,})+$/)]),
-      userName: new FormControl('',[Validators.required]),
-      password: new FormControl('',[Validators.required,Validators.minLength(8), Validators.maxLength(18), Validators.pattern(errorMessages.pattern.password)]),
-      userType: new FormControl('',[Validators.required]),
+      firstName: new FormControl('', [Validators.required]),
+      lastName: new FormControl('', [Validators.required]),
+      phone: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(errorMessages.pattern.mobile)]),
+      gender: new FormControl('', [Validators.required]),
+      state: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.pattern(/^([\w+-.%]+@[\w-]+\.[A-Za-z]{2,})+$/)]),
+      userName: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(18), Validators.pattern(errorMessages.pattern.password)]),
+      userType: new FormControl('', [Validators.required]),
       profilePic: new FormControl('')
 
     });
+
+
+    
   }
 
-
+  openSuccessMessage(message: string, action: string) {
+    this._snackBar.open(message, action);
+  }
+  
   signedupUser(signupForm: FormGroup) {
     this.isLoading = true;
     // console.log("signupForm.controls");
@@ -71,38 +80,36 @@ export class SignupPageComponent {
     this.user.password = signupForm.get('password').value;
     this.user.userType = signupForm.get('userType').value;
     // this.user.profilePic = signupForm.get('profilePic').value;
-    if(this.user.gender == "male" )
-    {
-        // console.log(" is male? " + (this.user.gender == 'male'))
-        this.user.profilePic = this.male;
-      }
-      else{
-        this.user.profilePic = this.female;
-      }
+    if (this.user.gender == "male") {
+      // console.log(" is male? " + (this.user.gender == 'male'))
+      this.user.profilePic = this.male;
+    }
+    else {
+      this.user.profilePic = this.female;
+    }
 
-    
+
     // console.log(this.successSignup);
 
     this._users.postUsers(this.user)
-    .subscribe((res)=>{
-      if(res)
-      {
-        this.successSignup = res;
-        this.isLoading = false;
-        this.signupForm.reset();
-        this.route.navigate(['/auth/log-in']);
-      }
-    },
-    (err)=>{
-      this.isLoading = false;
-      console.log(err)
-    })
+      .subscribe((res) => {
+        if (res) {
+          this.successSignup = res;
+          this.isLoading = false;
+          this.openSuccessMessage('5','ok');
+          this.signupForm.reset();
+          this.route.navigate(['/auth/log-in']);
+        }
+      },
+        (err) => {
+          this.isLoading = false;
+          console.log(err)
+        })
 
 
   }
 
-  onReset()
-  {
+  onReset() {
     this.signupForm.reset();
   }
 

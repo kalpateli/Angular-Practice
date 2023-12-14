@@ -27,7 +27,16 @@ import { SearchFilterPipePipe } from './pipes/search-filter-pipe.pipe';
 // } from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { EditUserDialogue } from './DialogueBox/edit-user-dialogue';
+import {CommonSnackbar} from './DialogueBox/common_Snackbar'
 import { MatDialogModule } from '@angular/material/dialog';
+import {
+  MatSnackBar,
+  MatSnackBarModule,
+
+  // MatSnackBarAction,
+  // MatSnackBarActions,
+  // MatSnackBarLabel,
+} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -37,7 +46,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     PageNotFoundComponent,
     EmployeesComponent,
     SearchFilterPipePipe,
-    EditUserDialogue
+    EditUserDialogue,
+    CommonSnackbar
   ],
 
   
@@ -56,7 +66,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     // MatDialogClose,
     // MatDialogTitle,
     // MatDialogContent,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBar,
+    MatSnackBarModule
   ],
   
   providers: [Service1Service,
