@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -15,7 +16,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  constructor(private route: Router) {
+  constructor(private route: Router , private _auth : AuthService) {
   }
 
 
@@ -30,9 +31,7 @@ export class HeaderComponent implements OnInit {
   }
 
   onLogOut() {
-    localStorage.setItem('isLoggedIn', 'false');
-    localStorage.removeItem('userData',)
-    this.route.navigate(['/auth/log-in']);
+    this._auth.logOut();
   }
 
   clickHome() {

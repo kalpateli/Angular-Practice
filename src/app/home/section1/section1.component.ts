@@ -55,7 +55,7 @@ export class Section1Component implements OnInit, AfterViewInit, OnDestroy {
 
 
   ngOnChanges() {
-    console.log("section 1 : changed")
+    // console.log("section 1 : changed")
   }
 
   ngOnInit(): void {
@@ -74,7 +74,7 @@ export class Section1Component implements OnInit, AfterViewInit, OnDestroy {
       toArray()
       )
     .subscribe((res)=>{
-      console.log(res);
+      // console.log(res);
       this.userData=res;
     })
 
@@ -98,7 +98,7 @@ export class Section1Component implements OnInit, AfterViewInit, OnDestroy {
     })).subscribe(res=>{
         
         this.members = res;
-        console.log(res);
+        // console.log(res);
         this._rxjsPrac.printEl(res, 'mapContainer')
 
       }
@@ -195,7 +195,7 @@ export class Section1Component implements OnInit, AfterViewInit, OnDestroy {
       }, 1000)
     })
     this.subs3 = cusObs3.subscribe((res) => {
-      console.log(res);
+      // console.log(res);
       // this._rxjsPrac.printEl(res, 'ranNames');
       this.names=res
     })
@@ -243,7 +243,9 @@ export class Section1Component implements OnInit, AfterViewInit, OnDestroy {
     //of()
     const fruits = of("Apple", "banana", "Kiwi");
 
-    fruits.subscribe((res) => { console.log(res) })
+    fruits.subscribe((res) => { 
+      // console.log(res) 
+    })
   }
 
   ngAfterViewInit() {
@@ -260,7 +262,7 @@ export class Section1Component implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-  console.log("destroyed");
+  // console.log("destroyed");
     this.subs2.unsubscribe();
   }
 

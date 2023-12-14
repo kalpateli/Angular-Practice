@@ -1,28 +1,32 @@
-<p>module-2 works!</p>
 
 
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-3">
-            <input type="text">
-        </div>
+    <h1 class="title text-center">Countries</h1>
+    <div class="row text-center" >
+       
         <div class="col-md-6">
-            <div class="card text-bg-dark text-sm"  *ngFor="let country of countries | paginate : {itemsPerPage: pageSize , currentPage : currentPage}">
+            <div class="card text text-sm"
+                *ngFor="let country of countries | paginate : {itemsPerPage: pageSize , currentPage : currentPage}">
                 <div class="card-body">
 
                     <img [src]="country.flags.png" class="card-img" alt="...">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title">{{country.name.common}}</h5>
+                    <div class="text-dark">
+                        <h2 class="card-title">{{country.name.common}}</h2>
                         <p class="card-text" *ngIf="country.independent == true">Independent</p>
                     </div>
+                    <br>
+                    <br>
                 </div>
-                <br>
             </div>
+            <br>
+            <br>
+
         </div>
 
 
-        <pagination-controls (pageChange)="currentPage = $event"   ></pagination-controls>
-       
+
+        <pagination-controls class="text-center" (pageChange)="currentPage = $event"></pagination-controls>
+
     </div>
 </div>

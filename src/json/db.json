@@ -63,20 +63,7 @@
       "email": "abc12@gmail.com",
       "password": "Passw0rd!",
       "userType": "admin",
-      "profilePic": "../../../assets/Profile_pics/default.jpg"
-    },
-    {
-      "id": 6,
-      "firstName": "Sam",
-      "lastName": "Jose",
-      "phone": "93748173829",
-      "gender": "male",
-      "state": "Gujarat",
-      "userName": "Sam001",
-      "email": "sam001@gmail.com",
-      "password": "We1come!",
-      "userType": "employee",
-      "profilePic": "../../../assets/Profile_pics/default.jpg"
+      "profilePic": "../../../assets/Profile_pics/default_man.jpg"
     }
   ],
   "List": [

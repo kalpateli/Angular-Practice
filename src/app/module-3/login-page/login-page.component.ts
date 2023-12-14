@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Users } from 'src/app/home/Users';
+import { AuthService } from 'src/app/services/auth.service';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -14,8 +15,8 @@ import { UsersService } from 'src/app/services/users.service';
 export class LoginPageComponent implements OnInit {
 
   isLoading: boolean = false;
-  hide:boolean = true;
-
+  hide: boolean = true;
+  userType: string;
   isNotvalid: boolean = true;
   logInForm: FormGroup;
   users: any = {};
@@ -30,13 +31,13 @@ export class LoginPageComponent implements OnInit {
     "email": "",
     "password": "",
     "userType": "",
-    "profilePic" : ""
+    "profilePic": ""
   }
 
   constructor(private fb: FormBuilder,
     private route: Router,
-    private _users: UsersService) 
-  {
+    private _users: UsersService,
+    private _auth: AuthService) {
     this.logInForm = this.fb.group({
       id: new FormControl(),
       nameEmail: new FormControl('', [Validators.required]),
@@ -63,25 +64,24 @@ export class LoginPageComponent implements OnInit {
     this._users.get()
       .subscribe((res) => {
         this.users = (res.find((a: any) => {
-          let i: boolean = (a.userName === this.user.userName) && a.password === this.user.password;
-          // console.log(i);
-
-          // console.log("a:" + a.email + (a.userName) + (this.user.userName))
           return (a.email === this.user.userName || a.userName === this.user.userName) && a.password === this.user.password;
         }));
         if (this.users) {
           this.isLoading = false;
 
-          this.users.userType === "admin" ? localStorage.setItem('userType', 'admin') : localStorage.setItem('userType', 'employee')
+          this.userType = (this.users.userType == "admin" ? 'admin' : 'employee')
+          this._auth.setUserType(this.userType);
+          // localStorage.setItem('isLoggedIn', 'true');
+          this._auth.setIsLoggedIn();
+          this._auth.setUser(JSON.stringify(this.users))
+          // localStorage.setItem('userData', JSON.stringify(this.users));
 
-          localStorage.setItem('isLoggedIn', 'true');
-          localStorage.setItem('userData', JSON.stringify(this.users));
           this.logInForm.reset();
-          this.route.navigate(['/home', this.users.id,this.users.firstName],
-            { queryParams: {userId: this.users.id, userName: this.users.firstName } })
+          this.route.navigate(['/home', this.users.id, this.users.firstName],
+            { queryParams: { userId: this.users.id, userName: this.users.firstName } })
         }
         else {
-          localStorage.setItem('isLoggedIn', "false");
+          // localStorage.setItem('isLoggedIn', "false");
           this.isNotvalid = false;
           this.isLoading = false;
         }

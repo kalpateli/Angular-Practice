@@ -123,13 +123,13 @@
 
           <mat-form-field class="inlineField">
             <mat-label>First Name</mat-label>
-            <input type="text" matInput value="{{user.firstName}}" readonly>
+            <input type="text" matInput formControlName="firstName" readonly>
           </mat-form-field>
 
           <mat-form-field class="inlineField">
 
             <mat-label>Last Name</mat-label>
-            <input type="text" matInput value="{{user.lastName}}" readonly>
+            <input type="text" matInput formControlName="lastName" readonly>
           </mat-form-field>
 
         </div>
@@ -138,39 +138,38 @@
           <mat-form-field class="inlineField">
 
             <mat-label>Gender</mat-label>
-            <input type="text" matInput value="{{user.gender}}" readonly>
+            <input type="text" matInput formControlName="gender" readonly>
           </mat-form-field>
           <mat-form-field class="inlineField">
             <mat-label>Education State</mat-label>
-            <input type="text" matInput value="{{user.state}}" readonly>
+            <input type="text" matInput formControlName="state" readonly>
           </mat-form-field>
         </div>
         <div class="inpSignupfield">
           <mat-form-field class="inlineField">
             <mat-label>User Name</mat-label>
-            <input type="text" matInput value="{{user.userName}}" readonly>
+            <input type="text" matInput formControlName="userName" readonly>
           </mat-form-field>
 
           <mat-form-field class="inlineField">
             <mat-label>User Type</mat-label>
-            <input type="text" matInput value="{{user.userType}}" readonly>
+            <input type="text" matInput formControlName="userType" readonly>
           </mat-form-field>
         </div>
         <div class="inpSignupfield">
           <mat-form-field class="inlineField">
             <mat-label>Email</mat-label>
-            <input type="email" matInput value="{{user.email}}" readonly>
+            <input type="email" matInput formControlName="email" readonly>
           </mat-form-field>
           <mat-form-field class="inlineField">
             <mat-label>Phone</mat-label>
-            <input type="text" matInput value="{{user.phone}}" readonly>
+            <input type="text" matInput formControlName="phone" readonly>
           </mat-form-field>
         </div>
         <div class="inpSignupfield">
           <mat-form-field class="inlineField">
             <mat-label>Password</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'" value="{{user.password}}" readonly>
-
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" readonly>
           </mat-form-field>
         </div>
 

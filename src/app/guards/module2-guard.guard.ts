@@ -5,14 +5,14 @@ export const module2GuardGuard: CanActivateFn = (route, state) => {
   let userType =(localStorage.getItem('userType'));
   let isLoggedIn =(localStorage.getItem('isLoggedIn'));
 
-  if(userType == "employee" || isLoggedIn=="false")
+  if(userType == "admin" && isLoggedIn=="true")
   {
-    alert("not authenticated user")
-    return false;
+    return true;
   }
   else
   {
-    return true;
+    alert("not authenticated user");
+    return false;
   }
   
 };

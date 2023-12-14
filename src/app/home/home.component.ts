@@ -2,6 +2,7 @@ import { Component ,OnInit} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsersService } from '../services/users.service';
 import { Users } from './Users';
+import { AuthService } from '../services/auth.service';
 
 
 interface Data{
@@ -16,15 +17,16 @@ interface Data{
 export class HomeComponent implements OnInit{
   
   userName : string
-  userLoggedIn = JSON.parse(localStorage.getItem('userData'));
+  userLoggedIn : any;
   msg : string = "Hello";
-  userType : string = localStorage.getItem('userType');
+  userType : string ;
 
   users : Users[]=[];
   constructor(
     private router : Router,
     private route:ActivatedRoute, 
-    private _users:UsersService
+    private _users:UsersService,
+    private _auth: AuthService
     ){}
     
     ngOnInit(): void {
@@ -37,6 +39,9 @@ export class HomeComponent implements OnInit{
         console.log("userName"+this.userName);
       }
     );
+    this.userLoggedIn = this._auth.getUser();
+    this.userType = this._auth.getUserType();
+
   }
 
   getUsersApi(){

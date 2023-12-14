@@ -2,9 +2,9 @@
 
   <div class="container">
 
+    
     <h1>Welcome {{userName}},</h1>
-
-
+    
     <div class="row" *ngIf="userType == 'admin'">
 
       <div class="card col-md-2" *ngFor="let user of users">
@@ -22,7 +22,7 @@
 
     <div>
       <a [routerLink]="['/home/users',1,'Mita']" [queryParams]="{page:1,search:'Mita'}">
-        Get more details</a>
+        Get more details of Admin Mita</a>
     </div>
 
     <app-section1 [message]="msg"></app-section1>
