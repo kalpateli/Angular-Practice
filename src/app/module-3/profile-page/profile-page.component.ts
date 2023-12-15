@@ -39,6 +39,7 @@ export class ProfilePageComponent {
     "userType": "",
     "profilePic": ""
   }
+  basePath: string = "../../../assets/Profile_pics/"
   profileImage: string;
 
 
@@ -92,7 +93,7 @@ export class ProfilePageComponent {
     this.user.password = loggedUser.get('password').value;
     this.user.userType = loggedUser.get('userType').value;
     this.user.profilePic = loggedUser.get('profilePic').value;
-
+    
 
     console.log('');
     this.dialog.open(EditUserDialogue, {
@@ -129,7 +130,6 @@ export class ProfilePageComponent {
     this.profilechanged = false;
   }
 
-  basePath: string = "../../../assets/Profile_pics/"
   onUploadProfile(e) {
     this.isLoading = true;
 

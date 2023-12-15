@@ -4,12 +4,12 @@
     
     <mat-card class="example-card" style="width: 500px;">
         <mat-card-header>
-            <mat-card-title>Sign In PAGE</mat-card-title>
+            <mat-card-title>SIGN IN PAGE</mat-card-title>
             <mat-card-subtitle>Welcome Back !!</mat-card-subtitle>
         </mat-card-header>
         <form [formGroup]="logInForm" (ngSubmit)="loggedInUser(logInForm)">
             <div *ngIf="!isNotvalid" class="alert alert-danger" role="alert" style="text-align: center;">
-                The Credentials are Invalid !!
+                  {{invalidField}}  
             </div>
             <mat-card-content>
                 <div>

@@ -29,14 +29,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { EditUserDialogue } from './DialogueBox/edit-user-dialogue';
 import {CommonSnackbar} from './DialogueBox/common_Snackbar'
 import { MatDialogModule } from '@angular/material/dialog';
-import {
-  MatSnackBar,
-  MatSnackBarModule,
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
-  // MatSnackBarAction,
-  // MatSnackBarActions,
-  // MatSnackBarLabel,
-} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -67,7 +61,6 @@ import {
     // MatDialogTitle,
     // MatDialogContent,
     MatButtonModule,
-    MatSnackBar,
     MatSnackBarModule
   ],
   

@@ -64,6 +64,32 @@
       "password": "Passw0rd!",
       "userType": "admin",
       "profilePic": "../../../assets/Profile_pics/default_man.jpg"
+    },
+    {
+      "id": 6,
+      "firstName": "Sam",
+      "lastName": "Jose",
+      "phone": "9271827162",
+      "gender": "male",
+      "state": "Gujarat",
+      "userName": "Sam01",
+      "email": "sam001@gmail.com",
+      "password": "We1come!",
+      "userType": "admin",
+      "profilePic": "../../../assets/Profile_pics/default_man.jpg"
+    },
+    {
+      "id": 7,
+      "firstName": "Sam",
+      "lastName": "Jose",
+      "phone": "9372817261",
+      "gender": "male",
+      "state": "Gujarat",
+      "userName": "Sam001",
+      "email": "sam001@gmail.com",
+      "password": "Passw0rd!",
+      "userType": "employee",
+      "profilePic": "../../../assets/Profile_pics/default_man.jpg"
     }
   ],
   "List": [

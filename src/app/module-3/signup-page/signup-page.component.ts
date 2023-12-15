@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { errorMessages } from '../../errrorMessages';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBarRef } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-signup-page',
   templateUrl: './signup-page.component.html',
@@ -12,7 +13,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class SignupPageComponent {
 
-  // snackBarRef = inject(MatSnackBarRef);
+
+
   isLoading: boolean = false;
   hide: boolean = true;
   successSignup: boolean = false;
@@ -41,7 +43,7 @@ export class SignupPageComponent {
   constructor(private fb: FormBuilder,
     private route: Router,
     private _users: UsersService,
-    private _snackBar: MatSnackBar
+    private snackBar: MatSnackBar
     ) {
     this.signupForm = this.fb.group({
       id: new FormControl(),
@@ -55,15 +57,13 @@ export class SignupPageComponent {
       password: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(18), Validators.pattern(errorMessages.pattern.password)]),
       userType: new FormControl('', [Validators.required]),
       profilePic: new FormControl('')
-
     });
-
-
-    
   }
 
-  openSuccessMessage(message: string, action: string) {
-    this._snackBar.open(message, action);
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 5000, // Duration in milliseconds
+    });
   }
   
   signedupUser(signupForm: FormGroup) {
@@ -96,7 +96,8 @@ export class SignupPageComponent {
         if (res) {
           this.successSignup = res;
           this.isLoading = false;
-          this.openSuccessMessage('5','ok');
+          this.openSnackBar('You are Signed Up successfully', 'OK');
+          
           this.signupForm.reset();
           this.route.navigate(['/auth/log-in']);
         }
