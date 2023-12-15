@@ -29,6 +29,7 @@ export class HomeEmployeeComponent {
       }
     );
     this.userLoggedIn = this._auth.getUser();
+
   }
 
 
