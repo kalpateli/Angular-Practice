@@ -8,15 +8,25 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { module2GuardGuard } from './guards/module2-guard.guard';
 import { PreloadAllModules } from '@angular/router';
 import { EmployeesComponent } from './employees/employees.component';
+import { authLoadGuard } from './guards/auth-load.guard';
 
 const routes: Routes = [
   {path:'',
    redirectTo:'home',
    pathMatch:'full'
   },
+  // {path : 'home',
+  //   loadChildren:()=>import('./home/home.module')
+  //   .then(mod=>mod.HomeModule),
+  // },
   {path : 'home',
-    loadChildren:()=>import('./home/home.module')
-    .then(mod=>mod.HomeModule),
+  canMatch:[authLoadGuard],
+    loadChildren:()=>import('./home-admin/home-admin.module')
+    .then(mod=>mod.HomeAdminModule),
+  },
+  {path : 'home',
+    loadChildren:()=>import('./home-employee/home-employee.module')
+    .then(mod=>mod.HomeEmployeeModule),
   },
   {path : 'about-us', component: AboutUsComponent},
   {path : 'module-2', component: Module2Component},

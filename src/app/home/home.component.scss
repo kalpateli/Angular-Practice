@@ -4,8 +4,9 @@ button {
 
 
 .container {
-    height: 100vh;
+    padding: 50px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-  }
+}
