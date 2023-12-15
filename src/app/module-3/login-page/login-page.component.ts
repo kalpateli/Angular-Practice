@@ -85,10 +85,10 @@ export class LoginPageComponent implements OnInit {
               this._auth.setIsLoggedIn();
               this._auth.setUser(JSON.stringify(this.users));
               this.logInForm.reset();
-              // this.route.navigate(['/home', this.users.id, this.users.firstName], {
-              //   queryParams: { userId: this.users.id, userName: this.users.firstName }
-              // });
-              this.route.navigate(['/home']);
+              this.route.navigate(['/home', this.users.id, this.users.firstName], {
+                queryParams: { userId: this.users.id, userName: this.users.firstName }
+              });
+              // this.route.navigate(['/home']);
             } else {
               this.isNotvalid = false;
               this.isLoading = false;

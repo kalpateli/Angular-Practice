@@ -5,6 +5,7 @@ import { HomeEmployeeComponent } from './home-employee/home-employee.component';
 const routes: Routes = [
 
   {path:'',component:HomeEmployeeComponent},
+  {path : ':id/:name', component: HomeEmployeeComponent,},
 
 ];
 

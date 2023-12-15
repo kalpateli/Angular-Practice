@@ -1,1 +1,14 @@
-<p>home-admin works!</p>
+<div class="container">    
+    <h1>Welcome {{userName}},</h1>
+    <div class="row" >
+      <div class="card col-md-2" *ngFor="let user of users">
+        <div class="card-body">
+          <span class="card-title">{{user.firstName}}</span>
+          <span class="card-title"> {{user.lastName}}</span>
+          <div>
+            <button class="btn btn-primary col-md-6 center" (click)="onSelect(user)">View</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

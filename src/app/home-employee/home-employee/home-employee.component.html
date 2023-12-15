@@ -1,1 +1,28 @@
-<p>home-employee works!</p>
+<ng-container *ngIf="userLoggedIn;else elseBlock">
+
+    <div class="container">
+  
+      
+      <h1>Welcome {{userName}},</h1>
+      
+  
+    </div>
+  
+  </ng-container>
+  
+  
+  <ng-template #elseBlock>
+    <div class="container">
+  
+      <div class="title text-center ">
+        <h1>Welcome To The Website</h1>
+      </div>
+  
+      <div class="title text-center  ">
+        <span>Please Log In If You Have Already Registered Or Register Yourself</span>
+        <br>
+        <a routerLink="/auth/sign-up"> SIGN UP </a> /<a routerLink="/auth/log-in"> LOG IN </a>
+      </div>
+    </div>
+  
+  </ng-template>

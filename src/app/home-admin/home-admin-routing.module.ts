@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeAdminComponent } from './home-admin/home-admin.component';
 
 const routes: Routes = [
-  {path:'',component:HomeAdminComponent},
+  {path : ':id/:name', component: HomeAdminComponent,},
 ];
 
 @NgModule({

@@ -1,12 +1,8 @@
 <ng-container *ngIf="userLoggedIn;else elseBlock">
 
-  <div class="container">
-
-    
+  <div class="container">    
     <h1>Welcome {{userName}},</h1>
-    
     <div class="row" *ngIf="userType == 'admin'">
-
       <div class="card col-md-2" *ngFor="let user of users">
         <div class="card-body">
           <span class="card-title">{{user.firstName}}</span>
@@ -15,7 +11,6 @@
             <button class="btn btn-primary col-md-6 center" (click)="onSelect(user)">View</button>
           </div>
         </div>
-
       </div>
     </div>
 
