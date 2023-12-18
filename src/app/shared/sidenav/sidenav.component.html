@@ -1,0 +1,14 @@
+Hello
+
+<mat-sidenav-container >
+    <mat-sidenav #sidenav mode="side" opened>
+        <mat-nav-list>
+            <mat-list-item>
+                <a routerLink="/dashboard">Dashboard</a>
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet> 
+    </mat-sidenav-content>
+</mat-sidenav-container>
