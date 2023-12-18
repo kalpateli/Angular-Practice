@@ -11,7 +11,7 @@ import {
   from,
   map
 } from 'rxjs';
-import { RxjsPracService } from 'src/app/services/rxjs-prac.service';
+import { RxjsPracService } from 'src/app/shared/services/rxjs-prac.service';
 
 @Component({
   selector: 'app-section1',

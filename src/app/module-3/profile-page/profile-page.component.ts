@@ -4,8 +4,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { EditUserDialogue } from 'src/app/DialogueBox/edit-user-dialogue';
 import { errorMessages } from 'src/app/errrorMessages';
 import { Users } from 'src/app/home/Users';
-import { AuthService } from 'src/app/services/auth.service';
-import { UsersService } from 'src/app/services/users.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { UsersService } from 'src/app/shared/services/users.service';
 // import {  } from '../../../assets/Profile_pics';
 
 @Component({

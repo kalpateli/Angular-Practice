@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Users } from '../home/Users';
+import { Users } from '../../home/Users';
 import { Observable , map , catchError , of  } from 'rxjs';
-import { apiUrls } from '../apiUrls';
+import { apiUrls } from '../../apiUrls';
 @Injectable({
   providedIn: 'root'
 })

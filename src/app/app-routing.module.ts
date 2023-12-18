@@ -4,10 +4,10 @@ import { AboutUsComponent } from './shared/Components/about-us/about-us.componen
 import { SignupPageComponent } from './module-3/signup-page/signup-page.component';
 import { LoginPageComponent } from './module-3/login-page/login-page.component';
 import { Module2Component } from './module-2/module-2.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from './shared/Components/page-not-found/page-not-found.component';
 import { authLogged } from './shared/guards/auth-logged.guard';
 import { PreloadAllModules } from '@angular/router';
-import { EmployeesComponent } from './employees/employees.component';
+import { UsersComponent } from './users/users.component';
 import { authRoleGuard } from './shared/guards/auth-role.guard';
 
 const routes: Routes = [
@@ -21,16 +21,16 @@ const routes: Routes = [
   // },
   {path : 'home',
   canMatch:[authRoleGuard],
-    loadChildren:()=>import('./home-admin/home-admin.module')
-    .then(mod=>mod.HomeAdminModule),
+    loadChildren:()=>import('./admin/admin.module')
+    .then(mod=>mod.AdminModule),
   },
   {path : 'home',
-    loadChildren:()=>import('./home-employee/home-employee.module')
-    .then(mod=>mod.HomeEmployeeModule),
+    loadChildren:()=>import('./employees/employees.module')
+    .then(mod=>mod.EmployeesModule),
   },
   {path : 'about-us', component: AboutUsComponent},
   {path : 'module-2', component: Module2Component},
-  {path : 'employees', component: EmployeesComponent , canActivate:[authLogged]},
+  {path : 'employees', component: UsersComponent , canActivate:[authLogged]},
   
   {
     path : 'auth' , 
@@ -40,7 +40,7 @@ const routes: Routes = [
     //       {path:'log-in', component: LoginPageComponent},
     //     ]
 
-    loadChildren:()=>import('./module-3/module-3.module')
+    loadChildren:()=>import('./module-3/auth.module')
     .then(mod=>mod.Module3Module)
 
   },

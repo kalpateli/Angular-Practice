@@ -1,8 +1,8 @@
 import { Component ,OnInit} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UsersService } from '../services/users.service';
+import { UsersService } from '../shared/services/users.service';
 import { Users } from './Users';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../shared/services/auth.service';
 
 
 interface Data{
