@@ -11,23 +11,23 @@ import { AuthService } from '../services/auth.service';
 
 export class HeaderComponent implements OnInit {
 
-
-  currUser = JSON.parse(localStorage.getItem('userData'));
+  currUser : any
   ngOnInit() {
   }
-
+  
   constructor(private route: Router , private _auth : AuthService) {
+    this.currUser = this._auth.getUser();
+
   }
 
 
 
   loggedIn() {
-    return localStorage.getItem('isLoggedIn') === 'true';
+    return this._auth.getIsLoggedIn() ;
   }
 
   onProfile() {
-    this.currUser = JSON.parse(localStorage.getItem('userData'));
-    this.route.navigate(['/auth/profile', this.currUser.id, this.currUser.userName])
+    this.route.navigate(['/auth/profile'])
   }
 
   onLogOut() {
@@ -35,7 +35,6 @@ export class HeaderComponent implements OnInit {
   }
 
   clickHome() {
-    this.currUser = JSON.parse(localStorage.getItem('userData'));
     if (!this.currUser) {
       this.route.navigate(['/home'])
     }

@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { AboutUsComponent } from './about-us/about-us.component';
+import { AboutUsComponent } from './shared/Components/about-us/about-us.component';
 import { Module2Module } from './module-2/module-2.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { Service1Service } from './home/services/service1.service';

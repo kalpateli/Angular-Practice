@@ -6,6 +6,7 @@ import { errorMessages } from 'src/app/errrorMessages';
 import { Users } from 'src/app/home/Users';
 import { AuthService } from 'src/app/services/auth.service';
 import { UsersService } from 'src/app/services/users.service';
+// import {  } from '../../../assets/Profile_pics';
 
 @Component({
   selector: 'app-profile-page',
@@ -39,7 +40,9 @@ export class ProfilePageComponent {
     "userType": "",
     "profilePic": ""
   }
+  // basePath: string = "../../../../documents/ProfilePics/"
   basePath: string = "../../../assets/Profile_pics/"
+
   profileImage: string;
 
 
@@ -65,17 +68,16 @@ export class ProfilePageComponent {
 
 
     })
-
-
-
-    // if ('indexedDB' in window) {
-
-    //   console.log('IndexedDB is  supported in this browser.');
-
-    // } else {
-    //   console.log('IndexedDB is not supported in this browser.');
-    // }
   }
+
+
+  // if ('indexedDB' in window) {
+
+  //   console.log('IndexedDB is  supported in this browser.');
+
+  // } else {
+  //   console.log('IndexedDB is not supported in this browser.');
+  // }
 
 
 
@@ -93,7 +95,7 @@ export class ProfilePageComponent {
     this.user.password = loggedUser.get('password').value;
     this.user.userType = loggedUser.get('userType').value;
     this.user.profilePic = loggedUser.get('profilePic').value;
-    
+
 
     console.log('');
     this.dialog.open(EditUserDialogue, {
@@ -133,6 +135,7 @@ export class ProfilePageComponent {
   onUploadProfile(e) {
     this.isLoading = true;
 
+
     if (e.target.files) {
       var reader = new FileReader();
       const file = e.target.files[0];
@@ -152,10 +155,24 @@ export class ProfilePageComponent {
   }
 
 
+
   saveProfile() {
     this.isLoading = true;
 
+    this.user.id = this.currUser.id;
+    this.user.firstName = this.currUser.firstName;
+    this.user.lastName = this.currUser.lastName;
+    this.user.phone = this.currUser.phone;
+    this.user.gender = this.currUser.gender;
+    this.user.state = this.currUser.state;
+    this.user.userName = this.currUser.userName;
+    this.user.email = this.currUser.email;
+    this.user.password = this.currUser.password;
+    this.user.userType = this.currUser.userType;
     this.user.profilePic = this.profileImage;
+
+
+    // this.updateUser()
     this._usersService.updateUser(this.user)
       .subscribe((res) => {
         if (res) {

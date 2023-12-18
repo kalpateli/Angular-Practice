@@ -7,7 +7,7 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 const routes: Routes = [
   {path:'sign-up', component: SignupPageComponent},
   {path:'log-in', component: LoginPageComponent},
-  {path:'profile/:id/:username', component: ProfilePageComponent}
+  {path:'profile', component: ProfilePageComponent}
 
 ];
 

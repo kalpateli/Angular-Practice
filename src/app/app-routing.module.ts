@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutUsComponent } from './about-us/about-us.component';
+import { AboutUsComponent } from './shared/Components/about-us/about-us.component';
 import { SignupPageComponent } from './module-3/signup-page/signup-page.component';
 import { LoginPageComponent } from './module-3/login-page/login-page.component';
 import { Module2Component } from './module-2/module-2.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { module2GuardGuard } from './guards/module2-guard.guard';
+import { authLogged } from './shared/guards/auth-logged.guard';
 import { PreloadAllModules } from '@angular/router';
 import { EmployeesComponent } from './employees/employees.component';
-import { authLoadGuard } from './guards/auth-load.guard';
+import { authRoleGuard } from './shared/guards/auth-role.guard';
 
 const routes: Routes = [
   {path:'',
@@ -20,7 +20,7 @@ const routes: Routes = [
   //   .then(mod=>mod.HomeModule),
   // },
   {path : 'home',
-  canMatch:[authLoadGuard],
+  canMatch:[authRoleGuard],
     loadChildren:()=>import('./home-admin/home-admin.module')
     .then(mod=>mod.HomeAdminModule),
   },
@@ -30,7 +30,7 @@ const routes: Routes = [
   },
   {path : 'about-us', component: AboutUsComponent},
   {path : 'module-2', component: Module2Component},
-  {path : 'employees', component: EmployeesComponent , canActivate:[module2GuardGuard]},
+  {path : 'employees', component: EmployeesComponent , canActivate:[authLogged]},
   
   {
     path : 'auth' , 
