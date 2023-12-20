@@ -10,17 +10,13 @@ import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/Components/header/header.component';
 import { AboutUsComponent } from './shared/Components/about-us/about-us.component';
-import { UsersComponent } from './users/users.component';
 import { PageNotFoundComponent } from './shared/Components/page-not-found/page-not-found.component';
 import { Service1Service } from './home/services/service1.service';
 import { Service2Service } from './home/services/service2.service';
 import { CountriesService } from './module-2/services/countries.service';
 import { UsersService } from './shared/services/users.service';
-import { SearchFilterPipePipe } from './pipes/search-filter-pipe.pipe';
 import { MatButtonModule} from '@angular/material/button';
-import { EditUserDialogue } from './DialogueBox/edit-user-dialogue';
 import { MatDialogModule } from '@angular/material/dialog';
-import { CommonSnackbar} from './DialogueBox/common_Snackbar'
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
@@ -28,11 +24,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     HeaderComponent,
     AboutUsComponent,
     PageNotFoundComponent,
-    UsersComponent,
-    SearchFilterPipePipe,
-    EditUserDialogue,
-    CommonSnackbar,
-    UsersComponent,
   ],
 
   

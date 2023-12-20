@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { EditUserDialogue } from 'src/app/DialogueBox/edit-user-dialogue';
+import { EditUserDialogue } from 'src/app/shared/DialogueBox/edit-user-dialogue';
 import { errorMessages } from 'src/app/errrorMessages';
 import { Users } from 'src/app/home/Users';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { UsersService } from 'src/app/shared/services/users.service';
-// import {  } from '../../../assets/Profile_pics';
 
 @Component({
   selector: 'app-profile-page',
@@ -97,7 +96,6 @@ export class ProfilePageComponent {
     this.user.profilePic = loggedUser.get('profilePic').value;
 
 
-    console.log('');
     this.dialog.open(EditUserDialogue, {
       width: '250px',
     }).afterClosed().subscribe(result => {
@@ -118,7 +116,7 @@ export class ProfilePageComponent {
             }
           });
       } else {
-        console.log('User clicked "No" or closed the dialog without taking any action');
+        console.log('clicked cancel');
       }
     });
 

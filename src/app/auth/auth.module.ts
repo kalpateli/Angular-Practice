@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { Module3RoutingModule } from './module-3-routing.module';
+import { Module3RoutingModule } from './auth-routing.module';
 import { SignupPageComponent } from './signup-page/signup-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
-import { Module3Component } from './module-3.component';
+import { AuthComponent } from './auth.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -16,13 +16,13 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatIconModule} from '@angular/material/icon';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { UsersService } from '../shared/services/users.service';
-
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
     SignupPageComponent,
     LoginPageComponent,
-    Module3Component,
+    AuthComponent,
     ProfilePageComponent
   ],
   imports: [
@@ -40,15 +40,16 @@ import { UsersService } from '../shared/services/users.service';
     MatFormFieldModule,
     MatRadioModule,
     MatSelectModule,
-    MatIconModule
+    MatIconModule,
+    SharedModule,
 
   ],
   providers:[
     UsersService
   ]
 })
-export class Module3Module { 
+export class AuthModule { 
   constructor(){
-    console.log("module-3 loaded");
+    console.log("Auth Module loaded");
   }
 }

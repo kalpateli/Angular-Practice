@@ -1,17 +1,17 @@
 import { Component, Input, OnInit, Output, EventEmitter, OnChanges } from '@angular/core';
-import { Employee } from '../Employee';
-import { EmployeesService } from '../shared/services/employees.service';
+import { Employee } from '../../../Employee';
+import { EmployeesService } from '../../../shared/services/employees.service';
 import { map } from 'rxjs';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { errorMessages } from '../errrorMessages';
+import { errorMessages } from '../../../errrorMessages';
 
 @Component({
-  selector: 'app-users',
-  templateUrl: './users.component.html',
-  styleUrls: ['./users.component.scss']
+  selector: 'app-employee-list',
+  templateUrl: './employee-list.component.html',
+  styleUrls: ['./employee-list.component.scss']
 })
 
-export class UsersComponent implements OnInit , OnChanges {
+export class EmployeeListComponent implements OnInit , OnChanges {
 
   errorMessages = errorMessages;
   empTitle : string = "EMPLOYEE DETAILS";

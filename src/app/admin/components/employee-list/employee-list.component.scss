@@ -39,3 +39,11 @@ table {
   border-bottom: darkgray 1px solid ;
   padding: 10px;
 }
+
+.modal-content{
+  z-index: 10000;
+}
+
+.modal-backdrop.show {
+  opacity: 0;
+}

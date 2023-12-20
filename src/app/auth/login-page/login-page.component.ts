@@ -55,11 +55,11 @@ export class LoginPageComponent implements OnInit {
   loggedInUser(logInForm: FormGroup) {
     this.isLoading = true;
 
-    console.log(logInForm.controls);
+    // console.log(logInForm.controls);
     // this.user.userName = logInForm.get('username').value;
     this.user.userName = logInForm.get('nameEmail').value;
     this.user.password = logInForm.get('userpassword').value;
-    console.log(this.user.userName + " " + this.user.email + " " + this.user.password);
+    // console.log(this.user.userName + " " + this.user.email + " " + this.user.password);
 
     if (this.user.userName == '' || this.user.password == '') {
       this.isNotvalid = false;

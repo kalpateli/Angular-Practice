@@ -1,27 +1,52 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatSidenav } from '@angular/material/sidenav';
-import { SidenavComponent } from './sidenav/sidenav.component';
+// import { MatSidenav } from '@angular/material/sidenav';
+import { SidenavComponent } from './Components/sidenav/sidenav.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { AuthService } from './services/auth.service';
+import { EmployeesService } from './services/employees.service';
+import { RxjsPracService } from './services/rxjs-prac.service';
+import { UsersService } from './services/users.service';
+import { SidenavService } from './services/sidenav.service';
+import { RouterModule } from '@angular/router';
+import { SearchFilterPipePipe } from './pipes/search-filter-pipe.pipe';
+import { EditUserDialogue } from './DialogueBox/edit-user-dialogue';
+import { CommonSnackbar } from './DialogueBox/common_Snackbar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 @NgModule({
   declarations: [
-    SidenavComponent
+    SidenavComponent,
+    EditUserDialogue,
+    CommonSnackbar,
+    SearchFilterPipePipe
   ],
   imports: [
     CommonModule,
-    MatSidenav,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    RouterModule,
+
+  ],
+  providers:[
+    AuthService,
+    EmployeesService,
+    RxjsPracService,
+    UsersService,
+    SidenavService
   ],
   exports :[
     SidenavComponent,
     MatSidenavModule,
-    MatSidenav,
-    MatListModule
+    MatListModule,
+    SearchFilterPipePipe,
+    EditUserDialogue,
+    CommonSnackbar,
+    MatSnackBarModule
 
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+
+  ]
 })
 export class SharedModule { }

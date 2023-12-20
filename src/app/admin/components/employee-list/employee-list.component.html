@@ -9,7 +9,7 @@
         <div class="container-fluid col-md-11 text-align-center">
             <div class="row d-flex justify-content-between align-items-center">
                 <div class="col-md-2">
-                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createModal">Add
+                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createEmpModal">Add
                         New</button>
                 </div>
                 <div class="col-md-6 d-flex justify-content-end">
@@ -83,7 +83,7 @@
                             <td>{{employee.address.country}}</td>
                             <td>
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#editempModel" (click)="onEdit(employee)">
+                                    data-bs-target="#editEmpModel" (click)="onEdit(employee)">
                                     Edit
                                 </button>
                             </td>
@@ -96,7 +96,7 @@
                 </div>
             </div>
 
-            <div class="modal" id="editempModel">
+            <div class="modal" id="editEmpModel">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -245,8 +245,8 @@
             </div>
 
 
-            <div class="modal" id="createModal">
-                <div class="modal-dialog modal-dialog-centered">
+            <div class="modal fade" id="createEmpModal" tabindex="-1">
+                <div class=" modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h2 class="modal-title">Enter the details of the new Employee </h2>

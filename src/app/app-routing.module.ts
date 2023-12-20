@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './shared/Components/about-us/about-us.component';
-import { SignupPageComponent } from './module-3/signup-page/signup-page.component';
-import { LoginPageComponent } from './module-3/login-page/login-page.component';
+import { SignupPageComponent } from './auth/signup-page/signup-page.component';
+import { LoginPageComponent } from './auth/login-page/login-page.component';
 import { Module2Component } from './module-2/module-2.component';
 import { PageNotFoundComponent } from './shared/Components/page-not-found/page-not-found.component';
 import { authLogged } from './shared/guards/auth-logged.guard';
 import { PreloadAllModules } from '@angular/router';
-import { UsersComponent } from './users/users.component';
+// import { UsersComponent } from './employees/components/employee-list/employee-list.component';
 import { authRoleGuard } from './shared/guards/auth-role.guard';
 
 const routes: Routes = [
@@ -15,10 +15,7 @@ const routes: Routes = [
    redirectTo:'home',
    pathMatch:'full'
   },
-  // {path : 'home',
-  //   loadChildren:()=>import('./home/home.module')
-  //   .then(mod=>mod.HomeModule),
-  // },
+
   {path : 'home',
   canMatch:[authRoleGuard],
     loadChildren:()=>import('./admin/admin.module')
@@ -29,8 +26,8 @@ const routes: Routes = [
     .then(mod=>mod.EmployeesModule),
   },
   {path : 'about-us', component: AboutUsComponent},
-  {path : 'module-2', component: Module2Component},
-  {path : 'employees', component: UsersComponent , canActivate:[authLogged]},
+  {path : 'module-2', component: Module2Component,canActivate:[authLogged]},
+  // {path : 'employees', component: UsersComponent , canActivate:[authLogged]},
   
   {
     path : 'auth' , 
@@ -40,8 +37,8 @@ const routes: Routes = [
     //       {path:'log-in', component: LoginPageComponent},
     //     ]
 
-    loadChildren:()=>import('./module-3/auth.module')
-    .then(mod=>mod.Module3Module)
+    loadChildren:()=>import('./auth/auth.module')
+    .then(mod=>mod.AuthModule)
 
   },
   //wildCard Route
@@ -61,3 +58,5 @@ const routes: Routes = [
 
 
 export class AppRoutingModule { }
+
+

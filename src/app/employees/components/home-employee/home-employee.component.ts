@@ -11,29 +11,25 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 
 export class HomeEmployeeComponent {
 
-   
-  userName : string
-  userLoggedIn : any;
+  id: number;
+  userName: string
+  userLoggedIn: any;
 
   constructor(
-    private route:ActivatedRoute, 
+    private route: ActivatedRoute,
     private _auth: AuthService
-    ){}
-    
-    ngOnInit(): void {
-    this.route.paramMap.subscribe(
-      params => {
-        // this.userId= parseInt(params.get('id'));
-        this.userName= params.get('name');
-        console.log("userName"+this.userName);
-      }
-    );
+  ) { }
+
+  ngOnInit(): void {
+
+
     this.userLoggedIn = this._auth.getUser();
+    this.userName = this.userLoggedIn.firstName;
 
   }
 
 
-  
 
- 
+
+
 }

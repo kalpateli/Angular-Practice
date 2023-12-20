@@ -16,6 +16,8 @@ interface Data {
 
 
 export class HomeAdminComponent {
+  
+  id: number;
   userName: string
   userLoggedIn: any;
   users: Users[] = [];
@@ -29,21 +31,16 @@ export class HomeAdminComponent {
 
   ngOnInit(): void {
     this.getUsersApi();
-    this.route.paramMap.subscribe(
-      params => {
-        // this.userId= parseInt(params.get('id'));
-        this.userName = params.get('name');
-        console.log("userName" + this.userName);
-      }
-    );
+    
     this.userLoggedIn = this._auth.getUser();
+    this.userName = this.userLoggedIn.firstName;
 
   }
 
   getUsersApi() {
     this._users.get()
       .subscribe((data) => {
-        console.log(data);
+        // console.log(data);
         this.users = data;
       })
   }
