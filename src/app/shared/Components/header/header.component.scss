@@ -6,3 +6,36 @@
 {
     margin: 5px;
 }
+
+// .header-container
+// {
+//   height: fit-content;
+//   background: #000;
+// }
+
+// .navbar-container{
+//   background-color: #000;
+// }
+
+.bgNav{
+  background-color: #0d6efd;
+  color: white;
+
+}
+
+.bgNav a{
+  color: white;
+}
+
+.bgDropdown a{
+  color: black;
+}
+
+.bgDropdown a:hover{
+  color: white;
+  background-color: #0d6efd;
+}
+
+.model-backdrop.show{
+  z-index: -1;
+}

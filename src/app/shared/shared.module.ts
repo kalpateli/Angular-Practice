@@ -5,7 +5,6 @@ import { SidenavComponent } from './Components/sidenav/sidenav.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { AuthService } from './services/auth.service';
-import { EmployeesService } from './services/employees.service';
 import { RxjsPracService } from './services/rxjs-prac.service';
 import { UsersService } from './services/users.service';
 import { SidenavService } from './services/sidenav.service';
@@ -32,7 +31,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
   ],
   providers:[
     AuthService,
-    EmployeesService,
     RxjsPracService,
     UsersService,
     SidenavService

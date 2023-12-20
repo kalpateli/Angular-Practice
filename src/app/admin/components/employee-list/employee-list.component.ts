@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter, OnChanges } from '@angular/core';
 import { Employee } from '../../../Employee';
-import { EmployeesService } from '../../../shared/services/employees.service';
+import { EmployeesService } from '../../services/employees.service';
 import { map } from 'rxjs';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { errorMessages } from '../../../errrorMessages';

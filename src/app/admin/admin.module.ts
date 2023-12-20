@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { EmployeeListComponent } from './components/employee-list/employee-list.component';
+import { EmployeesService } from './services/employees.service';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,9 @@ import { EmployeeListComponent } from './components/employee-list/employee-list.
     MatSidenavModule,
     SharedModule
 
+  ],
+  providers:[
+    EmployeesService,
   ]
 })
 
