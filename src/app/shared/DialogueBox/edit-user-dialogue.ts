@@ -4,13 +4,15 @@ import { MatDialogRef } from "@angular/material/dialog";
 @Component({
     selector:'app-edit-user-dialogue',
     template : `
-    <h1 mat-dialog-title>Save Changes ?</h1>
-    <div mat-dialog-content>
+    <div class="dialogue-container">
+    <h1 mat-dialog-title class="dialogue-title">Save Changes ?</h1>
+    <div mat-dialog-content class="dialogue-content">
     Are You sure You Want to Save the Changes?
     </div>
-    <div mat-dialog-actions>
+    <div mat-dialog-actions class="dialogue-buttons">
     <button mat-button  (click)="closeDialog(false)" mat-dialog-close>No</button>
-    <button mat-button  (click)="closeDialog(true)" mat-dialog-close cdkFocusInitial>Ok</button>
+    <button mat-button  (click)="closeDialog(true)" mat-dialog-close cdkFocusInitial>Yes</button>
+    </div>
     </div>
     `,
 })

@@ -32,16 +32,20 @@
         </ul>
       </div>
       <ul class="nav nav-pills ml-auto">
-        <button type="button" class="btn btn-danger  " data-bs-toggle="modal" data-bs-target="#editModel"
+        <button type="button" class="btn btn-danger" (click)="onLogOut()"
           *ngIf="loggedIn()">
           LogOut
         </button>
+        <!-- <button type="button" class="btn btn-danger  " data-bs-toggle="modal" data-bs-target="#editModel"
+        *ngIf="loggedIn()">
+        LogOut
+      </button> -->
       </ul>
     </div>
   </div>
 
 <!-- </div> -->
-
+<!-- 
 
 
 <div class="modal  " tabindex="-1" id="editModel">
@@ -60,4 +64,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

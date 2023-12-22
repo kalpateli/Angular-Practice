@@ -7,7 +7,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif }
 
 
 ul.techList li{
-    
     color: white;
     border: 1px solid #d1d1d1;
     border-radius: 5px;
@@ -16,7 +15,6 @@ ul.techList li{
 }
 
 ul.techList.error li{
-    
     color: red;
     border: 1px solid red;
     border-radius: 5px;
@@ -25,15 +23,51 @@ ul.techList.error li{
 }
 
 ul.techList.complete li{
-        
     color: #3dd843;
     border: 1px solid #3dd843;
     border-radius: 5px;
     padding : 7px 13px;
     margin-bottom : 10px; 
-   
 }
 
-.modal-backdrop.show {
-    opacity: 0;
+.dialogue-title {
+    color: #2196F3; /* Set the color for the title */
   }
+
+  .dialogue-content {
+    margin-top:20px;
+    width: 100%;
+    font-size: 16px; /* Set the font size for the content */
+  }
+
+  .dialogue-buttons {
+    margin-top:30px;
+    display: flex;
+    justify-content:center; /* Align buttons to the right */
+
+  }
+
+  .dialogue-buttons button {
+    margin-left: 10px; /* Add margin to buttons */
+    width:150px;
+    border: none;
+    background-color: #2196F3;
+    color: white;
+    border-radius: 10px;
+    padding: 7px;
+  }
+
+  .dialogue-buttons button:hover {
+  
+    background-color: #008cff;
+    color: white;
+    
+  }
+
+.dialogue-container{
+    width : 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}

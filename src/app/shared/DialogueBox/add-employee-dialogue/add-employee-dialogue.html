@@ -1,0 +1,125 @@
+<div class="dialogue-container">
+    <h1 mat-dialog-title class='dialogue-title'>Enter the details of the new Employee</h1>
+    <form [formGroup]="employeeDetails" (ngSubmit)="employeeDetails.valid && onCreateEmp(employeeDetails)">
+        <div mat-dialog-content class='dialogue-content'>
+            <div class="mb-1">
+                <label for="_firstname" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="_firstname" aria-describedby="firstName" name="firstName"
+                    formControlName="firstName"
+                    [ngClass]="{ 'errorInp': f('firstName')?.touched && f('firstName')?.errors }">
+                <div *ngIf="f('firstName')?.touched && f('firstName')?.errors?.required"
+                    [ngClass]="{ 'error': f('firstName')?.touched && f('firstName')?.errors }">
+                    {{errorMessages.errors.required}}
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="_lastname" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="_lastname" aria-describedby="lastName" name="lastName"
+                    formControlName="lastName"
+                    [ngClass]="{ 'errorInp': f('lastName')?.touched && f('lastName')?.errors }">
+                <div *ngIf="f('lastName')?.touched && f('lastName')?.errors?.required"
+                    [ngClass]="{ 'error': f('lastName')?.touched && f('firstName')?.errors }">
+                    {{errorMessages.errors.required}}
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="_email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="_email" aria-describedby="email" name="email"
+                    formControlName="email" [ngClass]="{ 'errorInp': f('email')?.touched && f('email')?.errors }">
+                <div *ngIf="f('email')?.touched && f('email')?.errors?.required"
+                    [ngClass]="{ 'error': f('email')?.touched && f('email')?.errors }">
+                    {{errorMessages.errors.required}}
+                </div>
+                <div *ngIf=" f('email')?.errors?.pattern"
+                    [ngClass]="{ 'error': f('email')?.touched && f('email')?.errors }">
+                    {{errorMessages.errors.valid_email}}
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="_mobile" class="form-label">Mobile no</label>
+                <input type="text" class="form-control" id="_mobile" aria-describedby="mobile" name="mobile"
+                    formControlName="mobile" [ngClass]="{ 'errorInp': f('mobile')?.touched && f('mobile')?.errors }">
+                <div *ngIf="f('mobile')?.touched && f('mobile')?.errors?.required"
+                    [ngClass]="{ 'error': f('mobile')?.touched && f('mobile')?.errors }">
+                    {{errorMessages.errors.required}}
+                </div>
+                <div *ngIf="f('mobile')?.errors?.pattern || f('mobile')?.errors?.minlength || f('mobile')?.errors?.maxlength"
+                    [ngClass]="{ 'error': f('mobile')?.touched && f('mobile')?.errors }">
+                    {{errorMessages.errors.valid_mobile}}
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="_employee_no" class="form-label">Employee number</label>
+                <input type="number" class="form-control" id="_employee_no" aria-describedby="employee_no"
+                    name="employee_no" formControlName="employee_no"
+                    [ngClass]="{ 'errorInp': f('employee_no')?.touched && f('employee_no')?.errors }">
+                <div *ngIf="f('employee_no')?.touched && f('employee_no')?.errors?.required"
+                    [ngClass]="{ 'error': f('employee_no')?.touched && f('employee_no')?.errors }">
+                    {{errorMessages.errors.required}}
+                </div>
+                <div *ngIf=" f('employee_no')?.errors?.pattern  || f('employee_no')?.errors?.min || f('employee_no')?.errors?.max"
+                    [ngClass]="{ 'error': f('employee_no')?.touched && f('employee_no')?.errors }">
+                    {{errorMessages.errors.valid_empNo}}
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="_dob" class="form-label">DOB</label>
+                <input type="date" class="form-control" id="_dob" aria-describedby="dob" name="dob"
+                    formControlName="dob" [ngClass]="{ 'errorInp': f('dob')?.touched && f('dob')?.errors }">
+                <div *ngIf="f('dob')?.touched && f('dob')?.errors?.required"
+                    [ngClass]="{ 'error': f('dob')?.touched && f('dob')?.errors }">
+                    {{errorMessages.errors.required}}
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="_city" class="form-label">City</label>
+                <input type="text" class="form-control" id="_city" aria-describedby="city" name="city"
+                    formControlName="city" [ngClass]="{ 'errorInp': f('city')?.touched && f('city')?.errors }">
+                <div *ngIf="f('city')?.touched && f('city')?.errors?.required"
+                    [ngClass]="{ 'error': f('city')?.touched && f('city')?.errors }">
+                    {{errorMessages.errors.required}}
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="_state" class="form-label">State</label>
+                <input type="text" class="form-control" id="_state" aria-describedby="state" name="state"
+                    formControlName="state" [ngClass]="{ 'errorInp': f('state')?.touched && f('state')?.errors }">
+                <div *ngIf="f('state')?.touched && f('state')?.errors?.required"
+                    [ngClass]="{ 'error': f('state')?.touched && f('state')?.errors }">
+                    {{errorMessages.errors.required}}
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="_country" class="form-label">Country</label>
+                <input type="text" class="form-control" id="_country" aria-describedby="country" name="country"
+                    formControlName="country" [ngClass]="{ 'errorInp': f('country')?.touched && f('country')?.errors }">
+                <div *ngIf="f('country')?.touched && f('country')?.errors?.required"
+                    [ngClass]="{ 'error': f('country')?.touched && f('country')?.errors }">
+                    {{errorMessages.errors.required}}
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="pass" class="form-label">Password</label>
+                <input type="password" class="form-control" id="pass" name="password" formControlName="password"
+                    [ngClass]="{ 'errorInp': f('password')?.touched && f('password')?.errors }">
+                <div *ngIf="f('password')?.touched && f('password')?.errors?.required"
+                    [ngClass]="{ 'error': f('password')?.touched && f('password')?.errors }">
+                    {{errorMessages.errors.required}}
+                </div>
+                <div *ngIf=" f('password')?.errors?.minlength || f('password')?.errors?.maxlength"
+                    [ngClass]="{ 'error': f('password')?.errors }">
+                    {{errorMessages.errors.password_length}}
+                </div>
+                <div *ngIf="f('password')?.errors?.pattern" [ngClass]="{ 'error': f('password')?.errors }">
+                    {{errorMessages.errors.valid_password}}
+                </div>
+            </div>
+            <div mat-dialog-actions class="dialogue-buttons">
+                <button mat-button type="button" (click)="closeDialog(false)" mat-dialog-close>No</button>
+                <button mat-button type="submit" [disabled]="employeeDetails.invalid">Yes</button>
+            </div>
+        </div>
+    </form>
+</div>

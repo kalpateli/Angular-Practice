@@ -9,8 +9,8 @@
         <div class="container-fluid col-md-11 text-align-center">
             <div class="row d-flex justify-content-between align-items-center">
                 <div class="col-md-2">
-                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createEmpModal">Add
-                        New</button>
+                    <!-- data-bs-toggle="modal" data-bs-target="#createEmpModal" -->
+                    <button class="btn btn-success" (click)="onCreate()">Add New</button>
                 </div>
                 <div class="col-md-6 d-flex justify-content-end">
 
@@ -70,7 +70,7 @@
 
 
                         </tr>
-                        <tr *ngFor="let employee of employees | searchFilterPipe : findData">
+                        <tr *ngFor="let employee of checkEmployees() | searchFilterPipe : findData">
                             <td>{{employee.id}}</td>
                             <td>{{employee.firstName}}</td>
                             <td>{{employee.lastName}}</td>
@@ -82,8 +82,9 @@
                             <td>{{employee.address.state}}</td>
                             <td>{{employee.address.country}}</td>
                             <td>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#editEmpModel" (click)="onEdit(employee)">
+                                <!-- data-bs-toggle="modal" data-bs-target="#editEmpModel" -->
+                                <button type="button" class="btn btn-primary"
+                                  (click)="onEdit(employee)">
                                     Edit
                                 </button>
                             </td>
@@ -96,7 +97,7 @@
                 </div>
             </div>
 
-            <div class="modal" id="editEmpModel">
+            <!-- <div class="modal" id="editEmpModel">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -242,10 +243,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
 
-            <div class="modal fade" id="createEmpModal" tabindex="-1">
+            <!-- <div class="modal fade" id="createEmpModal" tabindex="-1">
                 <div class=" modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -390,7 +391,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
         </div>
     </div>

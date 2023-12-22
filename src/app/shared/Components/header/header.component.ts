@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { MatDialog } from '@angular/material/dialog';
+import { LogOutDialogue } from '../../DialogueBox/logout-dialogue';
 
 @Component({
   selector: 'app-header',
@@ -15,7 +17,11 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
   
-  constructor(private route: Router , private _auth : AuthService) {
+  constructor(
+    private route: Router , 
+    private _auth : AuthService,
+    public dialog: MatDialog,
+    ) {
     this.currUser = this._auth.getUser();
 
   }
@@ -31,7 +37,20 @@ export class HeaderComponent implements OnInit {
   }
 
   onLogOut() {
-    this._auth.logOut();
+    // this._auth.logOut();
+    this.dialog.open(LogOutDialogue, {
+      width: '250px',
+    }).afterClosed().subscribe(result => {
+      if (result) {
+      this._auth.logOut();
+       
+
+        console.log('User clicked "Ok"');
+        
+      } else {
+        console.log('clicked cancel');
+      }
+    });
   }
 
   clickHome() {

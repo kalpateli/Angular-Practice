@@ -13,6 +13,9 @@ import { SearchFilterPipePipe } from './pipes/search-filter-pipe.pipe';
 import { EditUserDialogue } from './DialogueBox/edit-user-dialogue';
 import { CommonSnackbar } from './DialogueBox/common_Snackbar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditEmployeeDialogue } from './DialogueBox/edit-employe-idalogue/edit-employee-dialogue';
+import { AddEmployeeDialogue } from './DialogueBox/add-employee-dialogue/add-employee-dialogue';
 
 
 @NgModule({
@@ -20,13 +23,17 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     SidenavComponent,
     EditUserDialogue,
     CommonSnackbar,
-    SearchFilterPipePipe
+    SearchFilterPipePipe,
+    EditEmployeeDialogue,
+    AddEmployeeDialogue
   ],
   imports: [
     CommonModule,
     MatSidenavModule,
     MatListModule,
     RouterModule,
+    FormsModule,
+    ReactiveFormsModule
 
   ],
   providers:[
