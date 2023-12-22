@@ -4,14 +4,14 @@
       "id": 1,
       "firstName": "Mita",
       "lastName": "Naik",
-      "phone": "9375831829",
+      "phone": "9375831822",
       "gender": "female",
       "state": "Goa",
       "userName": "Mita11",
       "email": "abc@gmail.com",
       "password": "Passw0rd!",
       "userType": "admin",
-      "profilePic": "../../../assets/Profile_pics/profile1.jpg"
+      "profilePic": "../../../assets/Profile_pics/profile4.jpg"
     },
     {
       "id": 2,
@@ -80,16 +80,16 @@
     },
     {
       "id": 7,
-      "firstName": "",
-      "lastName": "",
-      "phone": "",
-      "gender": "",
-      "state": "",
-      "userName": "",
-      "email": "",
-      "password": "",
-      "userType": "",
-      "profilePic": "../../../assets/Profile_pics/profile4.jpg"
+      "firstName": "Kalpa",
+      "lastName": "Teli",
+      "phone": "9547851125",
+      "gender": "female",
+      "state": "Goa",
+      "email": "kalpa@gmail.com",
+      "userName": "Kalpa001",
+      "password": "Passw0rd!",
+      "userType": "admin",
+      "profilePic": "../../../assets/Profile_pics/default_woman.jpg"
     }
   ],
   "List": [
@@ -205,6 +205,21 @@
         "country": "India"
       },
       "password": "JDyw728*"
+    },
+    {
+      "id": 8,
+      "firstName": "Mira",
+      "lastName": "Naik",
+      "email": "mira@gmail.com",
+      "mobile": "9744851211",
+      "employee_no": 21542,
+      "dob": "1986-02-22",
+      "address": {
+        "city": "Margao",
+        "state": "Goa",
+        "country": "India"
+      },
+      "password": "Passw0rd!"
     }
   ]
 }

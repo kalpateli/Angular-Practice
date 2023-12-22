@@ -74,6 +74,7 @@ export class EditEmployeeDialogue {
 
     
     onUpdateEmp(emp: FormGroup) {
+      // this.employee={...employee_no.}
         this.employee.id = emp.get('id').value;
         this.employee.firstName = emp.get('firstName').value;
         this.employee.lastName = emp.get('lastName').value;

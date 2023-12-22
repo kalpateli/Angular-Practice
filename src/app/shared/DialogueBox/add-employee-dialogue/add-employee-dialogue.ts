@@ -76,7 +76,6 @@ export class AddEmployeeDialogue {
 
     onCreateEmp(employeeDetails: FormGroup) {
         // console.log(employeeDetails.controls);
-    
         this.employee.firstName = employeeDetails.get('firstName').value;
         this.employee.lastName = employeeDetails.get('lastName').value;
         this.employee.email = employeeDetails.get('email').value;

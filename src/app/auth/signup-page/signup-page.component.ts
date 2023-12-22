@@ -70,15 +70,16 @@ export class SignupPageComponent {
     this.isLoading = true;
     // console.log("signupForm.controls");
     // this.user.id = signupForm.get('id').value;
-    this.user.firstName = signupForm.get('firstName').value;
-    this.user.lastName = signupForm.get('lastName').value;
-    this.user.phone = signupForm.get('phone').value;
-    this.user.gender = signupForm.get('gender').value;
-    this.user.state = signupForm.get('state').value;
-    this.user.userName = signupForm.get('userName').value;
-    this.user.email = signupForm.get('email').value;
-    this.user.password = signupForm.get('password').value;
-    this.user.userType = signupForm.get('userType').value;
+    this.user = {...signupForm.value}
+    // this.user.firstName = signupForm.get('firstName').value;
+    // this.user.lastName = signupForm.get('lastName').value;
+    // this.user.phone = signupForm.get('phone').value;
+    // this.user.gender = signupForm.get('gender').value;
+    // this.user.state = signupForm.get('state').value;
+    // this.user.userName = signupForm.get('userName').value;
+    // this.user.email = signupForm.get('email').value;
+    // this.user.password = signupForm.get('password').value;
+    // this.user.userType = signupForm.get('userType').value;
     // this.user.profilePic = signupForm.get('profilePic').value;
     if (this.user.gender == "male") {
       // console.log(" is male? " + (this.user.gender == 'male'))

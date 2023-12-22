@@ -83,17 +83,19 @@ export class ProfilePageComponent {
 
   updateUser(loggedUser: FormGroup) {
 
-    this.user.id = loggedUser.get('id').value;
-    this.user.firstName = loggedUser.get('firstName').value;
-    this.user.lastName = loggedUser.get('lastName').value;
-    this.user.phone = loggedUser.get('phone').value;
-    this.user.gender = loggedUser.get('gender').value;
-    this.user.state = loggedUser.get('state').value;
-    this.user.userName = loggedUser.get('userName').value;
-    this.user.email = loggedUser.get('email').value;
-    this.user.password = loggedUser.get('password').value;
-    this.user.userType = loggedUser.get('userType').value;
-    this.user.profilePic = loggedUser.get('profilePic').value;
+    // this.user.id = loggedUser.get('id').value;
+    // this.user.firstName = loggedUser.get('firstName').value;
+    // this.user.lastName = loggedUser.get('lastName').value;
+    // this.user.phone = loggedUser.get('phone').value;
+    // this.user.gender = loggedUser.get('gender').value;
+    // this.user.state = loggedUser.get('state').value;
+    // this.user.userName = loggedUser.get('userName').value;
+    // this.user.email = loggedUser.get('email').value;
+    // this.user.password = loggedUser.get('password').value;
+    // this.user.userType = loggedUser.get('userType').value;
+    // this.user.profilePic = loggedUser.get('profilePic').value;
+
+    this.user = { ...loggedUser.value };
 
 
     this.dialog.open(EditUserDialogue, {
@@ -157,19 +159,20 @@ export class ProfilePageComponent {
   saveProfile() {
     this.isLoading = true;
 
-    this.user.id = this.currUser.id;
-    this.user.firstName = this.currUser.firstName;
-    this.user.lastName = this.currUser.lastName;
-    this.user.phone = this.currUser.phone;
-    this.user.gender = this.currUser.gender;
-    this.user.state = this.currUser.state;
-    this.user.userName = this.currUser.userName;
-    this.user.email = this.currUser.email;
-    this.user.password = this.currUser.password;
-    this.user.userType = this.currUser.userType;
+    this.user = {...this.currUser};
+    // this.user.id = this.currUser.id;
+    // this.user.firstName = this.currUser.firstName;
+    // this.user.lastName = this.currUser.lastName;
+    // this.user.phone = this.currUser.phone;
+    // this.user.gender = this.currUser.gender;
+    // this.user.state = this.currUser.state;
+    // this.user.userName = this.currUser.userName;
+    // this.user.email = this.currUser.email;
+    // this.user.password = this.currUser.password;
+    // this.user.userType = this.currUser.userType;
     this.user.profilePic = this.profileImage;
 
-
+    console.log(this.user.firstName)
     // this.updateUser()
     this._usersService.updateUser(this.user)
       .subscribe((res) => {
