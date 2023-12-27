@@ -1,0 +1,31 @@
+<div class="container counterApp">
+    <div>
+        <h1>{{(counter$ | async)?.pageName}}</h1>
+        <button type="button" class="btn btn-primary" (click)="onRename()">Rename</button>
+        <h4>{{(counter$ | async)?.counter}}</h4>
+    </div>
+    <div>
+        <button type="button" class="btn btn-success" (click)="onInc()">Increment</button>
+        <button type="button" class="btn btn-danger" (click)="onDec()">Decrement</button>
+        <button type="button" class="btn btn-primary" (click)="onRes()">Reset</button>
+    </div>
+    <div>
+        <h1>Custom Increment</h1>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Counter Input</mat-label>
+            <input type="text" matInput  [(ngModel)]="counterInp">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Counter Input</mat-label>
+            <mat-select [(ngModel)]="actionType">
+                <mat-option value="add">Add</mat-option>
+                <mat-option value="remove">Remove</mat-option>
+            </mat-select>
+            
+        </mat-form-field>
+        <br>
+        <button type="button" class="btn btn-primary" (click)="onCusInc()">Increment</button>
+    </div>
+</div>

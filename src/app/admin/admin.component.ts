@@ -26,6 +26,8 @@ export class AdminComponent implements OnInit{
     const adminNavList = [
       {name:'Dashboard', path:'/home/' + this.id + '/' + this.userName + '/dashboard'},
       {name:'Employee List', path:'/home/' + this.id + '/' + this.userName + '/employee-list'},
+      {name:'NGRX Practice', path:'/home/' + this.id + '/' + this.userName + '/ngrx-prac'},
+
 
     ];
     this.sidenavService.setNavList(adminNavList);

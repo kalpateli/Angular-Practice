@@ -48,8 +48,9 @@ export class HomeAdminComponent {
 
 
   onSelect(user: Data) {
-    // this.router.navigate(['/home/homepage', user.id, user.firstName],
-    //   { queryParams: { page: user.id, search: user.firstName } })
+    this.router.navigate(['/home/'+this.userLoggedIn.id+'/'+this.userLoggedIn.firstName+'/user', user.id, user.firstName], {
+      queryParams: { page: user.id, search: user.firstName }
+    });
   }
-
+  
 }

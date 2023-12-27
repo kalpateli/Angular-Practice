@@ -13,18 +13,25 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { EmployeeListComponent } from './components/employee-list/employee-list.component';
 import { EmployeesService } from './services/employees.service';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { NGRXpracticeComponent } from './components/ngrxpractice/ngrxpractice.component';
+import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
     AdminComponent,
     HomeAdminComponent,
     EmployeeListComponent,
+    UserDetailsComponent,
+    NGRXpracticeComponent
     
     // SidenavComponent
   ],
   imports: [
-    FormsModule,
     CommonModule,
+    FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
     MatDialogModule,
@@ -32,7 +39,10 @@ import { EmployeesService } from './services/employees.service';
     AdminRoutingModule,
     MatListModule,
     MatSidenavModule,
-    SharedModule
+    SharedModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
 
   ],
   providers:[

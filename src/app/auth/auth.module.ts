@@ -37,7 +37,6 @@ import { SharedModule } from '../shared/shared.module';
     MatButtonModule,
     MatCardModule,
     MatInputModule,
-    MatFormFieldModule,
     MatRadioModule,
     MatSelectModule,
     MatIconModule,

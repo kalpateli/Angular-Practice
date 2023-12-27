@@ -7,6 +7,7 @@ export interface Users {
     state : string,
     userName: string,
     email : string,
+    employee_no : string,
     password : string,
     userType : string,
     profilePic : string

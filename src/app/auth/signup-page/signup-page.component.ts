@@ -29,6 +29,7 @@ export class SignupPageComponent {
     "state": "",
     "userName": "",
     "email": "",
+    "employee_no": "",
     "password": "",
     "userType": "",
     "profilePic": ""
@@ -52,6 +53,7 @@ export class SignupPageComponent {
       phone: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(errorMessages.pattern.mobile)]),
       gender: new FormControl('', [Validators.required]),
       state: new FormControl('', [Validators.required]),
+      employee_no: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(6)]),
       email: new FormControl('', [Validators.required, Validators.pattern(/^([\w+-.%]+@[\w-]+\.[A-Za-z]{2,})+$/)]),
       userName: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(18), Validators.pattern(errorMessages.pattern.password)]),

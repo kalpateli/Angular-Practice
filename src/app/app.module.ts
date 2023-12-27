@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { Module2Module } from './module-2/module-2.module';
@@ -18,6 +18,11 @@ import { UsersService } from './shared/services/users.service';
 import { MatButtonModule} from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './shared/store/counter.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,15 +43,20 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     CommonModule,
     MatDialogModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    StoreModule.forRoot({counter : counterReducer}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],
   
-  providers: [Service1Service,
-              Service2Service,
-              HttpClientModule,
-              UsersService,
-              CountriesService
-            ],
+  providers: [
+    Service1Service,
+    Service2Service,
+    HttpClientModule,
+    UsersService,
+    CountriesService
+  ],
+
+
   bootstrap: [AppComponent],
   exports:[
     

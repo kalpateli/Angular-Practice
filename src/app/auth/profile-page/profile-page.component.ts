@@ -35,6 +35,7 @@ export class ProfilePageComponent {
     "state": "",
     "userName": "",
     "email": "",
+    "employee_no":"",
     "password": "",
     "userType": "",
     "profilePic": ""

@@ -2,9 +2,9 @@
     <div class="row">
         <div class="row justify-content-center">
             <div class="col-md-4 text-center">
-              <h2>{{empTitle | titlecase}}</h2>
+                <h2>{{empTitle | titlecase}}</h2>
             </div>
-          </div>
+        </div>
 
         <div class="container-fluid col-md-11 text-align-center">
             <div class="row d-flex justify-content-between align-items-center">
@@ -15,7 +15,7 @@
                 <div class="col-md-6 d-flex justify-content-end">
 
                     <div class="col-md-6">
-                        <input type="text" [(ngModel)]="findData" class="searchInp" placeholder="search" >
+                        <input type="text" [(ngModel)]="findData" class="searchInp" placeholder="search">
                         <!-- <button class="btn btn-outline-success" data-bs-toggle="modal" (click)="searchData()"> Search</button> -->
                     </div>
                     <div class="col-md-2 dropdown ">
@@ -65,7 +65,7 @@
                             <th>City</th>
                             <th>State</th>
                             <th>Country</th>
-                            <th colspan="2">Actions</th>
+                            <th colspan="3">Actions</th>
 
 
 
@@ -76,18 +76,33 @@
                             <td>{{employee.lastName}}</td>
                             <td>{{employee.email}}</td>
                             <td>{{employee.mobile}}</td>
-                            <td>{{employee.dob | date:'dd/mm/yyyy'}}</td>
+                            <td>{{employee.dob | date : 'dd/MM/yyyy' : 'IST'}}</td>
                             <td>{{employee.employee_no }}</td>
                             <td>{{employee.address.city}}</td>
                             <td>{{employee.address.state}}</td>
                             <td>{{employee.address.country}}</td>
                             <td>
                                 <!-- data-bs-toggle="modal" data-bs-target="#editEmpModel" -->
-                                <button type="button" class="btn btn-primary"
-                                  (click)="onEdit(employee)">
+
+                                <button type="button" class="btn"
+                                    [ngClass]="{'btn-success': employee.userType === 'admin', 'btn-secondary': employee.userType !== 'admin'}"
+                                    (click)="onAdmin(employee)">
+                                    Admin
+                                </button>
+
+                                <!-- <button type="button" class="btn btn-success" [ngCLass]="{'btn-tertiary': userType == 'admin'}" (click)="onAdmin(employee)">
+                                    Admin
+                                  </button>
+                                   -->
+
+                            </td>
+                            <td>
+                                <!-- data-bs-toggle="modal" data-bs-target="#editEmpModel" -->
+                                <button type="button" class="btn btn-primary" (click)="onEdit(employee)">
                                     Edit
                                 </button>
                             </td>
+
                             <td>
                                 <button type="button" (click)="onDelete(employee)"
                                     class="btn btn-danger">Delete</button>

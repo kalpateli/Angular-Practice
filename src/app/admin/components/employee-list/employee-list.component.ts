@@ -7,6 +7,9 @@ import { errorMessages } from '../../../errrorMessages';
 import { EditEmployeeDialogue } from 'src/app/shared/DialogueBox/edit-employe-idalogue/edit-employee-dialogue';
 import { MatDialog } from '@angular/material/dialog';
 import { AddEmployeeDialogue } from 'src/app/shared/DialogueBox/add-employee-dialogue/add-employee-dialogue';
+import { UsersService } from 'src/app/shared/services/users.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { Users } from 'src/app/home/Users';
 
 @Component({
   selector: 'app-employee-list',
@@ -18,9 +21,12 @@ export class EmployeeListComponent implements OnInit, OnChanges {
 
   empTitle: string = "EMPLOYEE DETAILS";
   submitted = false;
+  userType: string = "employee";
+  users: Users[] = [];
   // errorMessages = errorMessages;
   // originalId: number;
   // employeeDetails: FormGroup;
+  updatedUser: Users;
   nameLength: number;
   limit: number;
   findData: string = '';
@@ -32,14 +38,14 @@ export class EmployeeListComponent implements OnInit, OnChanges {
     "email": "",
     "mobile": "",
     "employee_no": 0,
+    "userType": "employee",
     "dob": "",
     "address":
     {
       "city": "",
       "state": "",
       "country": ""
-    },
-    "password": ""
+    }
 
   }
 
@@ -48,6 +54,8 @@ export class EmployeeListComponent implements OnInit, OnChanges {
   constructor(
     private _employee: EmployeesService,
     public dialog: MatDialog,
+    private _users: UsersService,
+    private _auth: AuthService
     // private fb: FormBuilder,
   ) {
     // this.employeeDetails = this.fb.group({
@@ -68,6 +76,8 @@ export class EmployeeListComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.getEmployeesDetails();
+    this.checkUsers();
+
   }
 
   ngOnChanges() {
@@ -75,15 +85,22 @@ export class EmployeeListComponent implements OnInit, OnChanges {
 
   }
 
+
   checkEmployees() {
     return this.employees;
   }
+
+  checkUsers() {
+    this._users.get().subscribe((res) => {
+      this.users = res;
+    });
+  }
+
   getEmployeesDetails() {
     this._employee.getEmployeeDetails()
       .subscribe((res) => {
         // console.log(res);
         this.employees = res;
-
       })
   }
 
@@ -152,8 +169,6 @@ export class EmployeeListComponent implements OnInit, OnChanges {
     });
     // this.employee = emp;
     // console.log(this.employeeDetails);
-
-
   }
 
   // onUpdateEmp(emp: FormGroup) {
@@ -225,6 +240,46 @@ export class EmployeeListComponent implements OnInit, OnChanges {
       })
   }
 
+
+  onAdmin(emp: Employee) {
+    if (confirm("Do you want to make " + emp.firstName + " " + emp.lastName + " an admin ?")) {
+      this._users.get().subscribe((res) => {
+        this.updatedUser = (res.find((a: any) => {
+
+          return (a.employee_no === emp.employee_no);
+
+        }))
+
+
+      })
+      if(emp.userType == 'admin')
+      {
+        this.updatedUser.userType = "employee";
+        emp.userType='employee'
+      }
+      else
+      {
+        this.updatedUser.userType = "admin";
+        emp.userType='admin'
+
+      }
+      this._users.updateUser(this.updatedUser)
+        .subscribe((res) => {
+          if (res) {
+            console.log(res);
+
+            // this._employee.deleteEmployeeDetails(emp);
+          }
+        });
+
+
+      this._employee.updateEmployeeDetails(emp)
+      this._auth.setUserType(emp.userType);
+
+    }
+
+  }
+
   // searchData() {
   //   if (this.findData === "") {
   //     this.getEmployeesDetails();
@@ -245,10 +300,4 @@ export class EmployeeListComponent implements OnInit, OnChanges {
   // }
 
 
-  // f(controlName: any) {
-  //   if (controlName) {
-  //     return this.employeeDetails.controls[controlName];
-  //   }
-  //   return null;
-  // }
 }

@@ -7,8 +7,9 @@
       "phone": "9375831822",
       "gender": "female",
       "state": "Goa",
-      "userName": "Mita11",
       "email": "abc@gmail.com",
+      "employee_no": 928311,
+      "userName": "Mita11",
       "password": "Passw0rd!",
       "userType": "admin",
       "profilePic": "../../../assets/Profile_pics/profile4.jpg"
@@ -22,6 +23,7 @@
       "state": "Goa",
       "userName": "Rahul123",
       "email": "abcd@gmail.com",
+      "employee_no": 928343,
       "password": "Passw0rd!",
       "userType": "employee",
       "profilePic": "../../../assets/Profile_pics/profile2.jpg"
@@ -35,6 +37,7 @@
       "state": "Gujrat",
       "userName": "Mohit",
       "email": "abcde@gmail.com",
+      "employee_no": 928143,
       "password": "Passw0rd!",
       "userType": "employee",
       "profilePic": "../../../assets/Profile_pics/default.jpg"
@@ -48,8 +51,9 @@
       "state": "Banglore",
       "userName": "Sonia",
       "email": "abcdef@gmail.com",
+      "employee_no": 928243,
       "password": "Passw0rd!",
-      "userType": "admin",
+      "userType": "employee",
       "profilePic": "../../../assets/Profile_pics/profile4.jpg"
     },
     {
@@ -61,8 +65,9 @@
       "state": "Goa",
       "userName": "Sonia",
       "email": "abc12@gmail.com",
+      "employee_no": 928043,
       "password": "Passw0rd!",
-      "userType": "admin",
+      "userType": "employee",
       "profilePic": "../../../assets/Profile_pics/default_man.jpg"
     },
     {
@@ -74,8 +79,9 @@
       "state": "Goa",
       "userName": "Sam001",
       "email": "sam001@gmail.com",
+      "employee_no": 8394,
       "password": "We1come!",
-      "userType": "admin",
+      "userType": "employee",
       "profilePic": "../../../assets/Profile_pics/default_man.jpg"
     },
     {
@@ -86,9 +92,10 @@
       "gender": "female",
       "state": "Goa",
       "email": "kalpa@gmail.com",
+      "employee_no": 9263,
       "userName": "Kalpa001",
       "password": "Passw0rd!",
-      "userType": "admin",
+      "userType": "employee",
       "profilePic": "../../../assets/Profile_pics/default_woman.jpg"
     }
   ],
@@ -103,123 +110,93 @@
   "Employees": [
     {
       "id": 1,
-      "firstName": "Mita",
-      "lastName": "Naik",
-      "email": "abc@gmail.com",
-      "mobile": "8299493792",
-      "employee_no": 928343,
-      "dob": "1988-11-02",
-      "address": {
-        "city": "Panaji",
-        "state": "Goa",
-        "country": "India"
-      },
-      "password": "NMita02!"
-    },
-    {
-      "id": 2,
       "firstName": "Rahul",
       "lastName": "Sharma",
       "email": "abc@gmail.com",
-      "mobile": "8299493792",
+      "mobile": "9375831831",
       "employee_no": 928343,
+      "userType": "employee",
       "dob": "1988-11-02",
       "address": {
         "city": "Panaji",
         "state": "Goa",
         "country": "India"
-      },
-      "password": "Passw0rd!"
+      }
+    },
+    {
+      "id": 2,
+      "firstName": "Rohit",
+      "lastName": "Khanna",
+      "email": "abcde@gmail.com",
+      "mobile": "9375831829",
+      "employee_no": 928143,
+      "userType": "employee",
+      "dob": "1988-11-02",
+      "address": {
+        "city": "Panaji",
+        "state": "Goa",
+        "country": "India"
+      }
     },
     {
       "id": 3,
-      "firstName": "Rohit",
-      "lastName": "Khanna",
-      "email": "abc@gmail.com",
-      "mobile": "8299493792",
-      "employee_no": 928343,
+      "firstName": "Sonia",
+      "lastName": "Naik",
+      "email": "abcdef@gmail.com",
+      "mobile": "9375831829",
+      "employee_no": 928243,
+      "userType": "employee",
       "dob": "1988-11-02",
       "address": {
         "city": "Panaji",
         "state": "Goa",
         "country": "India"
-      },
-      "password": "1234abcd"
+      }
     },
     {
       "id": 4,
       "firstName": "Sonia",
       "lastName": "Karra",
-      "email": "abc@gmail.com",
-      "mobile": "8299493792",
-      "employee_no": 928343,
+      "email": "abc12@gmail.com",
+      "mobile": "9375831829",
+      "employee_no": 928043,
+      "userType": "employee",
       "dob": "1988-11-02",
       "address": {
         "city": "Panaji",
         "state": "Goa",
         "country": "India"
-      },
-      "password": "1234abcd"
+      }
     },
     {
       "id": 5,
-      "firstName": "Kalpa",
-      "lastName": "Teli",
+      "firstName": "Sam",
+      "lastName": "Jose",
       "email": "abc@gmail.com",
-      "mobile": "8942859482",
+      "mobile": "9172615281",
       "employee_no": 8394,
+      "userType": "employee",
       "dob": "1988-11-22",
       "address": {
         "city": "Valpoi",
         "state": "Goa",
         "country": "India"
-      },
-      "password": "abcd1234"
+      }
     },
     {
       "id": 6,
-      "firstName": "Shyam",
-      "lastName": "Sharma",
-      "email": "abc@gmail.com",
-      "mobile": "9473823911",
+      "firstName": "Kalpa",
+      "lastName": "Teli",
+      "email": "kalpa@gmail.com",
+      "mobile": "9547851125",
       "employee_no": 9263,
+      "userType": "employee",
       "dob": "1979-07-11",
       "address": {
         "city": "Mapusa",
         "state": "Goa",
         "country": "India"
-      },
-      "password": "1234abcd"
-    },
-    {
-      "id": 7,
-      "firstName": "Richa",
-      "lastName": "Naik",
-      "email": "abc@gmail.com",
-      "mobile": "8332232831",
-      "employee_no": 92824,
-      "dob": "1987-03-07",
-      "address": {
-        "city": "Mapusa",
-        "state": "Goa",
-        "country": "India"
-      },
-      "password": "JDyw728*"
-    },
-    {
-      "id": 8,
-      "firstName": "Mira",
-      "lastName": "Naik",
-      "email": "mira@gmail.com",
-      "mobile": "9744851211",
-      "employee_no": 21542,
-      "dob": "1986-02-22",
-      "address": {
-        "city": "Margao",
-        "state": "Goa",
-        "country": "India"
-      },
-      "password": "Passw0rd!"
+      }
     }
   ]
 }

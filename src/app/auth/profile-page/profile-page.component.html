@@ -65,14 +65,9 @@
           <input type="text" matInput formControlName="userName" placeholder="Sam001">
         </mat-form-field>
 
-        <mat-form-field>
-          <mat-label>Role</mat-label>
-          <mat-select formControlName="userType">
-
-            <mat-option [value]="role" *ngFor="let role of roles">
-              {{role}}</mat-option>
-
-          </mat-select>
+        <mat-form-field class="inlineField">
+          <mat-label>User Type</mat-label>
+          <input type="text" matInput formControlName="userType" readonly>
         </mat-form-field>
 
         <mat-form-field class="inpSignupfield">

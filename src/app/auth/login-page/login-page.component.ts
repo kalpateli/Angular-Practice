@@ -30,6 +30,7 @@ export class LoginPageComponent implements OnInit {
     "state": "",
     "userName": "",
     "email": "",
+    "employee_no":"",
     "password": "",
     "userType": "",
     "profilePic": ""

@@ -100,7 +100,7 @@
                 </div>
             </div>
 
-            <div class="mb-3">
+            <!-- <div class="mb-3">
                 <label for="pass" class="form-label">Password</label>
                 <input type="password" class="form-control" id="pass" name="password" formControlName="password"
                     [ngClass]="{ 'errorInp': f('password')?.touched && f('password')?.errors }">
@@ -115,7 +115,7 @@
                 <div *ngIf="f('password')?.errors?.pattern" [ngClass]="{ 'error': f('password')?.errors }">
                     {{errorMessages.errors.valid_password}}
                 </div>
-            </div>
+            </div> -->
             <div mat-dialog-actions class="dialogue-buttons">
                 <button mat-button type="button" (click)="closeDialog(false)" mat-dialog-close>No</button>
                 <button mat-button type="submit" [disabled]="employeeDetails.invalid">Yes</button>
