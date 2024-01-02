@@ -18,7 +18,7 @@
                     formControlName="lastName"
                     [ngClass]="{ 'errorInp': f('lastName')?.touched && f('lastName')?.errors }">
                 <div *ngIf="f('lastName')?.touched && f('lastName')?.errors?.required"
-                    [ngClass]="{ 'error': f('lastName')?.touched && f('firstName')?.errors }">
+                    [ngClass]="{ 'error': f('lastName')?.touched && f('lastName')?.errors }">
                     {{errorMessages.errors.required}}
                 </div>
             </div>
@@ -60,6 +60,16 @@
                 <div *ngIf=" f('employee_no')?.errors?.pattern  || f('employee_no')?.errors?.min || f('employee_no')?.errors?.max"
                     [ngClass]="{ 'error': f('employee_no')?.touched && f('employee_no')?.errors }">
                     {{errorMessages.errors.valid_empNo}}
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="_designation" class="form-label">Designation</label>
+                <input type="text" class="form-control" id="_designation" aria-describedby="designation" name="designation"
+                    formControlName="designation"
+                    [ngClass]="{ 'errorInp': f('designation')?.touched && f('designation')?.errors }">
+                <div *ngIf="f('designation')?.touched && f('designation')?.errors?.required"
+                    [ngClass]="{ 'error': f('designation')?.touched && f('designation')?.errors }">
+                    {{errorMessages.errors.required}}
                 </div>
             </div>
             <div class="mb-3">
@@ -118,7 +128,7 @@
             </div> -->
             <div mat-dialog-actions class="dialogue-buttons">
                 <button mat-button type="button" (click)="closeDialog(false)" mat-dialog-close>No</button>
-                <button mat-button type="submit" [disabled]="employeeDetails.invalid">Yes</button>
+                <button mat-button type="submit">Yes</button>
             </div>
         </div>
     </form>

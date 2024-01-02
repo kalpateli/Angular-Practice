@@ -1,9 +1,9 @@
 import { Component, Inject } from "@angular/core";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
-import { Employee } from "src/app/Employee";
 import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms";
 import { errorMessages } from "src/app/errrorMessages";
 import { EmployeesService } from "src/app/admin/services/employees.service";
+import { EmployeeModel } from "../../store/employee/employees.model";
 
 @Component({
   selector: 'app-edit-employee-dialogue',
@@ -30,15 +30,16 @@ import { EmployeesService } from "src/app/admin/services/employees.service";
 export class EditEmployeeDialogue {
 
   employeeDetails: FormGroup;
-  employees: Employee[] = [];
+  employees: EmployeeModel[] = [];
   errorMessages = errorMessages;
-  employee: Employee = {
+  employee: EmployeeModel = {
     "id": 0,
     "firstName": "",
     "lastName": "",
     "email": "",
     "mobile": "",
     "employee_no": 0,
+    "designation": "",
     "userType": "",
     "dob": "",
     "address":
@@ -62,6 +63,7 @@ export class EditEmployeeDialogue {
         [Validators.required, Validators.pattern(/^([\w+-.%]+@[\w-]+\.[A-Za-z]{2,})+$/)]),
       mobile: new FormControl(data.mobile, [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(errorMessages.pattern.mobile)]),
       employee_no: new FormControl(data.employee_no, [Validators.required, Validators.min(1000), Validators.max(999999), Validators.pattern(errorMessages.pattern.emp_no)]),
+      designation: new FormControl(data.designation, [Validators.required]),
       userType: new FormControl(data.userType),
       dob: new FormControl(data.dob, [Validators.required]),
       city: new FormControl(data.address.city, [Validators.required]),
@@ -81,6 +83,7 @@ export class EditEmployeeDialogue {
     this.employee.email = emp.get('email').value;
     this.employee.mobile = emp.get('mobile').value;
     this.employee.employee_no = emp.get('employee_no').value;
+    this.employee.designation = emp.get('designation').value;
     this.employee.userType = emp.get('userType').value;
     this.employee.dob = emp.get('dob').value;
     this.employee.address.city = emp.get('city').value;

@@ -19,8 +19,11 @@ import { MatButtonModule} from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { StoreModule } from '@ngrx/store';
-import { counterReducer } from './shared/store/counter.reducer';
+import { counterReducer } from './shared/store/counter/counter.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { EmployeesEffects } from './shared/store/employee/employees.Effects';
+import { AppState } from './shared/store/Global/App.state';
 
 
 @NgModule({
@@ -44,8 +47,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     MatDialogModule,
     MatButtonModule,
     MatSnackBarModule,
-    StoreModule.forRoot({counter : counterReducer}),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
+    StoreModule.forRoot(AppState),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    EffectsModule.forRoot([EmployeesEffects])
   ],
   
   providers: [

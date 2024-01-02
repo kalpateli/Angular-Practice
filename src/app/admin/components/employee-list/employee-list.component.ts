@@ -1,5 +1,4 @@
 import { Component, Input, OnInit, Output, EventEmitter, OnChanges } from '@angular/core';
-import { Employee } from '../../../Employee';
 import { EmployeesService } from '../../services/employees.service';
 import { map } from 'rxjs';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
@@ -10,6 +9,11 @@ import { AddEmployeeDialogue } from 'src/app/shared/DialogueBox/add-employee-dia
 import { UsersService } from 'src/app/shared/services/users.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { Users } from 'src/app/home/Users';
+import { AppStateModel } from 'src/app/shared/store/Global/AppState.Model';
+import { Store } from '@ngrx/store';
+import { loadEmployee } from 'src/app/shared/store/employee/employees.actions';
+import { getEmployee } from 'src/app/shared/store/employee/employees.selectors';
+import { EmployeeList, EmployeeModel } from 'src/app/shared/store/employee/employees.model';
 
 @Component({
   selector: 'app-employee-list',
@@ -21,23 +25,22 @@ export class EmployeeListComponent implements OnInit, OnChanges {
 
   empTitle: string = "EMPLOYEE DETAILS";
   submitted = false;
+  
   userType: string = "employee";
   users: Users[] = [];
-  // errorMessages = errorMessages;
-  // originalId: number;
-  // employeeDetails: FormGroup;
   updatedUser: Users;
   nameLength: number;
   limit: number;
   findData: string = '';
-  employees: Employee[] = [];
-  employee: Employee = {
+  employees: EmployeeModel[]= [];
+  employee: EmployeeModel = {
     "id": 0,
     "firstName": "",
     "lastName": "",
     "email": "",
     "mobile": "",
     "employee_no": 0,
+    "designation": "",
     "userType": "employee",
     "dob": "",
     "address":
@@ -48,36 +51,31 @@ export class EmployeeListComponent implements OnInit, OnChanges {
     }
 
   }
+  employeeList !: EmployeeModel[];
+  employeeInfo !: EmployeeList;
+
 
 
 
   constructor(
+
     private _employee: EmployeesService,
     public dialog: MatDialog,
     private _users: UsersService,
-    private _auth: AuthService
-    // private fb: FormBuilder,
-  ) {
-    // this.employeeDetails = this.fb.group({
-    //   id: new FormControl(),
-    //   firstName: new FormControl('', [Validators.required]),
-    //   lastName: new FormControl('', [Validators.required]),
-    //   email: new FormControl('',
-    //     [Validators.required, Validators.pattern(/^([\w+-.%]+@[\w-]+\.[A-Za-z]{2,})+$/)]),
-    //   mobile: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(errorMessages.pattern.mobile)]),
-    //   employee_no: new FormControl('', [Validators.required, Validators.min(1000), Validators.max(999999), Validators.pattern(errorMessages.pattern.emp_no)]),
-    //   dob: new FormControl('', [Validators.required]),
-    //   city: new FormControl('', [Validators.required]),
-    //   state: new FormControl('', [Validators.required]),
-    //   country: new FormControl('', [Validators.required]),
-    //   password: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(18), Validators.pattern(errorMessages.pattern.password)])
-    // })
-  }
+    private _auth: AuthService,
+    private store: Store<AppStateModel>
+  ) {}
 
   ngOnInit() {
-    this.getEmployeesDetails();
+    // this.getEmployeesDetails();
     this.checkUsers();
-
+    this.store.dispatch(loadEmployee());
+    this.store.select(getEmployee).subscribe
+    ((item: EmployeeModel[]) => {
+      // this.employeeList =item;
+      this.employeeInfo = {employeelist:item}
+      // console.log(this.employeeList);
+    })
   }
 
   ngOnChanges() {
@@ -87,7 +85,7 @@ export class EmployeeListComponent implements OnInit, OnChanges {
 
 
   checkEmployees() {
-    return this.employees;
+    return this.employeeInfo.employeelist;
   }
 
   checkUsers() {
@@ -104,27 +102,6 @@ export class EmployeeListComponent implements OnInit, OnChanges {
       })
   }
 
-  // onCreateEmp(){
-  //   this._employee.postEmployeeDetails(this.employee);
-  // }
-  // onCreateEmp(employeeDetails: FormGroup) {
-  //   // console.log(employeeDetails.controls);
-
-  //   this.employee.firstName = employeeDetails.get('firstName').value;
-  //   this.employee.lastName = employeeDetails.get('lastName').value;
-  //   this.employee.email = employeeDetails.get('email').value;
-  //   this.employee.mobile = employeeDetails.get('mobile').value;
-  //   this.employee.employee_no = employeeDetails.get('employee_no').value;
-  //   this.employee.dob = employeeDetails.get('dob').value;
-  //   this.employee.address.city = employeeDetails.get('city').value;
-  //   this.employee.address.state = employeeDetails.get('state').value;
-  //   this.employee.address.country = employeeDetails.get('country').value;
-  //   this.employee.password = employeeDetails.get('password').value;
-
-
-  //   this._employee.postEmployeeDetails(this.employee);
-
-  // }
 
   onCreate() {
     this.dialog.open(AddEmployeeDialogue).afterClosed().subscribe(result => {
@@ -140,22 +117,8 @@ export class EmployeeListComponent implements OnInit, OnChanges {
     });
   }
 
-  onEdit(emp: Employee) {
-    // this.employeeDetails.patchValue({
-    //   id: emp.id,
-    //   firstName: emp.firstName,
-    //   lastName: emp.lastName,
-    //   email: emp.email,
-    //   mobile: emp.mobile,
-    //   employee_no: emp.employee_no,
-    //   dob: emp.dob,
-    //   city: emp.address.city,
-    //   state: emp.address.state,
-    //   country: emp.address.country,
-    //   password: emp.password,
-    // });
-
-
+  onEdit(emp: EmployeeModel) {
+   
     this.dialog.open(EditEmployeeDialogue, { data: emp }).afterClosed().subscribe(result => {
       if (result) {
 
@@ -167,28 +130,11 @@ export class EmployeeListComponent implements OnInit, OnChanges {
         console.log('clicked cancel');
       }
     });
-    // this.employee = emp;
-    // console.log(this.employeeDetails);
+   
   }
 
-  // onUpdateEmp(emp: FormGroup) {
-  //   this.employee.id = this.originalId
-  //   this.employee.firstName = emp.get('firstName').value;
-  //   this.employee.lastName = emp.get('lastName').value;
-  //   this.employee.email = emp.get('email').value;
-  //   this.employee.mobile = emp.get('mobile').value;
-  //   this.employee.employee_no = emp.get('employee_no').value;
-  //   this.employee.dob = emp.get('dob').value;
-  //   this.employee.address.city = emp.get('city').value;
-  //   this.employee.address.state = emp.get('state').value;
-  //   this.employee.address.country = emp.get('country').value;
-  //   this.employee.password = emp.get('password').value;
 
-  //   // console.log(this.employee.id);
-  //   this._employee.updateEmployeeDetails(this.employee);
-  // }
-
-  onDelete(emp: Employee) {
+  onDelete(emp: EmployeeModel) {
     if (confirm("Do you want to delete details of " + emp.firstName + " " + emp.lastName + " ?"))
       this._employee.deleteEmployeeDetails(emp);
     this.getEmployeesDetails();
@@ -241,42 +187,67 @@ export class EmployeeListComponent implements OnInit, OnChanges {
   }
 
 
-  onAdmin(emp: Employee) {
-    if (confirm("Do you want to make " + emp.firstName + " " + emp.lastName + " an admin ?")) {
-      this._users.get().subscribe((res) => {
-        this.updatedUser = (res.find((a: any) => {
+  // onAdmin(emp: EmployeeModel) {
+  //   if (confirm("Do you want to make " + emp.firstName + " " + emp.lastName + " an admin ?")) {
+  //     this._users.get().subscribe((res) => {
+  //       this.updatedUser = (res.find((a: any) => {
+  //         return (a.employee_no === emp.employee_no);
 
-          return (a.employee_no === emp.employee_no);
+  //       }))
 
-        }))
+        
+  //     })
+  //     if(emp.userType == 'admin')
+  //     {
+  //       emp.userType="employee";
+  //       // this.updatedUser.userType = "employee";
+  //       this.updatedUser = { ...this.updatedUser, userType: "employee" };
+  //     }
+  //     else
+  //     {
+  //       emp.userType="admin";
+  //       // this.updatedUser.userType = "admin";
+  //       this.updatedUser = { ...this.updatedUser, userType: "admin" };
+
+  //     }
+  //     this._users.updateUser(this.updatedUser)
+  //       .subscribe((res) => {
+  //         if (res) {
+  //           console.log(res);
+
+  //         }
+  //       });
+  //     console.log(emp)
+  //     this._employee.updateEmployeeDetails(emp);
 
 
-      })
-      if(emp.userType == 'admin')
-      {
-        this.updatedUser.userType = "employee";
-        emp.userType='employee'
-      }
-      else
-      {
-        this.updatedUser.userType = "admin";
-        emp.userType='admin'
 
-      }
-      this._users.updateUser(this.updatedUser)
-        .subscribe((res) => {
-          if (res) {
-            console.log(res);
+  //   }
 
-            // this._employee.deleteEmployeeDetails(emp);
+    onAdmin(emp: EmployeeModel) {
+      if (confirm("Do you want to change " + emp.firstName + " " + emp.lastName + "'s role ?")) {
+        this._users.get().subscribe((res) => {
+          this.updatedUser = res.find((a: any) => a.employee_no === emp.employee_no);
+          if (this.updatedUser) {
+            const updatedUser = { ...this.updatedUser, userType: emp.userType === 'admin' ? 'employee' : 'admin' };
+            this._users.updateUser(updatedUser).subscribe((res) => {
+              if (res) {
+                console.log(res);
+                console.log("emp userType" + updatedUser.userType)
+                const updatedEmp = { ...emp ,userType: updatedUser.userType}
+                // emp.userType = updatedUser.userType;
+                this._employee.updateEmployeeDetails(updatedEmp);
+              }
+            });
+          } else {
+            console.error('User not found.');
           }
         });
-
-
-      this._employee.updateEmployeeDetails(emp)
-      this._auth.setUserType(emp.userType);
-
+        this.checkEmployees();
+      }
     }
+
+    
 
   }
 
@@ -300,4 +271,3 @@ export class EmployeeListComponent implements OnInit, OnChanges {
   // }
 
 
-}

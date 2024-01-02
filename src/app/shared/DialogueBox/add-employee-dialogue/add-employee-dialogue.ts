@@ -1,9 +1,12 @@
 import { Component, Inject } from "@angular/core";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
-import { Employee } from "src/app/Employee";
 import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms";
 import { errorMessages } from "src/app/errrorMessages";
 import { EmployeesService } from "src/app/admin/services/employees.service";
+import { EmployeeList, EmployeeModel } from "../../store/employee/employees.model";
+import { AppStateModel } from "../../store/Global/AppState.Model";
+import { Store } from "@ngrx/store";
+import { addEmployee } from "../../store/employee/employees.actions";
 
 
 @Component({
@@ -31,15 +34,16 @@ import { EmployeesService } from "src/app/admin/services/employees.service";
 export class AddEmployeeDialogue {
 
   employeeDetails: FormGroup;
-  employees: Employee[] = [];
+  employees: EmployeeModel[] = [];
   errorMessages = errorMessages;
-  employee: Employee = {
+  employee: EmployeeModel = {
     "id": 0,
     "firstName": "",
     "lastName": "",
     "email": "",
     "mobile": "",
     "employee_no": 0,
+    "designation": "",
     "userType": "employee",
     "dob": "",
     "address":
@@ -50,11 +54,13 @@ export class AddEmployeeDialogue {
     }
 
   }
+  employeeData : EmployeeModel;
 
-
-  constructor(public dialogRef: MatDialogRef<AddEmployeeDialogue>,
+  constructor(
+    public dialogRef: MatDialogRef<AddEmployeeDialogue>,
     private fb: FormBuilder,
     private _employee: EmployeesService,
+    private store : Store<AppStateModel>,
     @Inject(MAT_DIALOG_DATA) public data: any) {
     console.log(data)
     this.employeeDetails = this.fb.group({
@@ -65,6 +71,7 @@ export class AddEmployeeDialogue {
         [Validators.required, Validators.pattern(/^([\w+-.%]+@[\w-]+\.[A-Za-z]{2,})+$/)]),
       mobile: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(errorMessages.pattern.mobile)]),
       employee_no: new FormControl('', [Validators.required, Validators.min(1000), Validators.max(999999), Validators.pattern(errorMessages.pattern.emp_no)]),
+      designation: new FormControl('', [Validators.required]),
       userType: new FormControl('employee'),
       dob: new FormControl('', [Validators.required]),
       city: new FormControl('', [Validators.required]),
@@ -77,20 +84,22 @@ export class AddEmployeeDialogue {
 
   onCreateEmp(employeeDetails: FormGroup) {
     // console.log(employeeDetails.controls);
+    console.log(employeeDetails);
     this.employee.firstName = employeeDetails.get('firstName').value;
     this.employee.lastName = employeeDetails.get('lastName').value;
     this.employee.email = employeeDetails.get('email').value;
     this.employee.mobile = employeeDetails.get('mobile').value;
     this.employee.employee_no = employeeDetails.get('employee_no').value;
-    this.employee.employee_no = employeeDetails.get('userType').value;
+    this.employee.designation = employeeDetails.get('designation').value;
+    this.employee.userType = employeeDetails.get('userType').value;
     this.employee.dob = employeeDetails.get('dob').value;
     this.employee.address.city = employeeDetails.get('city').value;
     this.employee.address.state = employeeDetails.get('state').value;
     this.employee.address.country = employeeDetails.get('country').value;
     // this.employee.password = employeeDetails.get('password').value;
 
-
-    this._employee.postEmployeeDetails(this.employee);
+    this.store.dispatch(addEmployee({employeeData : this.employee }))
+    // this._employee.postEmployeeDetails(this.employee);
     this.closeDialog(true);
 
 

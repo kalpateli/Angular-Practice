@@ -3,6 +3,8 @@ import { UsersService } from 'src/app/shared/services/users.service';
 import { Users } from 'src/app/home/Users';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { EmployeesService } from '../../services/employees.service';
+import { EmployeeModel } from 'src/app/shared/store/employee/employees.model';
 
 interface Data {
   id: number;
@@ -20,25 +22,26 @@ export class HomeAdminComponent {
   id: number;
   userName: string
   userLoggedIn: any;
-  users: Users[] = [];
+  users: EmployeeModel[] = [];
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private _users: UsersService,
-    private _auth: AuthService
+    private _auth: AuthService,
+    private _employee : EmployeesService
   ) { }
 
   ngOnInit(): void {
-    this.getUsersApi();
+    this.getEmpApi();
     
     this.userLoggedIn = this._auth.getUser();
     this.userName = this.userLoggedIn.firstName;
 
   }
 
-  getUsersApi() {
-    this._users.get()
+  getEmpApi() {
+    this._employee.getEmployeeDetails()
       .subscribe((data) => {
         // console.log(data);
         this.users = data;

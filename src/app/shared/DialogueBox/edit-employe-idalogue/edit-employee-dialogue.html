@@ -65,6 +65,16 @@
                 </div>
             </div>
             <div class="mb-3">
+                <label for="designation" class="form-label">Designation</label>
+                <input type="text" class="form-control" id="designation" aria-describedby="designation" name="designation"
+                    formControlName="designation" 
+                    [ngClass]="{ 'errorInp': f('designation')?.touched && f('designation')?.errors }">
+                <div *ngIf="f('designation')?.touched && f('designation')?.errors?.required"
+                    [ngClass]="{ 'error': f('designation')?.touched && f('designation')?.errors }">
+                    {{errorMessages.errors.required}}
+                </div>
+            </div>
+            <div class="mb-3">
                 <label for="dob" class="form-label">DOB</label>
                 <input type="date" class="form-control" id="dob" aria-describedby="dob" name="dob" formControlName="dob"
                      [ngClass]="{ 'errorInp': f('dob')?.touched && f('dob')?.errors }">

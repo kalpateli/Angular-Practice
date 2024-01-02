@@ -16,7 +16,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditEmployeeDialogue } from './DialogueBox/edit-employe-idalogue/edit-employee-dialogue';
 import { AddEmployeeDialogue } from './DialogueBox/add-employee-dialogue/add-employee-dialogue';
-
+import { ClockComponent } from './Components/clock/clock.component';
+import { CalenderComponent } from './Components/calender/calender.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,9 @@ import { AddEmployeeDialogue } from './DialogueBox/add-employee-dialogue/add-emp
     CommonSnackbar,
     SearchFilterPipePipe,
     EditEmployeeDialogue,
-    AddEmployeeDialogue
+    AddEmployeeDialogue,
+    ClockComponent,
+    CalenderComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +37,6 @@ import { AddEmployeeDialogue } from './DialogueBox/add-employee-dialogue/add-emp
     RouterModule,
     FormsModule,
     ReactiveFormsModule
-
   ],
   providers:[
     AuthService,
@@ -49,9 +51,8 @@ import { AddEmployeeDialogue } from './DialogueBox/add-employee-dialogue/add-emp
     SearchFilterPipePipe,
     EditUserDialogue,
     CommonSnackbar,
-    MatSnackBarModule
-
-
+    MatSnackBarModule,
+    ClockComponent,
   ]
 })
 export class SharedModule { }

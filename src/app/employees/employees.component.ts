@@ -23,6 +23,11 @@ export class EmployeesComponent {
 
     const adminNavList = [
       {name:'Dashboard', path:'/home/' + this.id + '/' + this.userName + '/dashboard'},
+      {name:'Leaves', path:'/home/' + this.id + '/' + this.userName + '/dashboard'},
+      {name:'My Attendance', path:'/home/' + this.id + '/' + this.userName + '/dashboard'},
+      {name:'Policies', path:'/home/' + this.id + '/' + this.userName + '/dashboard'},
+      {name:'Organization', path:'/home/' + this.id + '/' + this.userName + '/dashboard'},
+
 
     ];
     this.sidenavService.setNavList(adminNavList);

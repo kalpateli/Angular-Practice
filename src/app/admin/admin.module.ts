@@ -18,6 +18,9 @@ import { NGRXpracticeComponent } from './components/ngrxpractice/ngrxpractice.co
 import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
+import { EmployeesAttendanceComponent } from './components/employees-attendance/employees-attendance.component';
+import { EmployeesLeavesComponent } from './components/employees-leaves/employees-leaves.component';
+import { SummaryComponent } from './components/summary/summary.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { MatInputModule } from '@angular/material/input';
     HomeAdminComponent,
     EmployeeListComponent,
     UserDetailsComponent,
-    NGRXpracticeComponent
+    NGRXpracticeComponent,
+    EmployeesAttendanceComponent,
+    EmployeesLeavesComponent,
+    SummaryComponent
     
     // SidenavComponent
   ],

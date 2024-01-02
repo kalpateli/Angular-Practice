@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
-import { customIncrement, decrement, increment, reset , rename } from 'src/app/shared/store/counter.actions';
-import { CounterModel } from 'src/app/shared/store/counter.model';
-import { getCounter } from 'src/app/shared/store/counter.selector';
+import { customIncrement, decrement, increment, reset , rename } from 'src/app/shared/store/counter/counter.actions';
+import { CounterModel } from 'src/app/shared/store/counter/counter.model';
+import { getCounter } from 'src/app/shared/store/counter/counter.selector';
 
 
 @Component({
