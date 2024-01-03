@@ -15,6 +15,8 @@ export const getEmployeeInfo = createSelector(getEmployeeState,(state)=>{
     return state;
 })
 
-// export const getChannel = createSelector(getCounterState,(state)=>{
-//     return state.pageName;
-// })
+
+
+    // export const getChannel = createSelector(getCounterState,(state)=>{
+    //     return state.pageName;
+    // })

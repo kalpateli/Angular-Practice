@@ -5,8 +5,12 @@ import {
     LOAD_EMPLOYEE, 
     addEmployee, 
     addEmployeeSuccess, 
+    deleteEmployee, 
+    deleteEmployeeSuccess, 
     loadEmployeeFail, 
-    loadEmployeeSuccess } from "./employees.actions";
+    loadEmployeeSuccess, 
+    updatedEmployee, 
+    updatedEmployeeSuccess} from "./employees.actions";
 import { EMPTY, catchError, exhaustMap, map, of } from "rxjs";
 import { EmployeeModel } from "./employees.model";
 
@@ -23,7 +27,8 @@ export class EmployeesEffects {
 
     }
 
-    _employee = createEffect(() => this.action$.pipe(
+    _employee = createEffect(() => 
+    this.action$.pipe(
         ofType(LOAD_EMPLOYEE),
         exhaustMap((action) => {
             return this._employees.getEmployeeDetails().pipe(
@@ -35,7 +40,8 @@ export class EmployeesEffects {
         })
     ))
 
-    _addEmployee = createEffect(() => this.action$.pipe(
+    _addEmployee = createEffect(() => 
+    this.action$.pipe(
         ofType(addEmployee),
         exhaustMap((action) => {
             return this._employees.createEmployeeDetails(action.employeeData).pipe(
@@ -43,6 +49,34 @@ export class EmployeesEffects {
                     return addEmployeeSuccess({ employeeData: data as EmployeeModel});
                 }),
                 catchError((_error) => of(loadEmployeeFail({ Errortext: _error.message })))
+            )
+        })
+    ))
+
+    _updateEmployee = createEffect(() => 
+    this.action$.pipe(
+        ofType(updatedEmployee),
+        exhaustMap((action) => {
+            return this._employees.updatedEmployeeDetails(action.employeeData).pipe(
+                map((data) => {
+                    return updatedEmployeeSuccess({employeeData : data as EmployeeModel});
+
+                }),
+                catchError((_error) => of(loadEmployeeFail({ Errortext : _error.message })))
+            )
+        })
+    ))
+
+    _deleteEmployee = createEffect(() =>
+     this.action$.pipe(
+        ofType(deleteEmployee),
+        exhaustMap((action) => {
+            return this._employees.delete_EmployeeDetails(action.id).pipe(
+                map((data) => {
+                    return deleteEmployeeSuccess({ id : action.id });
+
+                }),
+                catchError((_error) => of(loadEmployeeFail({ Errortext : _error.message })))
             )
         })
     ))

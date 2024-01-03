@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-// import { MatSidenav } from '@angular/material/sidenav';
 import { SidenavComponent } from './Components/sidenav/sidenav.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
@@ -14,10 +13,12 @@ import { EditUserDialogue } from './DialogueBox/edit-user-dialogue';
 import { CommonSnackbar } from './DialogueBox/common_Snackbar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { EditEmployeeDialogue } from './DialogueBox/edit-employe-idalogue/edit-employee-dialogue';
 import { AddEmployeeDialogue } from './DialogueBox/add-employee-dialogue/add-employee-dialogue';
 import { ClockComponent } from './Components/clock/clock.component';
 import { CalenderComponent } from './Components/calender/calender.component';
+import { PaginationCompComponent } from './Components/pagination-comp/pagination-comp.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { EditEmployeeDialogue } from './DialogueBox/edit-employee-dialogue/edit-employee-dialogue';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import { CalenderComponent } from './Components/calender/calender.component';
     EditEmployeeDialogue,
     AddEmployeeDialogue,
     ClockComponent,
-    CalenderComponent
+    CalenderComponent,
+    PaginationCompComponent,
+    SidenavComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +39,8 @@ import { CalenderComponent } from './Components/calender/calender.component';
     MatListModule,
     RouterModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatPaginatorModule,
   ],
   providers:[
     AuthService,
@@ -46,6 +50,7 @@ import { CalenderComponent } from './Components/calender/calender.component';
   ],
   exports :[
     SidenavComponent,
+    PaginationCompComponent,
     MatSidenavModule,
     MatListModule,
     SearchFilterPipePipe,

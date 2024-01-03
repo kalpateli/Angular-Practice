@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { EmployeeState } from "./employees.states";
-import { addEmployee, deleteEmployee, loadEmployee, loadEmployeeFail, loadEmployeeSuccess, updatedEmployee } from "./employees.actions";
+import { addEmployee, deleteEmployee, loadEmployee, loadEmployeeFail, loadEmployeeSuccess, updatedEmployee, updatedEmployeeSuccess } from "./employees.actions";
 import { EmployeeModel } from "./employees.model";
 
 
@@ -33,7 +33,7 @@ const _employeeReducer = createReducer(EmployeeState,
             employeelist : [...state.employeelist , _employee]
         }
     }),
-    on(updatedEmployee, (state,action) => {
+    on(updatedEmployeeSuccess, (state,action) => {
         const _employee = {...action.employeeData};
         const updatedEmployee = state.employeelist.map(emp => {
             return _employee.id === emp.id? _employee : emp;

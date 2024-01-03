@@ -4,7 +4,6 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { HomeAdminComponent } from './components/home-admin/home-admin.component';
 import { AdminComponent } from './admin.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { SidenavComponent } from '../shared/Components/sidenav/sidenav.component';
 import { MatListModule } from '@angular/material/list';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -21,6 +20,8 @@ import { MatInputModule } from '@angular/material/input';
 import { EmployeesAttendanceComponent } from './components/employees-attendance/employees-attendance.component';
 import { EmployeesLeavesComponent } from './components/employees-leaves/employees-leaves.component';
 import { SummaryComponent } from './components/summary/summary.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -32,8 +33,6 @@ import { SummaryComponent } from './components/summary/summary.component';
     EmployeesAttendanceComponent,
     EmployeesLeavesComponent,
     SummaryComponent
-    
-    // SidenavComponent
   ],
   imports: [
     CommonModule,
@@ -49,6 +48,8 @@ import { SummaryComponent } from './components/summary/summary.component';
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
+    NgxPaginationModule,
+    InfiniteScrollModule
 
   ],
   providers:[

@@ -19,11 +19,13 @@ import { MatButtonModule} from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { StoreModule } from '@ngrx/store';
-import { counterReducer } from './shared/store/counter/counter.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { EmployeesEffects } from './shared/store/employee/employees.Effects';
 import { AppState } from './shared/store/Global/App.state';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { FooterComponent } from './shared/Components/footer/footer.component';
 
 
 @NgModule({
@@ -31,6 +33,7 @@ import { AppState } from './shared/store/Global/App.state';
     AppComponent,
     HeaderComponent,
     AboutUsComponent,
+    FooterComponent,
     PageNotFoundComponent,
   ],
 
@@ -47,6 +50,8 @@ import { AppState } from './shared/store/Global/App.state';
     MatDialogModule,
     MatButtonModule,
     MatSnackBarModule,
+    NgxPaginationModule,
+    InfiniteScrollModule,
     StoreModule.forRoot(AppState),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([EmployeesEffects])

@@ -1,4 +1,6 @@
-
+.container{
+  margin-bottom: 50px;
+}
 
 table {
     margin:0 3% ;
@@ -46,4 +48,9 @@ table {
 
 .modal-backdrop.show {
   opacity: 0;
+}
+
+#employeeListContainer {
+  height: 600px; /* Adjust the height according to your design */
+  overflow-y: scroll;
 }
