@@ -58,7 +58,7 @@ export class HeaderComponent implements OnInit {
       this.route.navigate(['/home'])
     }
     else {
-      this.route.navigate(['/home', this.currUser.id, this.currUser.firstName],
+      this.route.navigate(['/home'],
         { queryParams: { userId: this.currUser.id, userName: this.currUser.firstName } })
     }
 

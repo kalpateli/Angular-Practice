@@ -19,6 +19,7 @@ import { CalenderComponent } from './Components/calender/calender.component';
 import { PaginationCompComponent } from './Components/pagination-comp/pagination-comp.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { EditEmployeeDialogue } from './DialogueBox/edit-employee-dialogue/edit-employee-dialogue';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { EditEmployeeDialogue } from './DialogueBox/edit-employee-dialogue/edit-
     FormsModule,
     ReactiveFormsModule,
     MatPaginatorModule,
+    MatButtonModule
   ],
   providers:[
     AuthService,

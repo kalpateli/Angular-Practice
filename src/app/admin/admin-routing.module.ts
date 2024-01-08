@@ -10,12 +10,11 @@ import { EmployeesLeavesComponent } from './components/employees-leaves/employee
 
 const routes: Routes = [
   {
-    path: ':id/:name', component: AdminComponent,
+    path: '', component: AdminComponent,
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { 
-        path: 'dashboard', 
-        component: HomeAdminComponent,
+        path: 'dashboard', component: HomeAdminComponent,
       },
       { path: 'employee-list', component: EmployeeListComponent },
       { path: 'employees-attendance', component: EmployeesAttendanceComponent },
@@ -28,8 +27,6 @@ const routes: Routes = [
     ],
   },
 
-
-  // {path : ':id/:name/dashboard', component: HomeAdminComponent},
 
 ];
 

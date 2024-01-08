@@ -1,28 +1,28 @@
 <ng-container *ngIf="userLoggedIn;else elseBlock">
 
-    <div class="container">
-  
-      
-      <h1>Welcome {{userName}},</h1>
-      
-  
+  <div class="container">
+
+
+    <h1>Welcome {{userName}},</h1>
+
+
+  </div>
+
+</ng-container>
+
+
+<ng-template #elseBlock>
+  <div class="containerNotLogged">
+
+    <div class="title text-center text-b ">
+      <h1>Welcome To The Website</h1>
     </div>
-  
-  </ng-container>
-  
-  
-  <ng-template #elseBlock>
-    <div class="containerNotLogged">
-  
-      <div class="title text-center text-b ">
-        <h1>Welcome To The Website</h1>
-      </div>
-  
-      <div class="title text-center  ">
-        <span>Please Log In If You Have Already Registered Or Register Yourself</span>
-        <br>
-        <a routerLink="/auth/sign-up"> SIGN UP </a> /<a routerLink="/auth/log-in"> LOG IN </a>
-      </div>
+
+    <div class="title text-center  ">
+      <span>Please Log In If You Have Already Registered Or Register Yourself</span>
+      <br>
+      <a routerLink="/auth/sign-up"> SIGN UP </a> /<a routerLink="/auth/log-in"> LOG IN </a>
     </div>
-  
-  </ng-template>
+  </div>
+
+</ng-template>

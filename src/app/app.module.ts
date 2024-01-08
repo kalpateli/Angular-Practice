@@ -1,14 +1,16 @@
 import { NgModule, isDevMode } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { StoreModule } from '@ngrx/store';
 import { Module2Module } from './module-2/module-2.module';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/Components/header/header.component';
+import { FooterComponent } from './shared/Components/footer/footer.component';
 import { AboutUsComponent } from './shared/Components/about-us/about-us.component';
 import { PageNotFoundComponent } from './shared/Components/page-not-found/page-not-found.component';
 import { Service1Service } from './home/services/service1.service';
@@ -18,14 +20,13 @@ import { UsersService } from './shared/services/users.service';
 import { MatButtonModule} from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
-import { EmployeesEffects } from './shared/store/employee/employees.Effects';
 import { AppState } from './shared/store/Global/App.state';
+import { EmployeesEffects } from './shared/store/employee/employees.Effects';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-import { FooterComponent } from './shared/Components/footer/footer.component';
+import { LeavesEffects } from './shared/store/leaves/leaves.effects';
 
 
 @NgModule({
@@ -54,7 +55,7 @@ import { FooterComponent } from './shared/Components/footer/footer.component';
     InfiniteScrollModule,
     StoreModule.forRoot(AppState),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    EffectsModule.forRoot([EmployeesEffects])
+    EffectsModule.forRoot([EmployeesEffects,LeavesEffects])
   ],
   
   providers: [

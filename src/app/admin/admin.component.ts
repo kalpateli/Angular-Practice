@@ -13,24 +13,30 @@ export class AdminComponent implements OnInit{
 
   userName : string;
   id : number;
-  constructor(private sidenavService: SidenavService, private route : ActivatedRoute, private router : Router) {}
+
+  
+  constructor(
+    private sidenavService: SidenavService,
+    private route : ActivatedRoute, 
+    private router : Router
+    ) {}
+
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.id= parseInt(params.get('id'));
       this.userName = params.get('name');
-      console.log("userName" + this.userName);
     })
 
 
     const adminNavList = [
-      {name:'Dashboard', path:'/home/' + this.id + '/' + this.userName + '/dashboard'},
-      {name:'Employee List', path:'/home/' + this.id + '/' + this.userName + '/employee-list'},
-      {name:'Attendance', path:'/home/' + this.id + '/' + this.userName + '/employees-attendance'},
-      {name:'Leaves', path:'/home/' + this.id + '/' + this.userName + '/employees-leaves'},
-      {name:'Summary', path:'/home/' + this.id + '/' + this.userName + '/ngrx-prac'},
-      {name:'Organization', path:'/home/' + this.id + '/' + this.userName + '/ngrx-prac'},
-      {name:'NGRX Practice', path:'/home/' + this.id + '/' + this.userName + '/ngrx-prac'},
+      {name:'Dashboard', path:'/home/dashboard'},
+      {name:'Employee List', path:'/home/employee-list'},
+      {name:'Attendance', path:'/home/employees-attendance'},
+      {name:'Leaves', path:'/home/employees-leaves'},
+      {name:'Summary', path:'/home/ngrx-prac'},
+      {name:'Organization', path:'/home/ngrx-prac'},
+      {name:'NGRX Practice', path:'/home/ngrx-prac'},
 
 
 
@@ -39,8 +45,7 @@ export class AdminComponent implements OnInit{
   }
 
   onNavigate(){
-    console.log("onNavigate clicked")
-    this.router.navigate(['/home' , this.id , this.userName ,'dashboard' ]);
+    this.router.navigate(['/home/dashboard' ]);
   }
 
 }

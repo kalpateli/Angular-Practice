@@ -21,8 +21,6 @@ export class EmployeeListComponent implements OnInit, OnChanges {
 
   empTitle: string = "EMPLOYEE DETAILS";
   submitted = false;
-
-
   userType: string = "employee";
   users: Users[] = [];
   updatedUser: Users;
@@ -58,11 +56,6 @@ export class EmployeeListComponent implements OnInit, OnChanges {
   disableInfiniteScroll = false;
   isLoading = false;
   currenpage = 1;
-  itemsperpg = 10;
-  items: string[];
-
-
-
 
   constructor(
 
@@ -77,7 +70,7 @@ export class EmployeeListComponent implements OnInit, OnChanges {
     // this.store.dispatch(loadEmployee());
     // this.store.select(getEmployee).subscribe
     // ((item: EmployeeModel[]) => {
-    //   this.employeeInfo = {employeelist:item}
+      // this.employeeInfo = {employeelist:item}
     //   // this.employeeList =item;
     //   // console.log(this.employeeList);
     // })
@@ -110,7 +103,7 @@ export class EmployeeListComponent implements OnInit, OnChanges {
 
   loadData = () => {
     this.toggleLoading();
-    this._employee.getEmployeeDetailsPaginated(this.currenpage, this.itemsperpg)
+    this._employee.getEmployeeDetailsPaginated(this.currenpage, this.pageSize)
       .subscribe({
         next: response => this.employeeLists = response,
         complete: () => this.toggleLoading()

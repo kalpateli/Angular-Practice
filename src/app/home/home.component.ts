@@ -41,7 +41,6 @@ export class HomeComponent implements OnInit{
     );
     this.userLoggedIn = this._auth.getUser();
     this.userType = this._auth.getUserType();
-
   }
 
   getUsersApi(){
@@ -51,8 +50,6 @@ export class HomeComponent implements OnInit{
       this.users=data;
     })
   }
-
-
 
   onSelect(user : Data){
     this.router.navigate(['/home/homepage',user.id,user.firstName],

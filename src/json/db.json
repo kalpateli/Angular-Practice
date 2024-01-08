@@ -347,342 +347,64 @@
         "country": "India"
       },
       "designation": "Jr.Software Engineer"
-    },
+    }
+  ],
+  "Leaves": [
     {
-      "id": 16,
-      "firstName": "Kalpa",
-      "lastName": "Teli",
-      "email": "kalpa@gmail.com",
-      "mobile": "9547851125",
-      "employee_no": 9263,
-      "userType": "employee",
-      "dob": "1979-07-11",
-      "address": {
-        "city": "Mapusa",
-        "state": "Goa",
-        "country": "India"
-      },
-      "designation": "Data Engineer"
-    },
-    {
-      "id": 17,
-      "firstName": "Rohit",
-      "lastName": "Khanna",
-      "email": "abcde@gmail.com",
-      "mobile": "9375831829",
-      "employee_no": 928143,
-      "userType": "employee",
-      "dob": "1988-11-02",
-      "address": {
-        "city": "Panaji",
-        "state": "Goa",
-        "country": "India"
-      },
-      "designation": "Sr.Software Engineer"
-    },
-    {
-      "id": 18,
-      "firstName": "Sonia",
-      "lastName": "Naik",
-      "email": "abcdef@gmail.com",
-      "mobile": "9375831829",
-      "employee_no": 928243,
-      "userType": "employee",
-      "dob": "1988-11-02",
-      "address": {
-        "city": "Panaji",
-        "state": "Goa",
-        "country": "India"
-      },
-      "designation": "Sr.Software Engineer"
-    },
-    {
-      "id": 19,
-      "firstName": "Sonia",
-      "lastName": "Karra",
-      "email": "abc12@gmail.com",
-      "mobile": "9375831829",
-      "employee_no": 928043,
-      "userType": "employee",
-      "dob": "1988-11-02",
-      "address": {
-        "city": "Panaji",
-        "state": "Goa",
-        "country": "India"
-      },
-      "designation": "Jr.Software Engineer"
-    },
-    {
-      "id": 20,
-      "firstName": "Sam",
-      "lastName": "Jose",
-      "email": "abc@gmail.com",
-      "mobile": "9172615281",
+      "id": 1,
       "employee_no": 8394,
-      "userType": "employee",
-      "dob": "1988-11-22",
-      "address": {
-        "city": "Valpoi",
-        "state": "Goa",
-        "country": "India"
-      },
-      "designation": "Jr.Software Engineer"
+      "employee_fname": "Sam",
+      "employee_lname": "Jose",
+      "totalDays": 1,
+      "from_date": "10-Jan-2024",
+      "to_date": "10-Jan-2024",
+      "full": "yes",
+      "half": "no",
+      "reason": "work",
+      "document": "",
+      "status": "approved"
     },
     {
-      "id": 21,
-      "firstName": "Kalpa",
-      "lastName": "Teli",
-      "email": "kalpa@gmail.com",
-      "mobile": "9547851125",
-      "employee_no": 9263,
-      "userType": "employee",
-      "dob": "1979-07-11",
-      "address": {
-        "city": "Mapusa",
-        "state": "Goa",
-        "country": "India"
-      },
-      "designation": "Data Engineer"
-    },
-    {
-      "id": 22,
-      "firstName": "Rohit",
-      "lastName": "Khanna",
-      "email": "abcde@gmail.com",
-      "mobile": "9375831829",
-      "employee_no": 928143,
-      "userType": "employee",
-      "dob": "1988-11-02",
-      "address": {
-        "city": "Panaji",
-        "state": "Goa",
-        "country": "India"
-      },
-      "designation": "Sr.Software Engineer"
-    },
-    {
-      "id": 23,
-      "firstName": "Sonia",
-      "lastName": "Naik",
-      "email": "abcdef@gmail.com",
-      "mobile": "9375831829",
-      "employee_no": 928243,
-      "userType": "employee",
-      "dob": "1988-11-02",
-      "address": {
-        "city": "Panaji",
-        "state": "Goa",
-        "country": "India"
-      },
-      "designation": "Sr.Software Engineer"
-    },
-    {
-      "id": 24,
-      "firstName": "Sonia",
-      "lastName": "Karra",
-      "email": "abc12@gmail.com",
-      "mobile": "9375831829",
-      "employee_no": 928043,
-      "userType": "employee",
-      "dob": "1988-11-02",
-      "address": {
-        "city": "Panaji",
-        "state": "Goa",
-        "country": "India"
-      },
-      "designation": "Jr.Software Engineer"
-    },
-    {
-      "id": 25,
-      "firstName": "Sam",
-      "lastName": "Jose",
-      "email": "abc@gmail.com",
-      "mobile": "9172615281",
+      "id": 2,
       "employee_no": 8394,
-      "userType": "employee",
-      "dob": "1988-11-22",
-      "address": {
-        "city": "Valpoi",
-        "state": "Goa",
-        "country": "India"
-      },
-      "designation": "Jr.Software Engineer"
+      "employee_fname": "Sam",
+      "employee_lname": "Jose",
+      "totalDays": 1,
+      "from_date": "11-Jan-2024",
+      "to_date": "11-Jan-2024",
+      "full": "yes",
+      "half": "no",
+      "reason": "work",
+      "document": "",
+      "status": "pending"
     },
     {
-      "id": 26,
-      "firstName": "Kalpa",
-      "lastName": "Teli",
-      "email": "kalpa@gmail.com",
-      "mobile": "9547851125",
-      "employee_no": 9263,
-      "userType": "employee",
-      "dob": "1979-07-11",
-      "address": {
-        "city": "Mapusa",
-        "state": "Goa",
-        "country": "India"
-      },
-      "designation": "Data Engineer"
-    },
-    {
-      "id": 27,
-      "firstName": "Rohit",
-      "lastName": "Khanna",
-      "email": "abcde@gmail.com",
-      "mobile": "9375831829",
-      "employee_no": 928143,
-      "userType": "employee",
-      "dob": "1988-11-02",
-      "address": {
-        "city": "Panaji",
-        "state": "Goa",
-        "country": "India"
-      },
-      "designation": "Sr.Software Engineer"
-    },
-    {
-      "id": 28,
-      "firstName": "Sonia",
-      "lastName": "Naik",
-      "email": "abcdef@gmail.com",
-      "mobile": "9375831829",
-      "employee_no": 928243,
-      "userType": "employee",
-      "dob": "1988-11-02",
-      "address": {
-        "city": "Panaji",
-        "state": "Goa",
-        "country": "India"
-      },
-      "designation": "Sr.Software Engineer"
-    },
-    {
-      "id": 29,
-      "firstName": "Sonia",
-      "lastName": "Karra",
-      "email": "abc12@gmail.com",
-      "mobile": "9375831829",
-      "employee_no": 928043,
-      "userType": "employee",
-      "dob": "1988-11-02",
-      "address": {
-        "city": "Panaji",
-        "state": "Goa",
-        "country": "India"
-      },
-      "designation": "Jr.Software Engineer"
-    },
-    {
-      "id": 30,
-      "firstName": "Sam",
-      "lastName": "Jose",
-      "email": "abc@gmail.com",
-      "mobile": "9172615281",
+      "id": 3,
       "employee_no": 8394,
-      "userType": "employee",
-      "dob": "1988-11-22",
-      "address": {
-        "city": "Valpoi",
-        "state": "Goa",
-        "country": "India"
-      },
-      "designation": "Jr.Software Engineer"
+      "employee_fname": "Sam",
+      "employee_lname": "Jose",
+      "totalDays": 1,
+      "from_date": "12-Jan-2024",
+      "to_date": "12-Jan-2024",
+      "full": "yes",
+      "half": "no",
+      "reason": "abcd",
+      "document": "",
+      "status": "approved"
     },
     {
-      "id": 31,
-      "firstName": "Kalpa",
-      "lastName": "Teli",
-      "email": "kalpa@gmail.com",
-      "mobile": "9547851125",
-      "employee_no": 9263,
-      "userType": "employee",
-      "dob": "1979-07-11",
-      "address": {
-        "city": "Mapusa",
-        "state": "Goa",
-        "country": "India"
-      },
-      "designation": "Data Engineer"
-    },
-    {
-      "id": 32,
-      "firstName": "Rohit",
-      "lastName": "Khanna",
-      "email": "abcde@gmail.com",
-      "mobile": "9375831829",
-      "employee_no": 928143,
-      "userType": "employee",
-      "dob": "1988-11-02",
-      "address": {
-        "city": "Panaji",
-        "state": "Goa",
-        "country": "India"
-      },
-      "designation": "Sr.Software Engineer"
-    },
-    {
-      "id": 33,
-      "firstName": "Sonia",
-      "lastName": "Naik",
-      "email": "abcdef@gmail.com",
-      "mobile": "9375831829",
-      "employee_no": 928243,
-      "userType": "employee",
-      "dob": "1988-11-02",
-      "address": {
-        "city": "Panaji",
-        "state": "Goa",
-        "country": "India"
-      },
-      "designation": "Sr.Software Engineer"
-    },
-    {
-      "id": 34,
-      "firstName": "Sonia",
-      "lastName": "Karra",
-      "email": "abc12@gmail.com",
-      "mobile": "9375831829",
-      "employee_no": 928043,
-      "userType": "employee",
-      "dob": "1988-11-02",
-      "address": {
-        "city": "Panaji",
-        "state": "Goa",
-        "country": "India"
-      },
-      "designation": "Jr.Software Engineer"
-    },
-    {
-      "id": 35,
-      "firstName": "Sam",
-      "lastName": "Jose",
-      "email": "abc@gmail.com",
-      "mobile": "9172615281",
+      "id": 4,
       "employee_no": 8394,
-      "userType": "employee",
-      "dob": "1988-11-22",
-      "address": {
-        "city": "Valpoi",
-        "state": "Goa",
-        "country": "India"
-      },
-      "designation": "Jr.Software Engineer"
-    },
-    {
-      "id": 36,
-      "firstName": "Kalpa",
-      "lastName": "Teli",
-      "email": "kalpa@gmail.com",
-      "mobile": "9547851125",
-      "employee_no": 9263,
-      "userType": "employee",
-      "dob": "1979-07-11",
-      "address": {
-        "city": "Mapusa",
-        "state": "Goa",
-        "country": "India"
-      },
-      "designation": "Data Engineer"
+      "employee_fname": "Sam",
+      "employee_lname": "Jose",
+      "totalDays": 1,
+      "from_date": "13-Jan-2024",
+      "to_date": "13-Jan-2024",
+      "full": "yes",
+      "half": "no",
+      "reason": "efg",
+      "document": "",
+      "status": "pending"
     }
   ]
 }

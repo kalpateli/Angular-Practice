@@ -12,7 +12,9 @@ export class EmployeesComponent {
 
   userName : string;
   id : number;
-  constructor(private sidenavService: SidenavService, private route : ActivatedRoute) {}
+  constructor(
+    private sidenavService: SidenavService, 
+    private route : ActivatedRoute) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -21,16 +23,16 @@ export class EmployeesComponent {
     })
 
 
-    const adminNavList = [
-      {name:'Dashboard', path:'/home/' + this.id + '/' + this.userName + '/dashboard'},
-      {name:'Leaves', path:'/home/' + this.id + '/' + this.userName + '/dashboard'},
-      {name:'My Attendance', path:'/home/' + this.id + '/' + this.userName + '/dashboard'},
-      {name:'Policies', path:'/home/' + this.id + '/' + this.userName + '/dashboard'},
-      {name:'Organization', path:'/home/' + this.id + '/' + this.userName + '/dashboard'},
+    const empNavList = [
+      {name:'Dashboard', path:'/home/dashboard'},
+      {name:'Leaves', path:'/home/leaves'},
+      {name:'My Attendance', path:'/home/dashboard'},
+      {name:'Policies', path:'/home/dashboard'},
+      {name:'Organization', path:'/home/dashboard'},
 
 
     ];
-    this.sidenavService.setNavList(adminNavList);
+    this.sidenavService.setNavList(empNavList);
   }
 
   

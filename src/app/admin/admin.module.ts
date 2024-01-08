@@ -22,6 +22,9 @@ import { EmployeesLeavesComponent } from './components/employees-leaves/employee
 import { SummaryComponent } from './components/summary/summary.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -48,9 +51,10 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
+    MatTableModule,
     NgxPaginationModule,
-    InfiniteScrollModule
-
+    InfiniteScrollModule,
+    MatIconModule,
   ],
   providers:[
     EmployeesService,

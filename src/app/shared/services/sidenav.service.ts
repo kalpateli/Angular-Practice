@@ -16,6 +16,8 @@ export class SidenavService {
   setNavList(navList: any[]) {
     this.navListSubject.next(navList);
   }
+
   constructor() { }
 
+  
 }

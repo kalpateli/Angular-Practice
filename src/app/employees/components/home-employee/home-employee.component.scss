@@ -1,7 +1,13 @@
 .containerNotLogged{
-    height:90vh;
     display:flex;
     flex-direction: column;
     justify-content: center;
+    height:90vh;
     
+}
+
+.container{
+    width:max-content;
+    height:90vh;
+
 }

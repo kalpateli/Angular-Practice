@@ -85,7 +85,7 @@ export class LoginPageComponent implements OnInit {
               this._auth.setIsLoggedIn();
               this._auth.setUser(JSON.stringify(this.users));
               this.logInForm.reset();
-              this.route.navigate(['/home', this.users.id, this.users.firstName], {
+              this.route.navigate(['/home'], {
                 queryParams: { userId: this.users.id, userName: this.users.firstName }
               });
               // this.route.navigate(['/home']);
