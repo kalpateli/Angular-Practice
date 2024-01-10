@@ -5,7 +5,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomepageComponent } from './homepage/homepage.component';
 import { HomeComponent } from './home.component';
 import { UserComponent } from './user/user.component';
-import { Section1Component } from './section1/section1.component';
+import { Section1Component } from '../admin/components/rxjs/section1.component';
 
 
 @NgModule({

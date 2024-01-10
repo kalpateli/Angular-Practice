@@ -1,28 +1,33 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SidenavComponent } from './Components/sidenav/sidenav.component';
+import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatButtonModule } from '@angular/material/button';
+import { SidenavComponent } from './Components/sidenav/sidenav.component';
+import { ClockComponent } from './Components/clock/clock.component';
+import { PaginationCompComponent } from './Components/pagination-comp/pagination-comp.component';
+import { CalenderComponent } from './Components/calender/calender.component';
+import { HeaderComponent } from './Components/header/header.component';
+import { FooterComponent } from './Components/footer/footer.component';
+import { EditUserDialogue } from './DialogueBox/edit-user-dialogue';
+import { CommonSnackbar } from './DialogueBox/common_Snackbar';
+import { EditEmployeeDialogue } from './DialogueBox/edit-employee-dialogue/edit-employee-dialogue';
+import { AddEmployeeDialogue } from './DialogueBox/add-employee-dialogue/add-employee-dialogue';
 import { AuthService } from './services/auth.service';
 import { RxjsPracService } from './services/rxjs-prac.service';
 import { UsersService } from './services/users.service';
 import { SidenavService } from './services/sidenav.service';
-import { RouterModule } from '@angular/router';
+import { LeavesService } from './services/leaves.service';
 import { SearchFilterPipePipe } from './pipes/search-filter-pipe.pipe';
-import { EditUserDialogue } from './DialogueBox/edit-user-dialogue';
-import { CommonSnackbar } from './DialogueBox/common_Snackbar';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AddEmployeeDialogue } from './DialogueBox/add-employee-dialogue/add-employee-dialogue';
-import { ClockComponent } from './Components/clock/clock.component';
-import { CalenderComponent } from './Components/calender/calender.component';
-import { PaginationCompComponent } from './Components/pagination-comp/pagination-comp.component';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { EditEmployeeDialogue } from './DialogueBox/edit-employee-dialogue/edit-employee-dialogue';
-import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
+    HeaderComponent,
+    FooterComponent,
     SidenavComponent,
     EditUserDialogue,
     CommonSnackbar,
@@ -32,7 +37,6 @@ import { MatButtonModule } from '@angular/material/button';
     ClockComponent,
     CalenderComponent,
     PaginationCompComponent,
-    SidenavComponent
   ],
   imports: [
     CommonModule,
@@ -44,13 +48,14 @@ import { MatButtonModule } from '@angular/material/button';
     MatPaginatorModule,
     MatButtonModule
   ],
-  providers:[
+  providers: [
     AuthService,
     RxjsPracService,
     UsersService,
-    SidenavService
+    SidenavService,
+    LeavesService
   ],
-  exports :[
+  exports: [
     SidenavComponent,
     PaginationCompComponent,
     MatSidenavModule,
@@ -60,6 +65,8 @@ import { MatButtonModule } from '@angular/material/button';
     CommonSnackbar,
     MatSnackBarModule,
     ClockComponent,
+    HeaderComponent,
+    FooterComponent,
   ]
 })
 export class SharedModule { }

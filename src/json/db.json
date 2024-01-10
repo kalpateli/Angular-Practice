@@ -115,14 +115,18 @@
       "email": "abc@gmail.com",
       "mobile": "9375831831",
       "employee_no": 928343,
-      "designation": "Sr.Software Engineer",
       "userType": "employee",
       "dob": "1988-11-02",
       "address": {
         "city": "Panaji",
         "state": "Goa",
         "country": "India"
-      }
+      },
+      "designation": "Sr.Software Engineer",
+      "absence" : [
+        "10-Jan-2024",
+        "11-Jan-2024"
+      ]
     },
     {
       "id": 2,
@@ -138,7 +142,11 @@
         "state": "Goa",
         "country": "India"
       },
-      "designation": "Sr.Software Engineer"
+      "designation": "Sr.Software Engineer",
+      "absence" : [
+        "10-Jan-2024",
+        "11-Jan-2024"
+      ]
     },
     {
       "id": 3,
@@ -154,7 +162,11 @@
         "state": "Goa",
         "country": "India"
       },
-      "designation": "Sr.Software Engineer"
+      "designation": "Sr.Software Engineer",
+      "absence" : [
+        "10-Jan-2024",
+        "11-Jan-2024"
+      ]
     },
     {
       "id": 4,
@@ -170,7 +182,11 @@
         "state": "Goa",
         "country": "India"
       },
-      "designation": "Jr.Software Engineer"
+      "designation": "Jr.Software Engineer",
+      "absence" : [
+        "10-Jan-2024",
+        "11-Jan-2024"
+      ]
     },
     {
       "id": 5,
@@ -186,7 +202,11 @@
         "state": "Goa",
         "country": "India"
       },
-      "designation": "Jr.Software Engineer"
+      "designation": "Jr.Software Engineer",
+      "absence" : [
+        "10-Jan-2024",
+        "11-Jan-2024"
+      ]
     },
     {
       "id": 6,
@@ -202,7 +222,11 @@
         "state": "Goa",
         "country": "India"
       },
-      "designation": "Data Engineer"
+      "designation": "Data Engineer",
+      "absence" : [
+        "10-Jan-2024",
+        "11-Jan-2024"
+      ]
     },
     {
       "id": 7,
@@ -218,7 +242,11 @@
         "state": "Goa",
         "country": "India"
       },
-      "designation": "Sr.Software Engineer"
+      "designation": "Sr.Software Engineer",
+      "absence" : [
+        "10-Jan-2024",
+        "11-Jan-2024"
+      ]
     },
     {
       "id": 8,
@@ -234,7 +262,11 @@
         "state": "Goa",
         "country": "India"
       },
-      "designation": "Sr.Software Engineer"
+      "designation": "Sr.Software Engineer",
+      "absence" : [
+        "10-Jan-2024",
+        "11-Jan-2024"
+      ]
     },
     {
       "id": 9,
@@ -250,7 +282,11 @@
         "state": "Goa",
         "country": "India"
       },
-      "designation": "Jr.Software Engineer"
+      "designation": "Jr.Software Engineer",
+      "absence" : [
+        "10-Jan-2024",
+        "11-Jan-2024"
+      ]
     },
     {
       "id": 10,
@@ -356,6 +392,7 @@
       "employee_fname": "Sam",
       "employee_lname": "Jose",
       "totalDays": 1,
+      "type":"SL",
       "from_date": "10-Jan-2024",
       "to_date": "10-Jan-2024",
       "full": "yes",
@@ -370,6 +407,7 @@
       "employee_fname": "Sam",
       "employee_lname": "Jose",
       "totalDays": 1,
+      "type":"SL",
       "from_date": "11-Jan-2024",
       "to_date": "11-Jan-2024",
       "full": "yes",
@@ -377,34 +415,30 @@
       "reason": "work",
       "document": "",
       "status": "pending"
-    },
+    }
+  ],
+  "attendences": [
     {
-      "id": 3,
+      "id":1,
+      "employee_no" : 8394,
       "employee_no": 8394,
       "employee_fname": "Sam",
       "employee_lname": "Jose",
-      "totalDays": 1,
-      "from_date": "12-Jan-2024",
-      "to_date": "12-Jan-2024",
-      "full": "yes",
-      "half": "no",
-      "reason": "abcd",
-      "document": "",
-      "status": "approved"
+      "absence" : [
+        "10-Jan-2024",
+        "11-Jan-2024"
+      ]
     },
     {
-      "id": 4,
+      "id":2,
+      "employee_no" : 8394,
       "employee_no": 8394,
       "employee_fname": "Sam",
       "employee_lname": "Jose",
-      "totalDays": 1,
-      "from_date": "13-Jan-2024",
-      "to_date": "13-Jan-2024",
-      "full": "yes",
-      "half": "no",
-      "reason": "efg",
-      "document": "",
-      "status": "pending"
+      "absence" : [
+        "10-Jan-2024",
+        "11-Jan-2024"
+      ]
     }
   ]
 }

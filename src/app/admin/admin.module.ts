@@ -24,8 +24,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
-
-
+import { RxjsComponent } from './components/rxjs/rxjs.component';
+import { MatPseudoCheckboxModule } from '@angular/material/core';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -35,7 +36,8 @@ import { MatIconModule } from '@angular/material/icon';
     NGRXpracticeComponent,
     EmployeesAttendanceComponent,
     EmployeesLeavesComponent,
-    SummaryComponent
+    SummaryComponent,
+    RxjsComponent
   ],
   imports: [
     CommonModule,
@@ -52,6 +54,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatSelectModule,
     MatInputModule,
     MatTableModule,
+    MatCheckboxModule,
     NgxPaginationModule,
     InfiniteScrollModule,
     MatIconModule,

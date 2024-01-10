@@ -27,14 +27,13 @@ import { EmployeesEffects } from './shared/store/employee/employees.Effects';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { LeavesEffects } from './shared/store/leaves/leaves.effects';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     AboutUsComponent,
-    FooterComponent,
     PageNotFoundComponent,
   ],
 
@@ -53,6 +52,7 @@ import { LeavesEffects } from './shared/store/leaves/leaves.effects';
     MatSnackBarModule,
     NgxPaginationModule,
     InfiniteScrollModule,
+    SharedModule,
     StoreModule.forRoot(AppState),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([EmployeesEffects,LeavesEffects])

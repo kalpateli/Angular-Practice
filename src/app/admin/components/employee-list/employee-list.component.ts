@@ -95,8 +95,8 @@ export class EmployeeListComponent implements OnInit, OnChanges {
         },
         error: err => console.log(err),
         complete: () => {
-          this.currentPage++;
           this.toggleLoading()
+          this.currentPage++;
         }
       });
   }

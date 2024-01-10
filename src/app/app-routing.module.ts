@@ -27,7 +27,6 @@ const routes: Routes = [
   },
   {path : 'about-us', component: AboutUsComponent},
   {path : 'module-2', component: Module2Component,canActivate:[authLogged]},
-  // {path : 'employees', component: UsersComponent , canActivate:[authLogged]},
   
   {
     path : 'auth' , 

@@ -7,23 +7,20 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
 import { NGRXpracticeComponent } from './components/ngrxpractice/ngrxpractice.component';
 import { EmployeesAttendanceComponent } from './components/employees-attendance/employees-attendance.component';
 import { EmployeesLeavesComponent } from './components/employees-leaves/employees-leaves.component';
+import { RxjsComponent } from './components/rxjs/rxjs.component';
 
 const routes: Routes = [
   {
     path: '', component: AdminComponent,
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-      { 
-        path: 'dashboard', component: HomeAdminComponent,
-      },
+      { path: 'dashboard', component: HomeAdminComponent,},
       { path: 'employee-list', component: EmployeeListComponent },
       { path: 'employees-attendance', component: EmployeesAttendanceComponent },
       { path: 'employees-leaves', component: EmployeesLeavesComponent },
-
       { path: 'ngrx-prac', component:  NGRXpracticeComponent},
+      { path: 'rxjs-prac', component:  RxjsComponent},
       { path: 'user/:id/:name', component: UserDetailsComponent },
-
-
     ],
   },
 

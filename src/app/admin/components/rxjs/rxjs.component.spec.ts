@@ -1,16 +1,15 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RxjsComponent } from './rxjs.component';
 
-import { Section1Component } from './section1.component';
-
-describe('Section1Component', () => {
-  let component: Section1Component;
-  let fixture: ComponentFixture<Section1Component>;
+describe('RxjsComponent', () => {
+  let component: RxjsComponent;
+  let fixture: ComponentFixture<RxjsComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [Section1Component]
+      declarations: [RxjsComponent]
     });
-    fixture = TestBed.createComponent(Section1Component);
+    fixture = TestBed.createComponent(RxjsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

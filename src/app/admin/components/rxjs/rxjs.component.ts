@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnChanges, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import {
   Observable,
   Subscription,
@@ -14,14 +14,14 @@ import {
 import { RxjsPracService } from 'src/app/shared/services/rxjs-prac.service';
 
 @Component({
-  selector: 'app-section1',
-  templateUrl: './section1.component.html',
-  styleUrls: ['./section1.component.scss']
+  selector: 'app-rxjs',
+  templateUrl: './rxjs.component.html',
+  styleUrls: ['./rxjs.component.scss']
 })
 
 
 
-export class Section1Component implements OnInit, AfterViewInit, OnDestroy {
+export class RxjsComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @Input() message: string;
   obsMsg: any;
