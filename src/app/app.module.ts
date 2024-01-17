@@ -28,6 +28,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { LeavesEffects } from './shared/store/leaves/leaves.effects';
 import { SharedModule } from './shared/shared.module';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 
 @NgModule({
@@ -51,6 +52,8 @@ import { SharedModule } from './shared/shared.module';
     MatButtonModule,
     MatSnackBarModule,
     NgxPaginationModule,
+    NgxChartsModule,
+    BrowserAnimationsModule,
     InfiniteScrollModule,
     SharedModule,
     StoreModule.forRoot(AppState),

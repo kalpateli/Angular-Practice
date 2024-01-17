@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { AdminRoutingModule } from './admin-routing.module';
 import { HomeAdminComponent } from './components/home-admin/home-admin.component';
 import { AdminComponent } from './admin.component';
@@ -25,8 +25,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { RxjsComponent } from './components/rxjs/rxjs.component';
-import { MatPseudoCheckboxModule } from '@angular/material/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -42,6 +42,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
   imports: [
     CommonModule,
     FormsModule,
+    NgxChartsModule,
     HttpClientModule,
     ReactiveFormsModule,
     MatDialogModule,
@@ -61,6 +62,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
   ],
   providers:[
     EmployeesService,
+    DatePipe
   ]
 })
 

@@ -4,7 +4,7 @@
 
 <div class="container text-center">
   <div class="row">
-    <div class="col-md-2 bg-secondary">
+    <div class="col-md-3  border border-secondary">
       <!-- form Event -->
 
       <h5>form Event</h5>
@@ -14,7 +14,7 @@
       <ul id="elContainer2"></ul>
 
     </div>
-    <div class="col-md-2 bg-primary">
+    <div class="col-md-3 border border-primary">
 
       <h5>of()</h5>
 
@@ -24,12 +24,12 @@
       <ul id="fruitsContainer"></ul>
 
     </div>
-    <div class="col-md-2 bg-secondary">
+    <div class="col-md-3 border border-secondary">
       <!-- Interval and timer -->
       <h5>Interval and timer</h5>
       <strong>Video : {{obsMsg}}</strong>
     </div>
-    <div class="col-md-3 bg-primary">
+    <div class="col-md-3 border border-secondary">
       <!-- custom Observable -->
       <h5>Custom Observable</h5>
 
@@ -56,7 +56,7 @@
         <p><strong>{{names}}</strong></p>
       </div>
     </div>
-    <div class="col-md-2 bg-secondary">
+    <div class="col-md-3 border border-primary">
       <!-- MAP operator -->
       <h5>MAP operator</h5>
       <div>
@@ -78,12 +78,32 @@
         <ul id="mapContainer">
         </ul>
       </div>
-        <!-- PLuck operator is deprecated -->
+      <!-- PLuck operator is deprecated -->
 
     </div>
-    <div class="col-md-2 bg-primary">
-      <!-- PLuck operator -->
+    <div class="col-md-3  border border-secondary">
+      <!-- DebounceTime operator -->
+      <h5>DebounceTime operator</h5>
+      <form [formGroup]="searchGrp" class="inline">
+        <mat-form-field class="inpSignupfield">
+          <mat-label>Search</mat-label>
+          <input matInput type="text" formControlName="search">
+        </mat-form-field>
+        <span *ngIf="requestedData != null">requested Data : {{requestedData}}</span>
+      </form>
     </div>
+    <div class="col-md-3 border border-primary">
+      <!-- distinctUntilChanged operator -->
+      <h5>distinctUntilChanged operator</h5>
+      <form [formGroup]="searchGrp2" class="inline">
+        <mat-form-field class="inpSignupfield">
+          <mat-label>Search</mat-label>
+          <input matInput type="text" formControlName="search2">
+        </mat-form-field>
+        <span *ngIf="requestedData2 != null">requested Data : {{requestedData2}}</span>
+      </form>
+    </div>
+
 
   </div>
 </div>

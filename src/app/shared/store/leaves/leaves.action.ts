@@ -1,7 +1,8 @@
 import { createAction , props } from "@ngrx/store";
 import { LeavesModel } from "./leaves.model";
 
-
+// export const LOAD_LEAVES_PAGINATED = '[leaves] load Leaves success';
+// export const LOAD_LEAVES_PAGINATED_SUCCESS = '[leaves] load Leaves success';
 export const LOAD_LEAVES_SUCCESS = '[leaves] load Leaves success';
 export const LOAD_LEAVES = '[leaves] load Leaves';
 export const LOAD_LEAVES_FAIL = '[leaves] load Leaves fail';
@@ -13,7 +14,15 @@ export const DELETE_LEAVES_SUCCESS = '[leaves] delete Leaves success';
 export const DELETE_LEAVES = '[leaves] delete Leaves ';
 
 
-
+// export const loadLeavesPaginated = createAction(
+//     LOAD_LEAVES_PAGINATED,
+//     props<{ page: number; pageSize: number }>()
+//   );
+  
+//   export const loadLeavesPaginatedSuccess = createAction(
+//     LOAD_LEAVES_PAGINATED_SUCCESS,
+//     props<{ leaveslist: LeavesModel[] }>()
+//   );
 export const loadLeaves = createAction(LOAD_LEAVES);
 export const loadLeavesSuccess = createAction(LOAD_LEAVES_SUCCESS, props<{leaveslist:LeavesModel[]}>());
 export const loadLeavesFail = createAction(LOAD_LEAVES_FAIL, props<{Errortext:string}>());

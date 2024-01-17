@@ -1,11 +1,14 @@
 .sidenav-container {
   width: 100%;
   min-height: 600px;
+  max-height: auto;
 }
 
 .sidenav-content {
   display: flex;
-  height: max-content;
+  min-height: max-content;
+  overflow-y: none;
+
 }
 
 .sidenav {

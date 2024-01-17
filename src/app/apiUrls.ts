@@ -1,13 +1,16 @@
 export const apiUrls=
 {
     Employee:{
-        employee_details:"/employees"
+        employee_details:"/Employees"
     },
     Users:{
-        user_details : "/users"
+        user_details : "/Users"
     },
     Leaves:{
-        leaves_details:"/leaves"
+        leaves_details:"/Leaves"
+    },
+    Attendence:{
+        attendence_details:"/attendences"
     },
 
     // usersAuth:[

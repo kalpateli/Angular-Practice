@@ -35,7 +35,6 @@ export class EmployeeListComponent implements OnInit, OnChanges {
     "email": "",
     "mobile": "",
     "employee_no": 0,
-    "designation": "",
     "userType": "employee",
     "dob": "",
     "address":
@@ -43,8 +42,9 @@ export class EmployeeListComponent implements OnInit, OnChanges {
       "city": "",
       "state": "",
       "country": ""
-    }
-
+    },
+    "designation": "",
+    "absence" : []
   }
   pageSize: number = 10;
   currentPage: number = 2;
@@ -198,7 +198,6 @@ export class EmployeeListComponent implements OnInit, OnChanges {
   }
 
   filterByLimit() {
-
     this._employee.getEmployeeDetails()
       .pipe(
         map(employees => employees

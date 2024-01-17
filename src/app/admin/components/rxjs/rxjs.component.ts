@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import {
   Observable,
   Subscription,
@@ -9,7 +10,9 @@ import {
   take,
   timer,
   from,
-  map
+  map,
+  debounceTime,
+  distinctUntilChanged
 } from 'rxjs';
 import { RxjsPracService } from 'src/app/shared/services/rxjs-prac.service';
 
@@ -25,29 +28,43 @@ export class RxjsComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @Input() message: string;
   obsMsg: any;
-  subs2 : Subscription;
-  subs3 : Subscription;
-  subs4 : Subscription;
+  subs2: Subscription;
+  subs3: Subscription;
+  subs4: Subscription;
   members: any;
 
   sourceSub: Subscription;
-  names : string;
+  names: string;
   users: any[] = [
-    { name: "abc", skill: 'Angular' , job :{ title : "Frontend"}},
-    { name: "def", skill: 'Angular' , job :{ title : "Frontend"}},
-    { name: "ghi", skill: 'Angular' , job :{ title : "Frontend"}}
+    { name: "abc", skill: 'Angular', job: { title: "Frontend" } },
+    { name: "def", skill: 'Angular', job: { title: "Frontend" } },
+    { name: "ghi", skill: 'Angular', job: { title: "Frontend" } }
 
   ]
-  userData : any;
+  userData: any;
   techStatus: string;
 
 
   //form Event
   @ViewChild('addBtn') addBtn: ElementRef;
 
+  searchGrp : FormGroup;
+  searchGrp2 : FormGroup;
+
+  // @ViewChild('search') searchInp: ElementRef;
+  requestedData:any = null;
+  requestedData2:any = null;
+
 
   constructor(private _rxjsPrac: RxjsPracService) {
+    this.searchGrp = new FormGroup({
+      search: new FormControl()
+    });
 
+    this.searchGrp2 = new FormGroup({
+      search2: new FormControl()
+    });
+    
   }
 
 
@@ -60,53 +77,50 @@ export class RxjsComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit(): void {
 
-    //Pluck Operator
- 
-    
-    
-    
+
+
     //Map Operator
     // example:1 
     from(this.users).pipe(
-      
+
       // map(x => x?.foo?.bar)
-      map(data=>{return data.job.title}),
+      map(data => { return data.job.title }),
       toArray()
-      )
-    .subscribe((res)=>{
-      // console.log(res);
-      this.userData=res;
-    })
+    )
+      .subscribe((res) => {
+        // console.log(res);
+        this.userData = res;
+      })
 
     // example:2
 
     // const membersDetails = interval(1000);
     const membersDetails = from([
-      {id:1 , name:'abc'},
-      {id:2 , name:'def'},
-      {id:3 , name:'ghi'},
-      {id:4 , name:'jkl'},
+      { id: 1, name: 'abc' },
+      { id: 2, name: 'def' },
+      { id: 3, name: 'ghi' },
+      { id: 4, name: 'jkl' },
     ])
 
-    
+
     this.subs4 = membersDetails.pipe(
       map(data => {
         // console.log('member : ',data);
         return data.name;
         // let modData = 'Video : '+ data;
         // return modData;
-    })).subscribe(res=>{
-        
+      })).subscribe(res => {
+
         this.members = res;
         // console.log(res);
         this._rxjsPrac.printEl(res, 'mapContainer')
 
       }
-    )
+      )
 
-      setTimeout(()=>{
-        this.subs4.unsubscribe();
-      },10000)
+    setTimeout(() => {
+      this.subs4.unsubscribe();
+    }, 10000)
 
     //custom Observable (manual example)
     const cusObs1 = Observable.create((observer) => {
@@ -141,23 +155,22 @@ export class RxjsComponent implements OnInit, AfterViewInit, OnDestroy {
       })
 
     //custom Observable (custom Interval example)
-    
-    const arr2 = ['Angular','Typescript','HTML'];
+
+    const arr2 = ['Angular', 'Typescript', 'HTML'];
     const cusObs2 = Observable.create((observer) => {
-      let i=0;
+      let i = 0;
       setInterval(() => {
         // observer.next('data emit ' + i)
         observer.next(arr2[i])
 
-        
+
         // if( i >= 1)
         // {
         //   observer.error((err)=>{
         //     console.log(err);
         //   })
         // }
-        if( i >= 2)
-        {
+        if (i >= 2) {
           observer.complete()
         }
         i++;
@@ -173,22 +186,21 @@ export class RxjsComponent implements OnInit, AfterViewInit, OnDestroy {
 
     //custom Observable (Random Names)
 
-    const arr3 = ['Angular','Typescript','HTML'];
+    const arr3 = ['Angular', 'Typescript', 'HTML'];
     const cusObs3 = Observable.create((observer) => {
-      let i=0;
+      let i = 0;
       setInterval(() => {
         // observer.next('data emit ' + i)
         observer.next(arr3[i])
 
-        
+
         // if( i >= 1)
         // {
         //   observer.error((err)=>{
         //     console.log(err);
         //   })
         // }
-        if( i >= 2)
-        {
+        if (i >= 2) {
           observer.complete()
         }
         i++;
@@ -197,7 +209,7 @@ export class RxjsComponent implements OnInit, AfterViewInit, OnDestroy {
     this.subs3 = cusObs3.subscribe((res) => {
       // console.log(res);
       // this._rxjsPrac.printEl(res, 'ranNames');
-      this.names=res
+      this.names = res
     })
 
     //toArray (Example 01)
@@ -243,12 +255,48 @@ export class RxjsComponent implements OnInit, AfterViewInit, OnDestroy {
     //of()
     const fruits = of("Apple", "banana", "Kiwi");
 
-    fruits.subscribe((res) => { 
+    fruits.subscribe((res) => {
       // console.log(res) 
     })
   }
 
   ngAfterViewInit() {
+
+    // distinctUntilChanged
+    
+    // const searchTerm = fromEvent(this.searchInp.nativeElement, 'keyup').pipe(
+      // map(event =>event.target.value)
+      // )
+    const searchTerm2 = (this.searchGrp2.get('search2').valueChanges).pipe(
+      debounceTime(1000),
+      distinctUntilChanged()
+    )
+
+
+    searchTerm2.subscribe(res => {
+      console.log(res);
+      this.requestedData2 = res;
+
+      setTimeout( () => {
+        this.requestedData2 = null;
+      },2000)
+    })
+
+    //debounce Operator
+    const searchTerm = (this.searchGrp.get('search').valueChanges).pipe(
+      debounceTime(1000)
+    )
+
+
+    searchTerm.subscribe(res => {
+      console.log(res);
+      this.requestedData = res;
+
+      setTimeout( () => {
+        this.requestedData = null;
+      },2000)
+    })
+
     // fromEvent(button,'click')
     let count = 1;
     fromEvent(this.addBtn.nativeElement, 'click')
@@ -262,7 +310,7 @@ export class RxjsComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-  // console.log("destroyed");
+    // console.log("destroyed");
     this.subs2.unsubscribe();
   }
 

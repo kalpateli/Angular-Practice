@@ -41,7 +41,6 @@ export class EditEmployeeDialogue {
     "email": "",
     "mobile": "",
     "employee_no": 0,
-    "designation": "",
     "userType": "",
     "dob": "",
     "address":
@@ -49,7 +48,9 @@ export class EditEmployeeDialogue {
       "city": "",
       "state": "",
       "country": ""
-    }
+    },
+    "designation": "",
+    "absence" : []
   }
 
   constructor(public dialogRef: MatDialogRef<EditEmployeeDialogue>,

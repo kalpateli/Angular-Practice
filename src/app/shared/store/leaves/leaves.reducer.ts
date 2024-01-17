@@ -5,50 +5,78 @@ import { LeavesModel } from "./leaves.model";
 
 
 const _leavesReducer = createReducer(LeavesState,
+    // on(loadLeavesPaginated, (state, { page, pageSize }) => {
+    //     const startIndex = (page - 1) * pageSize;
+    //     const endIndex = startIndex + pageSize;
+    //     const updatedLeaves = state.leavesList.slice(startIndex, endIndex);
+        
+    //     console.log("updatedLeaves", updatedLeaves); // Updated this line for proper console.log formatting
+    
+    //     return {
+    //         ...state,
+    //         leavesList: updatedLeaves
+    //     };
+    // }),
+    
+    // on(loadLeavesPaginatedSuccess, (state, action) => {
+    //     // console.log(typeof(action.leaveslist))
+
+    //     console.log(Array.isArray(action.leaveslist))
+    //     return {
+    //         ...state,
+    //         leavesList: [...state.leavesList, ...action.leaveslist], // Incorporate new paginated data
+    //         Errormessage: 'Successfully loaded',
+    //         loading: false,
+    //     };
+    // }),
+    
+   
+
+
     on(loadLeaves, (state) => {
         return {
             ...state
         };
     }),
-    on(loadLeavesSuccess, (state,action) => {
+    on(loadLeavesSuccess, (state, action) => {
         return {
             ...state,
-            leavesList : [...action.leaveslist],
-            Errormessage : 'Successfully loaded'
+            leavesList: [...action.leaveslist],
+            Errormessage: 'Successfully loaded'
         }
     }),
-    on(loadLeavesFail, (state,action) => {
+    on(loadLeavesFail, (state, action) => {
         return {
             ...state,
-            leavesList : [],
-            Errormessage : action.Errortext
+            leavesList: [],
+            Errormessage: action.Errortext
         }
     }),
-    on(addLeaves, (state,action) => {
-        const _leaves = {...action.leavesData};
-        _leaves.id = state.leavesList.length+1;
+    on(addLeaves, (state, action) => {
+        const _leaves = { ...action.leavesData };
+        _leaves.id = state.leavesList.length + 1;
         return {
             ...state,
-            leavesList : [...state.leavesList , _leaves]
+            leavesList: [...state.leavesList, _leaves]
         }
     }),
-    on(updatedLeavesSuccess, (state,action) => {
-        const _leaves = {...action.leavesData};
+    on(updatedLeavesSuccess, (state, action) => {
+        const _leaves = { ...action.leavesData };
         const updatedLeaves = state.leavesList.map(emp => {
-            return _leaves.id === emp.id? _leaves : emp;
+            return _leaves.id === emp.id ? _leaves : emp;
         })
         return {
             ...state,
-            leavesList : updatedLeaves
+            leavesList: updatedLeaves
         };
     }),
-    on(deleteLeaves, (state,action) => {
-        const updatedLeaves = state.leavesList.filter((data:LeavesModel)=>{
+    on(deleteLeaves, (state, action) => {
+        const updatedLeaves = state.leavesList.filter((data: LeavesModel) => {
             return data.id !== action.id;
         })
         return {
             ...state,
-            leavesList : updatedLeaves
+            leavesList: updatedLeaves
         };
     }),
 

@@ -140,7 +140,6 @@ export class ProfilePageComponent {
     if (e.target.files) {
       var reader = new FileReader();
       const file = e.target.files[0];
-
       const fileName = file.name;
       reader.readAsDataURL(file);
       const imagePath = this.basePath + fileName

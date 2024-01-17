@@ -123,10 +123,7 @@
         "country": "India"
       },
       "designation": "Sr.Software Engineer",
-      "absence" : [
-        "10-Jan-2024",
-        "11-Jan-2024"
-      ]
+      "absence" : []
     },
     {
       "id": 2,
@@ -143,10 +140,7 @@
         "country": "India"
       },
       "designation": "Sr.Software Engineer",
-      "absence" : [
-        "10-Jan-2024",
-        "11-Jan-2024"
-      ]
+      "absence" : []
     },
     {
       "id": 3,
@@ -163,10 +157,7 @@
         "country": "India"
       },
       "designation": "Sr.Software Engineer",
-      "absence" : [
-        "10-Jan-2024",
-        "11-Jan-2024"
-      ]
+      "absence" : []
     },
     {
       "id": 4,
@@ -183,10 +174,7 @@
         "country": "India"
       },
       "designation": "Jr.Software Engineer",
-      "absence" : [
-        "10-Jan-2024",
-        "11-Jan-2024"
-      ]
+      "absence" : []
     },
     {
       "id": 5,
@@ -203,10 +191,7 @@
         "country": "India"
       },
       "designation": "Jr.Software Engineer",
-      "absence" : [
-        "10-Jan-2024",
-        "11-Jan-2024"
-      ]
+      "absence" : []
     },
     {
       "id": 6,
@@ -223,10 +208,7 @@
         "country": "India"
       },
       "designation": "Data Engineer",
-      "absence" : [
-        "10-Jan-2024",
-        "11-Jan-2024"
-      ]
+      "absence" : []
     },
     {
       "id": 7,
@@ -243,10 +225,7 @@
         "country": "India"
       },
       "designation": "Sr.Software Engineer",
-      "absence" : [
-        "10-Jan-2024",
-        "11-Jan-2024"
-      ]
+      "absence" : []
     },
     {
       "id": 8,
@@ -263,10 +242,7 @@
         "country": "India"
       },
       "designation": "Sr.Software Engineer",
-      "absence" : [
-        "10-Jan-2024",
-        "11-Jan-2024"
-      ]
+      "absence" : []
     },
     {
       "id": 9,
@@ -283,10 +259,7 @@
         "country": "India"
       },
       "designation": "Jr.Software Engineer",
-      "absence" : [
-        "10-Jan-2024",
-        "11-Jan-2024"
-      ]
+      "absence" : []
     },
     {
       "id": 10,
@@ -302,7 +275,11 @@
         "state": "Goa",
         "country": "India"
       },
-      "designation": "Jr.Software Engineer"
+      "designation": "Jr.Software Engineer",
+      "absence" : [
+        "10-Jan-2024",
+        "11-Jan-2024"
+      ]
     },
     {
       "id": 11,
@@ -318,7 +295,11 @@
         "state": "Goa",
         "country": "India"
       },
-      "designation": "Data Engineer"
+      "designation": "Data Engineer",
+      "absence" : [
+        "4-Jan-2024",
+        "5-Jan-2024"
+      ]
     },
     {
       "id": 12,
@@ -334,7 +315,10 @@
         "state": "Goa",
         "country": "India"
       },
-      "designation": "Sr.Software Engineer"
+      "designation": "Sr.Software Engineer",
+      "absence" : [
+        "10-Jan-2024"
+      ]
     },
     {
       "id": 13,
@@ -350,7 +334,8 @@
         "state": "Goa",
         "country": "India"
       },
-      "designation": "Sr.Software Engineer"
+      "designation": "Sr.Software Engineer",
+      "absence" : []
     },
     {
       "id": 14,
@@ -366,7 +351,8 @@
         "state": "Goa",
         "country": "India"
       },
-      "designation": "Jr.Software Engineer"
+      "designation": "Jr.Software Engineer",
+      "absence" : []
     },
     {
       "id": 15,
@@ -382,7 +368,8 @@
         "state": "Goa",
         "country": "India"
       },
-      "designation": "Jr.Software Engineer"
+      "designation": "Jr.Software Engineer",
+      "absence" : []
     }
   ],
   "Leaves": [
@@ -415,30 +402,91 @@
       "reason": "work",
       "document": "",
       "status": "pending"
+    },
+    {
+      "id": 3,
+      "employee_no": 8394,
+      "employee_fname": "Sam",
+      "employee_lname": "Jose",
+      "totalDays": 1,
+      "type":"SL",
+      "from_date": "11-Jan-2024",
+      "to_date": "11-Jan-2024",
+      "full": "yes",
+      "half": "no",
+      "reason": "work",
+      "document": "",
+      "status": "pending"
+    },
+    {
+      "id": 4,
+      "employee_no": 8394,
+      "employee_fname": "Sam",
+      "employee_lname": "Jose",
+      "totalDays": 1,
+      "type":"SL",
+      "from_date": "11-Jan-2024",
+      "to_date": "11-Jan-2024",
+      "full": "yes",
+      "half": "no",
+      "reason": "work",
+      "document": "",
+      "status": "pending"
+    },
+    {
+      "id": 5,
+      "employee_no": 8394,
+      "employee_fname": "Sam",
+      "employee_lname": "Jose",
+      "totalDays": 1,
+      "type":"SL",
+      "from_date": "11-Jan-2024",
+      "to_date": "11-Jan-2024",
+      "full": "yes",
+      "half": "no",
+      "reason": "work",
+      "document": "",
+      "status": "pending"
+    },
+    {
+      "id": 6,
+      "employee_no": 8394,
+      "employee_fname": "Sam",
+      "employee_lname": "Jose",
+      "totalDays": 1,
+      "type":"SL",
+      "from_date": "11-Jan-2024",
+      "to_date": "11-Jan-2024",
+      "full": "yes",
+      "half": "no",
+      "reason": "work",
+      "document": "",
+      "status": "pending"
     }
   ],
   "attendences": [
     {
       "id":1,
-      "employee_no" : 8394,
-      "employee_no": 8394,
-      "employee_fname": "Sam",
-      "employee_lname": "Jose",
-      "absence" : [
-        "10-Jan-2024",
-        "11-Jan-2024"
+      "date":"10-Jan-2024",
+      "employees" :[
+        {
+          "emp_id":1,
+          "employee_no":928343,
+          "mark_in_time":"",
+          "mark_out_time":""
+        }
+      ],
+      "absentees":[
+        {
+          "abs_id":1,
+          "employee_no":8394
+        },
+        {
+          "abs_id":2,
+          "employee_no":928143
+        }
       ]
-    },
-    {
-      "id":2,
-      "employee_no" : 8394,
-      "employee_no": 8394,
-      "employee_fname": "Sam",
-      "employee_lname": "Jose",
-      "absence" : [
-        "10-Jan-2024",
-        "11-Jan-2024"
-      ]
+    
     }
   ]
 }

@@ -2,10 +2,11 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { LeavesService } from 'src/app/shared/services/leaves.service';
 import { AppStateModel } from 'src/app/shared/store/Global/AppState.Model';
 import { loadLeaves, updatedLeaves, deleteLeaves } from 'src/app/shared/store/leaves/leaves.action';
 import { LeavesList, LeavesModel } from 'src/app/shared/store/leaves/leaves.model';
-import { getLeaves } from 'src/app/shared/store/leaves/leaves.selectors';
+import { getLeaves, getLeavesPaginated } from 'src/app/shared/store/leaves/leaves.selectors';
 
 @Component({
   selector: 'app-employees-leaves',
@@ -36,19 +37,39 @@ export class EmployeesLeavesComponent implements OnInit {
   actioned: string = "pending";
   selection = new SelectionModel<LeavesModel>(true, []);
   selectedList: LeavesModel[];
+  itemsPerPage: number = 5;
+  currentPage: number = 1;
+  pageSize: number = 5
+
 
   constructor(
     private store: Store<AppStateModel>,
+    private _leaves : LeavesService
 
   ) { }
 
   ngOnInit(): void {
+    // this.store.get(this.currenpage, this.pageSize)
+    // .subscribe({
+    //   next: response => this.employeeLists = response,
+    //   complete: () => this.toggleLoading()
+    // });
+    // this.store.dispatch(loadLeavesPaginated({ page: this.currentPage, pageSize: this.itemsPerPage }));
 
     this.store.dispatch(loadLeaves());
 
-    this.store.select(getLeaves).subscribe((item: LeavesModel[]) => {
-      this.leaveslist = { leavesList: item };
-    });
+    this.store.select(getLeaves).subscribe(
+      (item : LeavesModel[])=>
+      {
+        this.leaveslist = { leavesList: item };
+      }
+    )
+   
+
+    // this.store.select(getLeavesPaginated(this.currentPage, this.itemsPerPage)).subscribe((item: LeavesModel[]) => {
+    //   this.leaveslist = { leavesList: item };
+    //   console.log(item)
+    // });
 
   }
 
@@ -63,7 +84,6 @@ export class EmployeesLeavesComponent implements OnInit {
       this.selection.clear();
       return;
     }
-
     this.selection.select(...this.leaveslist.leavesList)
   }
 
@@ -77,19 +97,27 @@ export class EmployeesLeavesComponent implements OnInit {
 
 
   checkLeaves() {
+    // this._employee.getEmployeeDetailsPaginated(this.currenpage, this.pageSize)
+    //   .subscribe({
+    //     next: response => this.employeeLists = response,
+    //     complete: () => this.toggleLoading()
+    //   });
+    // this._leaves.getLeavesDetailsPaginated(this.currentPage, this.pageSize).subscribe(
+    //   (res) =>
+    //   {
+    //     this.leaves = res
+    //   }
+    // )
+    // return this.leaves;
     return this.leaveslist.leavesList;
+
   }
 
   removeData() {
     const selectedRows = this.selection.selected;
-
-    // console.log(selectedRows)
     if (selectedRows.length > 0) {
       this.selectedList = this.leaveslist.leavesList.filter(row => selectedRows.includes(row));
-
-      // console.log('Filtered Rows:', this.selectedList);
       this.selectedList.forEach(item => {
-        // console.log(item.id);
         this.store.dispatch(deleteLeaves({ id: item.id }))
       });
     }

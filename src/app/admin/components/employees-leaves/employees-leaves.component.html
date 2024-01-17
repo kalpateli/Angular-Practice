@@ -5,24 +5,22 @@
     </button>
 </div>
 
-<table mat-table [dataSource]="checkLeaves() " class="mat-elevation-z8 demo-table leaves">
+<!-- <table mat-table [dataSource]="checkLeaves() |  paginate: { itemsPerPage: pageSize, currentPage: currentPage }  "
+    class="mat-elevation-z8 demo-table leaves"> -->
+<table mat-table [dataSource]="checkLeaves()" class="mat-elevation-z8 demo-table leaves">
     <ng-container matColumnDef="Select">
-        <th mat-header-cell *matHeaderCellDef >
-          <mat-checkbox (change)="$event ? toggleAllRows() : null"
-                        [checked]="selection.hasValue() && isAllSelected()"
-                        [indeterminate]="selection.hasValue() && !isAllSelected()"
-                        [aria-label]="checkboxLabel()">
-          </mat-checkbox>
-          
+        <th mat-header-cell *matHeaderCellDef>
+            <mat-checkbox (change)="$event ? toggleAllRows() : null" [checked]="selection.hasValue() && isAllSelected()"
+                [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+            </mat-checkbox>
+
         </th>
         <td mat-cell *matCellDef="let row">
-          <mat-checkbox (click)="$event.stopPropagation()"
-                        (change)="$event ? selection.toggle(row) : null"
-                        [checked]="selection.isSelected(row)"
-                        [aria-label]="checkboxLabel(row)">
-          </mat-checkbox>
+            <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+                [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+            </mat-checkbox>
         </td>
-      </ng-container>
+    </ng-container>
     <ng-container matColumnDef="Id">
         <th mat-header-cell *matHeaderCellDef>Id</th>
         <td mat-cell *matCellDef="let leaveslist">{{leaveslist.id}}</td>
@@ -79,13 +77,22 @@
             </ng-container>
             <ng-template #checked>
                 <button type="button" mat-button>
-                    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="done" style="color: green; font-size: 20px;"></mat-icon>
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="done"
+                        style="color: green; font-size: 20px;"></mat-icon>
                 </button>
             </ng-template>
         </td>
-        
+
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+    <!-- <div class="row">
+         <app-pagination-comp></app-pagination-comp> 
+        <pagination-controls (pageChange)="currentPage = $event"></pagination-controls> 
+        <mat-paginator [length]="200" [pageSizeOptions]="[10, 50, 100]" aria-label="Select page">
+        </mat-paginator>
+    </div> -->
 </table>

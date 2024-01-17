@@ -5,7 +5,6 @@ export interface EmployeeModel {
     "email": string,
     "mobile": string,
     "employee_no": number,
-    "designation": string,
     "userType": string,
     "dob": string,
     "address":
@@ -13,7 +12,9 @@ export interface EmployeeModel {
         "city": string,
         "state": string,
         "country": string
-    }
+    },
+    "designation": string,
+    "absence" : string[]
 }
 
 export interface EmployeeList{

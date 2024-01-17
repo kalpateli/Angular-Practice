@@ -43,7 +43,6 @@ export class AddEmployeeDialogue {
     "email": "",
     "mobile": "",
     "employee_no": 0,
-    "designation": "",
     "userType": "employee",
     "dob": "",
     "address":
@@ -51,8 +50,9 @@ export class AddEmployeeDialogue {
       "city": "",
       "state": "",
       "country": ""
-    }
-
+    },
+    "designation": "",
+    "absence" : []
   }
   employeeData : EmployeeModel;
 
