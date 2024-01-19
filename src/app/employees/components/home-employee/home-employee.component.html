@@ -5,7 +5,11 @@
 
     <h1>Welcome {{userName}},</h1>
 
+    <div class="marking-btn">
+      <button type="button"  mat-raised-button color="primary" (click)="openDialog()">Timing</button>
+      <app-clock ></app-clock>
 
+    </div>
   </div>
 
 </ng-container>

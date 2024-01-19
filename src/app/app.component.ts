@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AttendenceService } from './shared/services/attendence.service';
+import { AuthService } from './shared/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +9,20 @@ import { Component } from '@angular/core';
 })
 
 
-export class AppComponent {
+export class AppComponent implements OnInit{
   
   title = 'angularPractise';
   userLoggedIn = JSON.parse(localStorage.getItem('userData'));
 
-  constructor(){}
+  constructor(private attendance : AttendenceService,
+    private auth : AuthService){
+      this.auth.setMarkedIn("false");
+      this.auth.setMarkedOut("true");
+      // auth.removemarked()
+  }
+
+  ngOnInit() : void {
+    this.attendance.createAttendanceRecord();
+  }
 
 }

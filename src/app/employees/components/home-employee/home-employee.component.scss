@@ -6,8 +6,17 @@
     
 }
 
-.container{
-    width:max-content;
-    height:90vh;
+.container{    
+    margin-top:20px;
+    display:flex;
+    flex-direction: row;
+}
 
+.marking-btn{
+    margin-left: auto;
+    display: flex;
+}
+
+.marking-btn button {
+    margin-top:40px
 }

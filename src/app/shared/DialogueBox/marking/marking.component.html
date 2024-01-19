@@ -1,0 +1,16 @@
+<div class="dialogue-container">
+    <h1 mat-dialog-title class="dialogue-title">timing</h1>
+    <div mat-dialog-content class="dialogue-content">
+        <p>
+            Do you want to Mark In or Mark Out
+        </p>
+        <div class="actions">
+            <button mat-raised-button style="margin-right: 10px;" (click)="markedIn()" [disabled]="checkMarkedIn()" >MARK IN</button>
+            <button mat-raised-button (click)="markedOut()" [disabled]="checkMarkedOut()">MARK OUT</button>
+        </div>
+
+    </div>
+    <div mat-dialog-actions class="dialogue-buttons" style="align-self:center">
+        <button mat-button (click)="closeDialog(false)" mat-dialog-close>No</button>
+    </div>
+</div>

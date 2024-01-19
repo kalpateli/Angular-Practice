@@ -10,6 +10,7 @@ import { LeavesPageComponent } from './components/leaves-page/leaves-page.compon
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     EmployeesRoutingModule,
     MatSidenavModule,
+    MatButtonModule,
     SharedModule
   ]
 })

@@ -23,6 +23,7 @@ import { UsersService } from './services/users.service';
 import { SidenavService } from './services/sidenav.service';
 import { LeavesService } from './services/leaves.service';
 import { SearchFilterPipePipe } from './pipes/search-filter-pipe.pipe';
+import { MarkingComponent } from './DialogueBox/marking/marking.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { SearchFilterPipePipe } from './pipes/search-filter-pipe.pipe';
     ClockComponent,
     CalenderComponent,
     PaginationCompComponent,
+    MarkingComponent,
   ],
   imports: [
     CommonModule,
