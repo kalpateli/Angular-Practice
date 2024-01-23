@@ -403,7 +403,7 @@
       "half": "no",
       "reason": "work",
       "document": "",
-      "status": "pending"
+      "status": "rejected"
     },
     {
       "id": 3,
@@ -523,8 +523,26 @@
           "employee_no": 928343,
           "mark_in_time": "4:05:10 PM",
           "mark_out_time": "4:05:30 PM"
+        },
+        {
+          "emp_id": 2,
+          "employee_no": 928143,
+          "mark_in_time": "4:10:54 PM",
+          "mark_out_time": "4:10:59 PM"
         }
       ],
+      "absentees": []
+    },
+    {
+      "id": 5,
+      "date": "1/22/2024",
+      "employees": [],
+      "absentees": []
+    },
+    {
+      "id": 6,
+      "date": "1/23/2024",
+      "employees": [],
       "absentees": []
     }
   ]

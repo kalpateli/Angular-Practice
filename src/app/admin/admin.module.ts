@@ -27,6 +27,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { RxjsComponent } from './components/rxjs/rxjs.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -56,6 +57,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     MatInputModule,
     MatTableModule,
     MatCheckboxModule,
+    MatProgressSpinnerModule,
     NgxPaginationModule,
     InfiniteScrollModule,
     MatIconModule,

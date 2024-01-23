@@ -20,6 +20,8 @@ import { UsersService } from './shared/services/users.service';
 import { MatButtonModule} from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { AppState } from './shared/store/Global/App.state';
@@ -29,8 +31,10 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { LeavesEffects } from './shared/store/leaves/leaves.effects';
 import { SharedModule } from './shared/shared.module';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-
-
+import {VgCoreModule} from '@videogular/ngx-videogular/core';
+import {VgControlsModule} from '@videogular/ngx-videogular/controls';
+import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
+import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,10 +55,15 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     MatDialogModule,
     MatButtonModule,
     MatSnackBarModule,
+    MatProgressSpinnerModule,
     NgxPaginationModule,
     NgxChartsModule,
     BrowserAnimationsModule,
     InfiniteScrollModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgBufferingModule,
+    VgOverlayPlayModule,
     SharedModule,
     StoreModule.forRoot(AppState),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),

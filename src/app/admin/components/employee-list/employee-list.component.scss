@@ -1,48 +1,50 @@
-.container{
+.container {
   margin-bottom: 50px;
 }
 
 table {
-    margin:0 3% ;
-    border-collapse: collapse;
-  }
-  
-  th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  th {
-    background-color: #f2f2f2;
-  }
-
-  .filterDropdown{
-    width: 200px;
-    padding:5px;
-  }
-
-  .error {
-    color : red;  /* Change this to apply the desired error style */
-  }
-
-  .errorInp {
-    border :1px solid red;  /* Change this to apply the desired error style */
-  }
-
-  button
-{
-    margin: 5px;
+  margin: 0 3%;
+  border-collapse: collapse;
 }
 
-.searchInp{
-  margin-right: 5px; 
-  border:none;
-  border-bottom: darkgray 1px solid ;
+th,td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+
+th {
+  background-color: #f2f2f2;
+  overflow: hidden;
+  max-height: 20px;
+}
+
+.filterDropdown {
+  width: 200px;
+  padding: 5px;
+}
+
+.error {
+  color: red;
+}
+
+.errorInp {
+  border: 1px solid red;
+}
+
+button {
+  margin: 5px;
+}
+
+.searchInp {
+  margin-right: 5px;
+  border: none;
+  border-bottom: darkgray 1px solid;
   padding: 10px;
 }
 
-.modal-content{
+.modal-content {
   z-index: 10000;
 }
 
@@ -51,14 +53,20 @@ table {
 }
 
 #employeeListContainer {
-  height: 600px; /* Adjust the height according to your design */
+  height: 600px;
   overflow-y: scroll;
 }
 
 .color-accent {
-  color: green;  // Replace 'accent' with your desired color value
+  color: green;
 }
 
 .color-warn {
-  color: grey;  // Replace 'warn' with your desired color value
+  color: grey; 
+}
+
+
+#loadingIndicator {
+  width: 20px;
+  margin: 0 50%;
 }

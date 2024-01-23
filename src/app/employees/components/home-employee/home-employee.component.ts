@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MarkingComponent } from 'src/app/shared/DialogueBox/marking/marking.component';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { MatDialog } from '@angular/material/dialog';
+// import video from "src/assets/videos/company.mp4"
 @Component({
   selector: 'app-home-employee',
   templateUrl: './home-employee.component.html',
@@ -15,6 +16,7 @@ export class HomeEmployeeComponent {
   id: number;
   userName: string
   userLoggedIn: any;
+  videoUrl : string = "../../assets/videos/company.mp4";
 
   constructor(
     private route: ActivatedRoute,

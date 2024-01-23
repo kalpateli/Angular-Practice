@@ -47,7 +47,7 @@ export class EmployeeListComponent implements OnInit, OnChanges {
     "absence" : []
   }
   pageSize: number = 10;
-  currentPage: number = 2;
+  currentPage: number = 1;
   employeeLists: (string | EmployeeModel)[] = [];
   employeeList !: EmployeeModel[];
   employeeInfo !: EmployeeList;
@@ -87,7 +87,7 @@ export class EmployeeListComponent implements OnInit, OnChanges {
 
   appendData = () => {
     this.toggleLoading();
-
+    this.currentPage++;
     this._employee.getEmployeeDetailsPaginated(this.currentPage, this.pageSize)
       .subscribe({
         next: response => {
@@ -96,14 +96,13 @@ export class EmployeeListComponent implements OnInit, OnChanges {
         error: err => console.log(err),
         complete: () => {
           this.toggleLoading()
-          this.currentPage++;
         }
       });
   }
 
   loadData = () => {
     this.toggleLoading();
-    this._employee.getEmployeeDetailsPaginated(this.currenpage, this.pageSize)
+    this._employee.getEmployeeDetailsPaginated(this.currentPage, this.pageSize)
       .subscribe({
         next: response => this.employeeLists = response,
         complete: () => this.toggleLoading()
@@ -210,6 +209,7 @@ export class EmployeeListComponent implements OnInit, OnChanges {
   }
 
 
+  
 
   onAdmin(emp: EmployeeModel) {
     if (confirm("Do you want to change " + emp.firstName + " " + emp.lastName + "'s role ?")) {

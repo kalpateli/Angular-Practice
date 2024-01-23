@@ -51,9 +51,13 @@
             <hr>
             <div class="row">
                 <div class="col">
-                    <table id="employeeListContainer" infinite-scroll [infiniteScrollDistance]="scrollDistance"
-                        [infiniteScrollUpDistance]="scrollUpDistance" [infiniteScrollDisabled]="disableInfiniteScroll"
-                        [infiniteScrollThrottle]="500" (scrolled)="appendData()">
+                    <!-- [infiniteScrollUpDistance]="scrollUpDistance" 
+                    [infiniteScrollDisabled]="disableInfiniteScroll" -->
+                    <table id="employeeListContainer" 
+                        infinite-scroll 
+                        [infiniteScrollDistance]="0"
+                        [infiniteScrollThrottle]="50"
+                        (scrolled)="appendData()">
                         <tr>
                             <th>ID</th>
                             <th>First Name</th>
@@ -117,7 +121,8 @@
                         </tr>
                     </table>
                     <div id="loadingIndicator" *ngIf="isLoading">
-                        Loading...
+                        <!-- Loading... -->
+                        <mat-spinner style="width:40px"></mat-spinner>
                     </div>
                 </div>
             </div>
